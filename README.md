@@ -1,4 +1,4 @@
-﻿# KissNShare (KNS) Android Mobile NFT App 
+﻿# BlueToqueTools KissNShare (KNS) Android Mobile NFT App 
 - Version 1 (Winter Term 2022)
 
 Trusted Digital Web (TDW) Project, Hyperonomy Digital Identity Lab, Parallelspace Corporation
@@ -9,6 +9,6 @@ the Blue Toque family of Fully Decentralized Object (FDO) Framework specificatio
 
 ![Blue Toque](images/bluetoquelogo2.jpg)
 
-## KissNShare
+## BlueToqueTools KissNShare
 
 1. Vision and Scope Document, https://github.com/mwherman2000/KissNShare/blob/main/docs/1.%20KNS-Vision%20and%20Scope.md.
