@@ -1,4 +1,4 @@
-# BlueToqueTools NickelForAKiss (N4K) Android Mobile NFT App SOurce Files
+# BlueToqueTools NickelForAKiss (N4K) Android Mobile NFT App Source Files
 - Version 1 (Winter Term 2022)
 
 Trusted Digital Web (TDW) Project, Hyperonomy Digital Identity Lab, Parallelspace Corporation
