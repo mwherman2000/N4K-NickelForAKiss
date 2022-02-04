@@ -1,0 +1,53 @@
+﻿// BlueToqueTools
+// Trusted Digial Web Project
+// Hyperonomy Digital Identity Lab
+// Parallelspace Corporation
+// (c) Copyright 2021-2022 Parallelspace Corporation. All Rights Reserved
+
+//include "BTTN4KNFECredential.tsl";
+
+//////////////////////////////////////////////////////////////////////////////
+/// BTT N4K Protocol Parameters
+
+struct SendNFERequest 
+{
+	long id;
+}
+
+struct SendNFEResponse 
+{
+	long rc;
+}
+
+struct GetNFECountRequest 
+{
+	long dummy;
+}
+
+struct GetNFECountResponse 
+{
+	long count;
+	long rc;
+}
+
+struct GetNFERequest 
+{
+	string udid;
+}
+
+struct GetNFEResponse 
+{
+	long id;
+	long rc;
+} 
+
+struct GetNFEBatchRequest 
+{
+	long batchindex;
+	long batchsize;
+}
+
+struct GetNFEBatchResponse 
+{
+	List<long> udids;
+} 

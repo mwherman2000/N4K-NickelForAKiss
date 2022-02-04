@@ -1,0 +1,46 @@
+﻿// BlueToqueTools
+// Trusted Digial Web Project
+// Hyperonomy Digital Identity Lab
+// Parallelspace Corporation
+// (c) Copyright 2021-2022 Parallelspace Corporation. All Rights Reserved
+
+//include "BTTN4KProtocolParameters.tsl";
+
+//////////////////////////////////////////////////////////////////////////////
+/// BTT N4K Storage Agent Procotols and Services
+
+protocol SendNFEToLocalStorage
+{
+	Type: Syn;
+	Request: SendNFERequest;
+	Response: SendNFEResponse;
+}
+
+protocol GetNFELocalStorageCount
+{
+	Type: Syn;
+	Request: GetNFECountRequest;
+	Response: GetNFECountResponse;
+}
+
+protocol GetNFEFromLocalStorage
+{
+	Type: Syn;
+	Request: GetNFERequest;
+	Response: GetNFEResponse; 
+}
+
+protocol GetNFEBatchFromLocalStorage
+{
+	Type: Syn;
+	Request: GetNFEBatchRequest;
+	Response: GetNFEBatchResponse; 
+}
+
+server BTTN4KLocalStorageAgent
+{
+	protocol SendNFEToLocalStorage;
+	protocol GetNFELocalStorageCount;
+	protocol GetNFEFromLocalStorage;
+	protocol GetNFEBatchFromLocalStorage;
+}
