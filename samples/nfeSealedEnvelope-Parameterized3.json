@@ -1,6 +1,6 @@
 {
     "envelope": {
-        "udid": "did:bluetoquenfe:%UDID%",
+        "udid": "did:bluetoquenfe:%udid%",
         "label": {
             "types": [
                 "Verifiable Credential",
@@ -17,11 +17,11 @@
             ]
         },
         "content": {
-            "udid": "did:bluetoquenfe:%UDID%",
+            "udid": "did:bluetoquenfe:%udid%",
             "context": [
                 "https://www.sovrona.com/ns/svrn/v1"
             ],
-            "credentialsubjectudid": "did:bluetoquenfe:%UDID%",
+            "credentialsubjectudid": "did:bluetoquenfe:%udid%",
           "credentialsubjectclaims": {
             "kissCompass": 0,
             "purpose": "Romantic",
