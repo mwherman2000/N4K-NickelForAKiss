@@ -240,7 +240,7 @@ namespace BTTN4KNFE
             switch (TypeConverter<T>.type_id)
             {
                 
-                case 4:
+                case 5:
                 
                 if (StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.check_attribute(StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.signedenvelope, attributeKey, attributeValue))
                     
@@ -248,7 +248,7 @@ namespace BTTN4KNFE
                 
                 break;
                 
-                case 7:
+                case 8:
                 
                 if (StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.check_attribute(StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.signedenvelope, attributeKey, attributeValue))
                     
@@ -256,7 +256,7 @@ namespace BTTN4KNFE
                 
                 break;
                 
-                case 20:
+                case 21:
                 
                 if (StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.check_attribute(StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.signedenvelope, attributeKey, attributeValue))
                     
@@ -264,7 +264,7 @@ namespace BTTN4KNFE
                 
                 break;
                 
-                case 25:
+                case 29:
                 
                 if (StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.check_attribute(StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.signedenvelope, attributeKey, attributeValue))
                     
@@ -286,7 +286,7 @@ namespace BTTN4KNFE
             switch (TypeConverter<T>.type_id)
             {
                 
-                case 4:
+                case 5:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(this.signedenvelope);
@@ -294,7 +294,7 @@ namespace BTTN4KNFE
                     }
                     break;
                 
-                case 7:
+                case 8:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(this.signedenvelope);
@@ -302,7 +302,7 @@ namespace BTTN4KNFE
                     }
                     break;
                 
-                case 20:
+                case 21:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(this.signedenvelope);
@@ -310,7 +310,7 @@ namespace BTTN4KNFE
                     }
                     break;
                 
-                case 25:
+                case 29:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(this.signedenvelope);
@@ -3065,7 +3065,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             switch (TypeConverter<T>.type_id)
             {
                 
-                case 4:
+                case 5:
                 
                 if (StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.check_attribute(StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.signedenvelope, attributeKey, attributeValue))
                     
@@ -3073,7 +3073,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 break;
                 
-                case 7:
+                case 8:
                 
                 if (StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.check_attribute(StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.signedenvelope, attributeKey, attributeValue))
                     
@@ -3081,7 +3081,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 break;
                 
-                case 20:
+                case 21:
                 
                 if (StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.check_attribute(StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.signedenvelope, attributeKey, attributeValue))
                     
@@ -3089,7 +3089,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 break;
                 
-                case 25:
+                case 29:
                 
                 if (StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.check_attribute(StorageSchema.BTTVerifiableCredential_SealedEnvelope_Cell_descriptor.signedenvelope, attributeKey, attributeValue))
                     
@@ -3111,7 +3111,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             switch (TypeConverter<T>.type_id)
             {
                 
-                case 4:
+                case 5:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(this.signedenvelope);
@@ -3119,7 +3119,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 7:
+                case 8:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(this.signedenvelope);
@@ -3127,7 +3127,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 20:
+                case 21:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(this.signedenvelope);
@@ -3135,7 +3135,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 25:
+                case 29:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(this.signedenvelope);

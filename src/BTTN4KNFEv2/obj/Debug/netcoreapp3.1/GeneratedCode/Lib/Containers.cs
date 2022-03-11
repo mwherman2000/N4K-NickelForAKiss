@@ -9,7 +9,7 @@ using Trinity.TSL.Lib;
 
 namespace BTTN4KNFE
 {
-    public unsafe class intArray_150 : IEnumerable<int>
+    public unsafe class floatArray_150 : IEnumerable<float>
     {
         
         private static readonly int SizeDim0 = 150;
@@ -20,7 +20,7 @@ namespace BTTN4KNFE
         public static readonly int Rank = 1;
         internal byte* m_ptr;
         internal long m_cellId;
-        internal intArray_150(byte* _CellPtr)
+        internal floatArray_150(byte* _CellPtr)
         {
             this.m_ptr = _CellPtr;
         }
@@ -55,7 +55,7 @@ namespace BTTN4KNFE
         /// Gets or sets the element at the specified index
         /// </summary>
         /// <returns>Corresponding element at the specified index</returns>
-        public unsafe int this[
+        public unsafe float this[
             
             int indexDim0
             ]
@@ -68,7 +68,7 @@ namespace BTTN4KNFE
                     ;
                 
                 {
-                    return *(int*)offset;
+                    return *(float*)offset;
                 }
                 
             }
@@ -80,7 +80,7 @@ namespace BTTN4KNFE
                     ;
                 
                 {
-                    *(int*)offset = value;
+                    *(float*)offset = value;
                 }
                 
             }
@@ -90,7 +90,7 @@ namespace BTTN4KNFE
         /// Performs the specified action on each element
         /// </summary>
         /// <param name="action">A lambda expression which has one parameter indicates element in array</param>
-        public unsafe void ForEach(Action<int> action)
+        public unsafe void ForEach(Action<float> action)
         {
             byte* targetPtr = m_ptr;
             byte* endPtr = m_ptr + Length * 4;
@@ -98,7 +98,7 @@ namespace BTTN4KNFE
             {
                 
                 {
-                    action(*(int*)targetPtr);
+                    action(*(float*)targetPtr);
                     targetPtr += 4;
                 }
                 
@@ -108,8 +108,8 @@ namespace BTTN4KNFE
         {
             byte* targetPtr;
             byte* endPtr;
-            intArray_150 target;
-            internal _iterator(intArray_150 target)
+            floatArray_150 target;
+            internal _iterator(floatArray_150 target)
             {
                 targetPtr   = target.m_ptr;
                 endPtr      = target.m_ptr + target.Length * 4;
@@ -119,11 +119,11 @@ namespace BTTN4KNFE
             {
                 return (targetPtr < endPtr);
             }
-            internal int current()
+            internal float current()
             {
                 
                 {
-                    return *(int*)targetPtr;
+                    return *(float*)targetPtr;
                 }
                 
             }
@@ -132,7 +132,7 @@ namespace BTTN4KNFE
                 targetPtr += 4;
             }
         }
-        public IEnumerator<int> GetEnumerator()
+        public IEnumerator<float> GetEnumerator()
         {
             _iterator _it = new _iterator(this);
             while (_it.good())
@@ -156,13 +156,13 @@ namespace BTTN4KNFE
             if (index < 0 || length < 0 ||index >= Length || index+length > Length) throw new IndexOutOfRangeException();
             Memory.memset(m_ptr + index* 4, 0, (ulong)(length * 4));
         }
-        public unsafe static implicit operator int[    ]
-            (intArray_150 accessor)
+        public unsafe static implicit operator float[    ]
+            (floatArray_150 accessor)
         {
-            int[    ] ret 
-                = new int[  150  ];
+            float[    ] ret 
+                = new float[  150  ];
             
-            fixed (int* p = ret)
+            fixed (float* p = ret)
             {
                 Memory.Copy(accessor.m_ptr, p, 600);
             }
@@ -170,7 +170,7 @@ namespace BTTN4KNFE
             return ret;
         }
         
-        public unsafe static implicit operator intArray_150(int[] field)
+        public unsafe static implicit operator floatArray_150(float[] field)
         {
             byte* targetPtr = null;
             targetPtr += 600;
@@ -181,20 +181,20 @@ namespace BTTN4KNFE
                         if(field!= null){
                 if(field.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_1 = field)
+               fixed(float* storedPtr_1 = field)
                    Memory.memcpy(targetPtr, storedPtr_1, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
             }
             targetPtr += 600;
-intArray_150 ret;
+floatArray_150 ret;
             
-            ret = new intArray_150(tmpcellptr);
+            ret = new floatArray_150(tmpcellptr);
             
             return ret;
         }
         
-        public static bool operator == (intArray_150 a, intArray_150 b)
+        public static bool operator == (floatArray_150 a, floatArray_150 b)
         {
             if (ReferenceEquals(a, b))
               return true;
@@ -203,7 +203,7 @@ intArray_150 ret;
             if (a.m_ptr == b.m_ptr) return true;
             return Memory.Compare(a.m_ptr, b.m_ptr, a.Length * 4);
         }
-        public static bool operator != (intArray_150 a,intArray_150 b)
+        public static bool operator != (floatArray_150 a,floatArray_150 b)
         {
             return !(a == b);
         }

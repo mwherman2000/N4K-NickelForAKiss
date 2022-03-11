@@ -204,7 +204,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_4 + 0) & 0x02)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+{            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
@@ -271,7 +272,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_4 + 0) & 0x02)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+{            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
@@ -394,7 +396,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_5 + 0) & 0x02)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+{            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
@@ -437,7 +440,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_5 + 0) & 0x02)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+{            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
@@ -631,6 +635,13 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
 
             {
+            targetPtr += 4;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
 
         if(field.envelope.content.credentialsubjectclaims.Value.timezoneid!= null)
         {
@@ -666,9 +677,11 @@ targetPtr += 8;targetPtr += 8;targetPtr += 8;targetPtr += 8;targetPtr += 8;targe
             targetPtr += 4;
             targetPtr += 4;
             targetPtr += 4;
-            targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
+targetPtr += 600;
+targetPtr += 600;
+targetPtr += 600;
+targetPtr += 600;
+targetPtr += 600;
 targetPtr += 600;
 targetPtr += 600;
 targetPtr += 600;
@@ -1042,6 +1055,20 @@ byte *storedPtr_4 = targetPtr;
             {
 
             {
+            *(float*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.kissCompass;
+            targetPtr += 4;
+            *(BTTN4KPurpose*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.purpose;
+            targetPtr += 1;
+            *(BTTN4KType*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.kissType;
+            targetPtr += 1;
+            *(BTTN4KMood*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.mood;
+            targetPtr += 1;
+            *(bool*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.tongue;
+            targetPtr += 1;
+            *(BTTN4KBodyPart*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.targetbodypart;
+            targetPtr += 1;
+            *(BTTN4KBodyPart*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.actualbodypart;
+            targetPtr += 1;
 
         if(field.envelope.content.credentialsubjectclaims.Value.timezoneid!= null)
         {
@@ -1140,16 +1167,55 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += 4;
             *(int*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.coverage;
             targetPtr += 4;
-            *(bool*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.tongue;
-            targetPtr += 1;
-            *(BTTNFEBodyPart*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.targetbodypart;
-            targetPtr += 1;
-            *(BTTNFEBodyPart*)targetPtr = field.envelope.content.credentialsubjectclaims.Value.actualbodypart;
-            targetPtr += 1;
+            if(field.envelope.content.credentialsubjectclaims.Value.d1approachtime!= null){
+                if(field.envelope.content.credentialsubjectclaims.Value.d1approachtime.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
+                if(field.envelope.content.credentialsubjectclaims.Value.d1approachtime.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
+               fixed(float* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d1approachtime)
+                   Memory.memcpy(targetPtr, storedPtr_5, (ulong)(600));
+            } else {
+                Memory.memset(targetPtr, 0, (ulong)(600));
+            }
+            targetPtr += 600;
+            if(field.envelope.content.credentialsubjectclaims.Value.d2presstime!= null){
+                if(field.envelope.content.credentialsubjectclaims.Value.d2presstime.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
+                if(field.envelope.content.credentialsubjectclaims.Value.d2presstime.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
+               fixed(float* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d2presstime)
+                   Memory.memcpy(targetPtr, storedPtr_5, (ulong)(600));
+            } else {
+                Memory.memset(targetPtr, 0, (ulong)(600));
+            }
+            targetPtr += 600;
+            if(field.envelope.content.credentialsubjectclaims.Value.d3sustaintime!= null){
+                if(field.envelope.content.credentialsubjectclaims.Value.d3sustaintime.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
+                if(field.envelope.content.credentialsubjectclaims.Value.d3sustaintime.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
+               fixed(float* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d3sustaintime)
+                   Memory.memcpy(targetPtr, storedPtr_5, (ulong)(600));
+            } else {
+                Memory.memset(targetPtr, 0, (ulong)(600));
+            }
+            targetPtr += 600;
+            if(field.envelope.content.credentialsubjectclaims.Value.d4releasetime!= null){
+                if(field.envelope.content.credentialsubjectclaims.Value.d4releasetime.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
+                if(field.envelope.content.credentialsubjectclaims.Value.d4releasetime.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
+               fixed(float* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d4releasetime)
+                   Memory.memcpy(targetPtr, storedPtr_5, (ulong)(600));
+            } else {
+                Memory.memset(targetPtr, 0, (ulong)(600));
+            }
+            targetPtr += 600;
+            if(field.envelope.content.credentialsubjectclaims.Value.d5recoverytime!= null){
+                if(field.envelope.content.credentialsubjectclaims.Value.d5recoverytime.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
+                if(field.envelope.content.credentialsubjectclaims.Value.d5recoverytime.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
+               fixed(float* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d5recoverytime)
+                   Memory.memcpy(targetPtr, storedPtr_5, (ulong)(600));
+            } else {
+                Memory.memset(targetPtr, 0, (ulong)(600));
+            }
+            targetPtr += 600;
             if(field.envelope.content.credentialsubjectclaims.Value.d1approachcurve!= null){
                 if(field.envelope.content.credentialsubjectclaims.Value.d1approachcurve.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.envelope.content.credentialsubjectclaims.Value.d1approachcurve.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d1approachcurve)
+               fixed(float* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d1approachcurve)
                    Memory.memcpy(targetPtr, storedPtr_5, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
@@ -1158,7 +1224,7 @@ byte *storedPtr_4 = targetPtr;
             if(field.envelope.content.credentialsubjectclaims.Value.d2presscurve!= null){
                 if(field.envelope.content.credentialsubjectclaims.Value.d2presscurve.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.envelope.content.credentialsubjectclaims.Value.d2presscurve.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d2presscurve)
+               fixed(float* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d2presscurve)
                    Memory.memcpy(targetPtr, storedPtr_5, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
@@ -1167,7 +1233,7 @@ byte *storedPtr_4 = targetPtr;
             if(field.envelope.content.credentialsubjectclaims.Value.d3sustaincurve!= null){
                 if(field.envelope.content.credentialsubjectclaims.Value.d3sustaincurve.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.envelope.content.credentialsubjectclaims.Value.d3sustaincurve.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d3sustaincurve)
+               fixed(float* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d3sustaincurve)
                    Memory.memcpy(targetPtr, storedPtr_5, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
@@ -1176,7 +1242,7 @@ byte *storedPtr_4 = targetPtr;
             if(field.envelope.content.credentialsubjectclaims.Value.d4releasecurve!= null){
                 if(field.envelope.content.credentialsubjectclaims.Value.d4releasecurve.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.envelope.content.credentialsubjectclaims.Value.d4releasecurve.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d4releasecurve)
+               fixed(float* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d4releasecurve)
                    Memory.memcpy(targetPtr, storedPtr_5, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
@@ -1185,7 +1251,7 @@ byte *storedPtr_4 = targetPtr;
             if(field.envelope.content.credentialsubjectclaims.Value.d5recoverycurve!= null){
                 if(field.envelope.content.credentialsubjectclaims.Value.d5recoverycurve.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.envelope.content.credentialsubjectclaims.Value.d5recoverycurve.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d5recoverycurve)
+               fixed(float* storedPtr_5 = field.envelope.content.credentialsubjectclaims.Value.d5recoverycurve)
                    Memory.memcpy(targetPtr, storedPtr_5, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
@@ -1470,7 +1536,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_5 + 0) & 0x02)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+{            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
@@ -1526,7 +1593,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_5 + 0) & 0x02)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+{            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 

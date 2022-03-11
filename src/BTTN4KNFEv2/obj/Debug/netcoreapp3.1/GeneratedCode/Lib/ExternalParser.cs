@@ -66,25 +66,25 @@ namespace BTTN4KNFE
             
         }
         
-        internal static unsafe bool TryParse_int_Array_150(string s, out int[] value)
+        internal static unsafe bool TryParse_float_Array_150(string s, out float[] value)
         {
-            int[] value_type_value;
+            float[] value_type_value;
             JArray jarray;
             
             try
             {
                 jarray = JArray.Parse(s);
-                value = new  int[150] ;int  element;
-                int int_offset = 0;
+                value = new  float[150] ;float  element;
+                int float_offset = 0;
                 
-                for (int int_0 = 0; int_0 < 150; ++int_0)
+                for (int float_0 = 0; float_0 < 150; ++float_0)
                 
                 {
                     
                     {
-                        if (!int.TryParse((string)jarray[int_offset++], out element))
+                        if (!float.TryParse((string)jarray[float_offset++], out element))
                             continue;
-                        value[int_0] = element;
+                        value[float_0] = element;
                     }
                     
                 }
@@ -92,7 +92,7 @@ namespace BTTN4KNFE
             }
             catch
             {
-                value = default(int[]);
+                value = default(float[]);
                 return false;
             }
             

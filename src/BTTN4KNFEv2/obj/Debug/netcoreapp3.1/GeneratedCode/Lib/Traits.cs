@@ -22,57 +22,65 @@ namespace BTTN4KNFE
             ,
             { typeof(long), 2 }
             ,
-            { typeof(DateTime), 3 }
+            { typeof(float), 3 }
             ,
-            { typeof(string), 4 }
+            { typeof(DateTime), 4 }
             ,
-            { typeof(int[]), 5 }
+            { typeof(string), 5 }
             ,
-            { typeof(List<long>), 6 }
+            { typeof(float[]), 6 }
             ,
-            { typeof(List<string>), 7 }
+            { typeof(List<long>), 7 }
             ,
-            { typeof(List<BTTKeyValuePair>), 8 }
+            { typeof(List<string>), 8 }
             ,
-            { typeof(BTTClaim), 9 }
+            { typeof(List<BTTKeyValuePair>), 9 }
             ,
-            { typeof(BTTEncryptedClaims), 10 }
+            { typeof(BTTClaim), 10 }
             ,
-            { typeof(BTTGenericCredential_Envelope), 11 }
+            { typeof(BTTEncryptedClaims), 11 }
             ,
-            { typeof(BTTGenericCredential_EnvelopeContent), 12 }
+            { typeof(BTTGenericCredential_Envelope), 12 }
             ,
-            { typeof(BTTGenericCredential_EnvelopeSeal), 13 }
+            { typeof(BTTGenericCredential_EnvelopeContent), 13 }
             ,
-            { typeof(BTTGenericCredential_PackingLabel), 14 }
+            { typeof(BTTGenericCredential_EnvelopeSeal), 14 }
             ,
-            { typeof(BTTKeyValuePair), 15 }
+            { typeof(BTTGenericCredential_PackingLabel), 15 }
             ,
-            { typeof(BTTNFE_N4K_Claims), 16 }
+            { typeof(BTTKeyValuePair), 16 }
             ,
-            { typeof(BTTNFE_N4K_Envelope), 17 }
+            { typeof(BTTNFE_N4K_Claims), 17 }
             ,
-            { typeof(BTTNFE_N4K_EnvelopeContent), 18 }
+            { typeof(BTTNFE_N4K_Envelope), 18 }
             ,
-            { typeof(BTTNFE_N4K_SealedEnvelope), 19 }
+            { typeof(BTTNFE_N4K_EnvelopeContent), 19 }
             ,
-            { typeof(BTTVerifiableCredential_SealedEnvelope), 20 }
+            { typeof(BTTNFE_N4K_SealedEnvelope), 20 }
             ,
-            { typeof(BTTEncryptionFlag), 21 }
+            { typeof(BTTVerifiableCredential_SealedEnvelope), 21 }
             ,
-            { typeof(BTTGenericCredentialType), 22 }
+            { typeof(BTTEncryptionFlag), 22 }
             ,
-            { typeof(BTTNFEBodyPart), 23 }
+            { typeof(BTTGenericCredentialType), 23 }
             ,
-            { typeof(BTTTrustLevel), 24 }
+            { typeof(BTTN4KBodyPart), 24 }
             ,
-            { typeof(List<List<BTTKeyValuePair>>), 26 }
+            { typeof(BTTN4KMood), 25 }
             ,
-            { typeof(List<BTTClaim>), 27 }
+            { typeof(BTTN4KPurpose), 26 }
             ,
-            { typeof(BTTEncryptedClaims?), 29 }
+            { typeof(BTTN4KType), 27 }
             ,
-            { typeof(BTTNFE_N4K_Claims?), 30 }
+            { typeof(BTTTrustLevel), 28 }
+            ,
+            { typeof(List<List<BTTKeyValuePair>>), 30 }
+            ,
+            { typeof(List<BTTClaim>), 31 }
+            ,
+            { typeof(BTTEncryptedClaims?), 33 }
+            ,
+            { typeof(BTTNFE_N4K_Claims?), 34 }
             ,
         };
         #endregion
@@ -133,6 +141,11 @@ namespace BTTN4KNFE
         TypeConversionAction GetConversionActionTo_long();
         IEnumerable<long> Enumerate_long(T value);
         
+        T ConvertFrom_float(float value);
+        float ConvertTo_float(T value);
+        TypeConversionAction GetConversionActionTo_float();
+        IEnumerable<float> Enumerate_float(T value);
+        
         T ConvertFrom_DateTime(DateTime value);
         DateTime ConvertTo_DateTime(T value);
         TypeConversionAction GetConversionActionTo_DateTime();
@@ -143,10 +156,10 @@ namespace BTTN4KNFE
         TypeConversionAction GetConversionActionTo_string();
         IEnumerable<string> Enumerate_string(T value);
         
-        T ConvertFrom_int_Array_150(int[] value);
-        int[] ConvertTo_int_Array_150(T value);
-        TypeConversionAction GetConversionActionTo_int_Array_150();
-        IEnumerable<int[]> Enumerate_int_Array_150(T value);
+        T ConvertFrom_float_Array_150(float[] value);
+        float[] ConvertTo_float_Array_150(T value);
+        TypeConversionAction GetConversionActionTo_float_Array_150();
+        IEnumerable<float[]> Enumerate_float_Array_150(T value);
         
         T ConvertFrom_List_long(List<long> value);
         List<long> ConvertTo_List_long(T value);
@@ -233,10 +246,25 @@ namespace BTTN4KNFE
         TypeConversionAction GetConversionActionTo_BTTGenericCredentialType();
         IEnumerable<BTTGenericCredentialType> Enumerate_BTTGenericCredentialType(T value);
         
-        T ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value);
-        BTTNFEBodyPart ConvertTo_BTTNFEBodyPart(T value);
-        TypeConversionAction GetConversionActionTo_BTTNFEBodyPart();
-        IEnumerable<BTTNFEBodyPart> Enumerate_BTTNFEBodyPart(T value);
+        T ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value);
+        BTTN4KBodyPart ConvertTo_BTTN4KBodyPart(T value);
+        TypeConversionAction GetConversionActionTo_BTTN4KBodyPart();
+        IEnumerable<BTTN4KBodyPart> Enumerate_BTTN4KBodyPart(T value);
+        
+        T ConvertFrom_BTTN4KMood(BTTN4KMood value);
+        BTTN4KMood ConvertTo_BTTN4KMood(T value);
+        TypeConversionAction GetConversionActionTo_BTTN4KMood();
+        IEnumerable<BTTN4KMood> Enumerate_BTTN4KMood(T value);
+        
+        T ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value);
+        BTTN4KPurpose ConvertTo_BTTN4KPurpose(T value);
+        TypeConversionAction GetConversionActionTo_BTTN4KPurpose();
+        IEnumerable<BTTN4KPurpose> Enumerate_BTTN4KPurpose(T value);
+        
+        T ConvertFrom_BTTN4KType(BTTN4KType value);
+        BTTN4KType ConvertTo_BTTN4KType(T value);
+        TypeConversionAction GetConversionActionTo_BTTN4KType();
+        IEnumerable<BTTN4KType> Enumerate_BTTN4KType(T value);
         
         T ConvertFrom_BTTTrustLevel(BTTTrustLevel value);
         BTTTrustLevel ConvertTo_BTTTrustLevel(T value);
@@ -274,11 +302,13 @@ namespace BTTN4KNFE
         
             , ITypeConverter<long>
         
+            , ITypeConverter<float>
+        
             , ITypeConverter<DateTime>
         
             , ITypeConverter<string>
         
-            , ITypeConverter<int[]>
+            , ITypeConverter<float[]>
         
             , ITypeConverter<List<long>>
         
@@ -314,7 +344,13 @@ namespace BTTN4KNFE
         
             , ITypeConverter<BTTGenericCredentialType>
         
-            , ITypeConverter<BTTNFEBodyPart>
+            , ITypeConverter<BTTN4KBodyPart>
+        
+            , ITypeConverter<BTTN4KMood>
+        
+            , ITypeConverter<BTTN4KPurpose>
+        
+            , ITypeConverter<BTTN4KType>
         
             , ITypeConverter<BTTTrustLevel>
         
@@ -399,6 +435,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            bool ITypeConverter<bool>.ConvertFrom_float(float value)
+            {
+                
+                return (value != 0);
+                
+            }
+            float ITypeConverter<bool>.ConvertTo_float(bool value)
+            {
+                return TypeConverter<float>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<bool>.Enumerate_float(bool value)
+            {
+                
+                yield break;
+            }
             bool ITypeConverter<bool>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -464,17 +524,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            bool ITypeConverter<bool>.ConvertFrom_int_Array_150(int[] value)
+            bool ITypeConverter<bool>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'bool'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'bool'.");
                 
             }
-            int[] ITypeConverter<bool>.ConvertTo_int_Array_150(bool value)
+            float[] ITypeConverter<bool>.ConvertTo_float_Array_150(bool value)
             {
-                return TypeConverter<int[]>.ConvertFrom_bool(value);
+                return TypeConverter<float[]>.ConvertFrom_bool(value);
             }
-            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -483,7 +543,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<bool>.Enumerate_int_Array_150(bool value)
+            IEnumerable<float[]> ITypeConverter<bool>.Enumerate_float_Array_150(bool value)
             {
                 
                 yield break;
@@ -896,17 +956,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            bool ITypeConverter<bool>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            bool ITypeConverter<bool>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'bool'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'bool'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<bool>.ConvertTo_BTTNFEBodyPart(bool value)
+            BTTN4KBodyPart ITypeConverter<bool>.ConvertTo_BTTN4KBodyPart(bool value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_bool(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_bool(value);
             }
-            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -915,7 +975,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<bool>.Enumerate_BTTNFEBodyPart(bool value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<bool>.Enumerate_BTTN4KBodyPart(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'bool'.");
+                
+            }
+            BTTN4KMood ITypeConverter<bool>.ConvertTo_BTTN4KMood(bool value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<bool>.Enumerate_BTTN4KMood(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'bool'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<bool>.ConvertTo_BTTN4KPurpose(bool value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<bool>.Enumerate_BTTN4KPurpose(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'bool'.");
+                
+            }
+            BTTN4KType ITypeConverter<bool>.ConvertTo_BTTN4KType(bool value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<bool>.Enumerate_BTTN4KType(bool value)
             {
                 
                 yield break;
@@ -1112,6 +1244,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            int ITypeConverter<int>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'int'.");
+                
+            }
+            float ITypeConverter<int>.ConvertTo_float(int value)
+            {
+                return TypeConverter<float>.ConvertFrom_int(value);
+            }
+            TypeConversionAction ITypeConverter<int>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<int>.Enumerate_float(int value)
+            {
+                
+                yield break;
+            }
             int ITypeConverter<int>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -1177,17 +1333,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            int ITypeConverter<int>.ConvertFrom_int_Array_150(int[] value)
+            int ITypeConverter<int>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'int'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'int'.");
                 
             }
-            int[] ITypeConverter<int>.ConvertTo_int_Array_150(int value)
+            float[] ITypeConverter<int>.ConvertTo_float_Array_150(int value)
             {
-                return TypeConverter<int[]>.ConvertFrom_int(value);
+                return TypeConverter<float[]>.ConvertFrom_int(value);
             }
-            TypeConversionAction ITypeConverter<int>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<int>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -1196,7 +1352,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<int>.Enumerate_int_Array_150(int value)
+            IEnumerable<float[]> ITypeConverter<int>.Enumerate_float_Array_150(int value)
             {
                 
                 yield break;
@@ -1609,17 +1765,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            int ITypeConverter<int>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            int ITypeConverter<int>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'int'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'int'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<int>.ConvertTo_BTTNFEBodyPart(int value)
+            BTTN4KBodyPart ITypeConverter<int>.ConvertTo_BTTN4KBodyPart(int value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_int(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_int(value);
             }
-            TypeConversionAction ITypeConverter<int>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<int>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -1628,7 +1784,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<int>.Enumerate_BTTNFEBodyPart(int value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<int>.Enumerate_BTTN4KBodyPart(int value)
+            {
+                
+                yield break;
+            }
+            int ITypeConverter<int>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'int'.");
+                
+            }
+            BTTN4KMood ITypeConverter<int>.ConvertTo_BTTN4KMood(int value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_int(value);
+            }
+            TypeConversionAction ITypeConverter<int>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<int>.Enumerate_BTTN4KMood(int value)
+            {
+                
+                yield break;
+            }
+            int ITypeConverter<int>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'int'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<int>.ConvertTo_BTTN4KPurpose(int value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_int(value);
+            }
+            TypeConversionAction ITypeConverter<int>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<int>.Enumerate_BTTN4KPurpose(int value)
+            {
+                
+                yield break;
+            }
+            int ITypeConverter<int>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'int'.");
+                
+            }
+            BTTN4KType ITypeConverter<int>.ConvertTo_BTTN4KType(int value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_int(value);
+            }
+            TypeConversionAction ITypeConverter<int>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<int>.Enumerate_BTTN4KType(int value)
             {
                 
                 yield break;
@@ -1825,6 +2053,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            long ITypeConverter<long>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'long'.");
+                
+            }
+            float ITypeConverter<long>.ConvertTo_float(long value)
+            {
+                return TypeConverter<float>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<long>.Enumerate_float(long value)
+            {
+                
+                yield break;
+            }
             long ITypeConverter<long>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -1890,17 +2142,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            long ITypeConverter<long>.ConvertFrom_int_Array_150(int[] value)
+            long ITypeConverter<long>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'long'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'long'.");
                 
             }
-            int[] ITypeConverter<long>.ConvertTo_int_Array_150(long value)
+            float[] ITypeConverter<long>.ConvertTo_float_Array_150(long value)
             {
-                return TypeConverter<int[]>.ConvertFrom_long(value);
+                return TypeConverter<float[]>.ConvertFrom_long(value);
             }
-            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -1909,7 +2161,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<long>.Enumerate_int_Array_150(long value)
+            IEnumerable<float[]> ITypeConverter<long>.Enumerate_float_Array_150(long value)
             {
                 
                 yield break;
@@ -2322,17 +2574,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            long ITypeConverter<long>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            long ITypeConverter<long>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'long'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'long'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<long>.ConvertTo_BTTNFEBodyPart(long value)
+            BTTN4KBodyPart ITypeConverter<long>.ConvertTo_BTTN4KBodyPart(long value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_long(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_long(value);
             }
-            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -2341,7 +2593,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<long>.Enumerate_BTTNFEBodyPart(long value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<long>.Enumerate_BTTN4KBodyPart(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'long'.");
+                
+            }
+            BTTN4KMood ITypeConverter<long>.ConvertTo_BTTN4KMood(long value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<long>.Enumerate_BTTN4KMood(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'long'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<long>.ConvertTo_BTTN4KPurpose(long value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<long>.Enumerate_BTTN4KPurpose(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'long'.");
+                
+            }
+            BTTN4KType ITypeConverter<long>.ConvertTo_BTTN4KType(long value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<long>.Enumerate_BTTN4KType(long value)
             {
                 
                 yield break;
@@ -2466,6 +2790,815 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            float ITypeConverter<float>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'float'.");
+                
+            }
+            bool ITypeConverter<float>.ConvertTo_bool(float value)
+            {
+                return TypeConverter<bool>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_TOBOOL;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<float>.Enumerate_bool(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_int(int value)
+            {
+                
+                return (float)value;
+                
+            }
+            int ITypeConverter<float>.ConvertTo_int(float value)
+            {
+                return TypeConverter<int>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_int()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<int> ITypeConverter<float>.Enumerate_int(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_long(long value)
+            {
+                
+                return (float)value;
+                
+            }
+            long ITypeConverter<float>.ConvertTo_long(float value)
+            {
+                return TypeConverter<long>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<float>.Enumerate_long(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_float(float value)
+            {
+                
+                return (float)value;
+                
+            }
+            float ITypeConverter<float>.ConvertTo_float(float value)
+            {
+                return TypeConverter<float>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<float>.Enumerate_float(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_DateTime(DateTime value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'DateTime' to 'float'.");
+                
+            }
+            DateTime ITypeConverter<float>.ConvertTo_DateTime(float value)
+            {
+                return TypeConverter<DateTime>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_DateTime()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<DateTime> ITypeConverter<float>.Enumerate_DateTime(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    float intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = float.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "float");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<float>.ConvertTo_string(float value)
+            {
+                return TypeConverter<string>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<float>.Enumerate_string(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_float_Array_150(float[] value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'float'.");
+                
+            }
+            float[] ITypeConverter<float>.ConvertTo_float_Array_150(float value)
+            {
+                return TypeConverter<float[]>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_float_Array_150()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float[]> ITypeConverter<float>.Enumerate_float_Array_150(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_List_long(List<long> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<long>' to 'float'.");
+                
+            }
+            List<long> ITypeConverter<float>.ConvertTo_List_long(float value)
+            {
+                return TypeConverter<List<long>>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_List_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<long>> ITypeConverter<float>.Enumerate_List_long(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'float'.");
+                
+            }
+            List<string> ITypeConverter<float>.ConvertTo_List_string(float value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<float>.Enumerate_List_string(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_List_BTTKeyValuePair(List<BTTKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<BTTKeyValuePair>' to 'float'.");
+                
+            }
+            List<BTTKeyValuePair> ITypeConverter<float>.ConvertTo_List_BTTKeyValuePair(float value)
+            {
+                return TypeConverter<List<BTTKeyValuePair>>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_List_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<BTTKeyValuePair>> ITypeConverter<float>.Enumerate_List_BTTKeyValuePair(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTClaim(BTTClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTClaim' to 'float'.");
+                
+            }
+            BTTClaim ITypeConverter<float>.ConvertTo_BTTClaim(float value)
+            {
+                return TypeConverter<BTTClaim>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTClaim> ITypeConverter<float>.Enumerate_BTTClaim(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTEncryptedClaims(BTTEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims' to 'float'.");
+                
+            }
+            BTTEncryptedClaims ITypeConverter<float>.ConvertTo_BTTEncryptedClaims(float value)
+            {
+                return TypeConverter<BTTEncryptedClaims>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptedClaims> ITypeConverter<float>.Enumerate_BTTEncryptedClaims(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTGenericCredential_Envelope(BTTGenericCredential_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_Envelope' to 'float'.");
+                
+            }
+            BTTGenericCredential_Envelope ITypeConverter<float>.ConvertTo_BTTGenericCredential_Envelope(float value)
+            {
+                return TypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTGenericCredential_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_Envelope> ITypeConverter<float>.Enumerate_BTTGenericCredential_Envelope(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTGenericCredential_EnvelopeContent(BTTGenericCredential_EnvelopeContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeContent' to 'float'.");
+                
+            }
+            BTTGenericCredential_EnvelopeContent ITypeConverter<float>.ConvertTo_BTTGenericCredential_EnvelopeContent(float value)
+            {
+                return TypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTGenericCredential_EnvelopeContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_EnvelopeContent> ITypeConverter<float>.Enumerate_BTTGenericCredential_EnvelopeContent(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(BTTGenericCredential_EnvelopeSeal value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeSeal' to 'float'.");
+                
+            }
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<float>.ConvertTo_BTTGenericCredential_EnvelopeSeal(float value)
+            {
+                return TypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTGenericCredential_EnvelopeSeal()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_EnvelopeSeal> ITypeConverter<float>.Enumerate_BTTGenericCredential_EnvelopeSeal(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTGenericCredential_PackingLabel(BTTGenericCredential_PackingLabel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_PackingLabel' to 'float'.");
+                
+            }
+            BTTGenericCredential_PackingLabel ITypeConverter<float>.ConvertTo_BTTGenericCredential_PackingLabel(float value)
+            {
+                return TypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTGenericCredential_PackingLabel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_PackingLabel> ITypeConverter<float>.Enumerate_BTTGenericCredential_PackingLabel(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTKeyValuePair(BTTKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTKeyValuePair' to 'float'.");
+                
+            }
+            BTTKeyValuePair ITypeConverter<float>.ConvertTo_BTTKeyValuePair(float value)
+            {
+                return TypeConverter<BTTKeyValuePair>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTKeyValuePair> ITypeConverter<float>.Enumerate_BTTKeyValuePair(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTNFE_N4K_Claims(BTTNFE_N4K_Claims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims' to 'float'.");
+                
+            }
+            BTTNFE_N4K_Claims ITypeConverter<float>.ConvertTo_BTTNFE_N4K_Claims(float value)
+            {
+                return TypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTNFE_N4K_Claims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Claims> ITypeConverter<float>.Enumerate_BTTNFE_N4K_Claims(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTNFE_N4K_Envelope(BTTNFE_N4K_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Envelope' to 'float'.");
+                
+            }
+            BTTNFE_N4K_Envelope ITypeConverter<float>.ConvertTo_BTTNFE_N4K_Envelope(float value)
+            {
+                return TypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTNFE_N4K_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Envelope> ITypeConverter<float>.Enumerate_BTTNFE_N4K_Envelope(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(BTTNFE_N4K_EnvelopeContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_EnvelopeContent' to 'float'.");
+                
+            }
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<float>.ConvertTo_BTTNFE_N4K_EnvelopeContent(float value)
+            {
+                return TypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTNFE_N4K_EnvelopeContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_EnvelopeContent> ITypeConverter<float>.Enumerate_BTTNFE_N4K_EnvelopeContent(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(BTTNFE_N4K_SealedEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_SealedEnvelope' to 'float'.");
+                
+            }
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<float>.ConvertTo_BTTNFE_N4K_SealedEnvelope(float value)
+            {
+                return TypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTNFE_N4K_SealedEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_SealedEnvelope> ITypeConverter<float>.Enumerate_BTTNFE_N4K_SealedEnvelope(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTVerifiableCredential_SealedEnvelope' to 'float'.");
+                
+            }
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<float>.ConvertTo_BTTVerifiableCredential_SealedEnvelope(float value)
+            {
+                return TypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTVerifiableCredential_SealedEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTVerifiableCredential_SealedEnvelope> ITypeConverter<float>.Enumerate_BTTVerifiableCredential_SealedEnvelope(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTEncryptionFlag(BTTEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptionFlag' to 'float'.");
+                
+            }
+            BTTEncryptionFlag ITypeConverter<float>.ConvertTo_BTTEncryptionFlag(float value)
+            {
+                return TypeConverter<BTTEncryptionFlag>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptionFlag> ITypeConverter<float>.Enumerate_BTTEncryptionFlag(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTGenericCredentialType(BTTGenericCredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredentialType' to 'float'.");
+                
+            }
+            BTTGenericCredentialType ITypeConverter<float>.ConvertTo_BTTGenericCredentialType(float value)
+            {
+                return TypeConverter<BTTGenericCredentialType>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTGenericCredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredentialType> ITypeConverter<float>.Enumerate_BTTGenericCredentialType(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'float'.");
+                
+            }
+            BTTN4KBodyPart ITypeConverter<float>.ConvertTo_BTTN4KBodyPart(float value)
+            {
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTN4KBodyPart()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<float>.Enumerate_BTTN4KBodyPart(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'float'.");
+                
+            }
+            BTTN4KMood ITypeConverter<float>.ConvertTo_BTTN4KMood(float value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<float>.Enumerate_BTTN4KMood(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'float'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<float>.ConvertTo_BTTN4KPurpose(float value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<float>.Enumerate_BTTN4KPurpose(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'float'.");
+                
+            }
+            BTTN4KType ITypeConverter<float>.ConvertTo_BTTN4KType(float value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<float>.Enumerate_BTTN4KType(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTTrustLevel(BTTTrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTTrustLevel' to 'float'.");
+                
+            }
+            BTTTrustLevel ITypeConverter<float>.ConvertTo_BTTTrustLevel(float value)
+            {
+                return TypeConverter<BTTTrustLevel>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTTrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTTrustLevel> ITypeConverter<float>.Enumerate_BTTTrustLevel(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_List_List_BTTKeyValuePair(List<List<BTTKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<BTTKeyValuePair>>' to 'float'.");
+                
+            }
+            List<List<BTTKeyValuePair>> ITypeConverter<float>.ConvertTo_List_List_BTTKeyValuePair(float value)
+            {
+                return TypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_List_List_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<BTTKeyValuePair>>> ITypeConverter<float>.Enumerate_List_List_BTTKeyValuePair(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_List_BTTClaim(List<BTTClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<BTTClaim>' to 'float'.");
+                
+            }
+            List<BTTClaim> ITypeConverter<float>.ConvertTo_List_BTTClaim(float value)
+            {
+                return TypeConverter<List<BTTClaim>>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_List_BTTClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<BTTClaim>> ITypeConverter<float>.Enumerate_List_BTTClaim(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTEncryptedClaims_nullable(BTTEncryptedClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims?' to 'float'.");
+                
+            }
+            BTTEncryptedClaims? ITypeConverter<float>.ConvertTo_BTTEncryptedClaims_nullable(float value)
+            {
+                return TypeConverter<BTTEncryptedClaims?>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTEncryptedClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptedClaims?> ITypeConverter<float>.Enumerate_BTTEncryptedClaims_nullable(float value)
+            {
+                
+                yield break;
+            }
+            float ITypeConverter<float>.ConvertFrom_BTTNFE_N4K_Claims_nullable(BTTNFE_N4K_Claims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims?' to 'float'.");
+                
+            }
+            BTTNFE_N4K_Claims? ITypeConverter<float>.ConvertTo_BTTNFE_N4K_Claims_nullable(float value)
+            {
+                return TypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_float(value);
+            }
+            TypeConversionAction ITypeConverter<float>.GetConversionActionTo_BTTNFE_N4K_Claims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Claims?> ITypeConverter<float>.Enumerate_BTTNFE_N4K_Claims_nullable(float value)
+            {
+                
+                yield break;
+            }
             DateTime ITypeConverter<DateTime>.ConvertFrom_bool(bool value)
             {
                 
@@ -2538,6 +3671,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            DateTime ITypeConverter<DateTime>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'DateTime'.");
+                
+            }
+            float ITypeConverter<DateTime>.ConvertTo_float(DateTime value)
+            {
+                return TypeConverter<float>.ConvertFrom_DateTime(value);
+            }
+            TypeConversionAction ITypeConverter<DateTime>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<DateTime>.Enumerate_float(DateTime value)
+            {
+                
+                yield break;
+            }
             DateTime ITypeConverter<DateTime>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -2603,17 +3760,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            DateTime ITypeConverter<DateTime>.ConvertFrom_int_Array_150(int[] value)
+            DateTime ITypeConverter<DateTime>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'DateTime'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'DateTime'.");
                 
             }
-            int[] ITypeConverter<DateTime>.ConvertTo_int_Array_150(DateTime value)
+            float[] ITypeConverter<DateTime>.ConvertTo_float_Array_150(DateTime value)
             {
-                return TypeConverter<int[]>.ConvertFrom_DateTime(value);
+                return TypeConverter<float[]>.ConvertFrom_DateTime(value);
             }
-            TypeConversionAction ITypeConverter<DateTime>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<DateTime>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -2622,7 +3779,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<DateTime>.Enumerate_int_Array_150(DateTime value)
+            IEnumerable<float[]> ITypeConverter<DateTime>.Enumerate_float_Array_150(DateTime value)
             {
                 
                 yield break;
@@ -3035,17 +4192,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            DateTime ITypeConverter<DateTime>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            DateTime ITypeConverter<DateTime>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'DateTime'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'DateTime'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<DateTime>.ConvertTo_BTTNFEBodyPart(DateTime value)
+            BTTN4KBodyPart ITypeConverter<DateTime>.ConvertTo_BTTN4KBodyPart(DateTime value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_DateTime(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_DateTime(value);
             }
-            TypeConversionAction ITypeConverter<DateTime>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<DateTime>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -3054,7 +4211,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<DateTime>.Enumerate_BTTNFEBodyPart(DateTime value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<DateTime>.Enumerate_BTTN4KBodyPart(DateTime value)
+            {
+                
+                yield break;
+            }
+            DateTime ITypeConverter<DateTime>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'DateTime'.");
+                
+            }
+            BTTN4KMood ITypeConverter<DateTime>.ConvertTo_BTTN4KMood(DateTime value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_DateTime(value);
+            }
+            TypeConversionAction ITypeConverter<DateTime>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<DateTime>.Enumerate_BTTN4KMood(DateTime value)
+            {
+                
+                yield break;
+            }
+            DateTime ITypeConverter<DateTime>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'DateTime'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<DateTime>.ConvertTo_BTTN4KPurpose(DateTime value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_DateTime(value);
+            }
+            TypeConversionAction ITypeConverter<DateTime>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<DateTime>.Enumerate_BTTN4KPurpose(DateTime value)
+            {
+                
+                yield break;
+            }
+            DateTime ITypeConverter<DateTime>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'DateTime'.");
+                
+            }
+            BTTN4KType ITypeConverter<DateTime>.ConvertTo_BTTN4KType(DateTime value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_DateTime(value);
+            }
+            TypeConversionAction ITypeConverter<DateTime>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<DateTime>.Enumerate_BTTN4KType(DateTime value)
             {
                 
                 yield break;
@@ -3251,6 +4480,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            string ITypeConverter<string>.ConvertFrom_float(float value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            float ITypeConverter<string>.ConvertTo_float(string value)
+            {
+                return TypeConverter<float>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<string>.Enumerate_float(string value)
+            {
+                
+                yield break;
+            }
             string ITypeConverter<string>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -3299,17 +4552,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            string ITypeConverter<string>.ConvertFrom_int_Array_150(int[] value)
+            string ITypeConverter<string>.ConvertFrom_float_Array_150(float[] value)
             {
                 
                 return Serializer.ToString(value);
                 
             }
-            int[] ITypeConverter<string>.ConvertTo_int_Array_150(string value)
+            float[] ITypeConverter<string>.ConvertTo_float_Array_150(string value)
             {
-                return TypeConverter<int[]>.ConvertFrom_string(value);
+                return TypeConverter<float[]>.ConvertFrom_string(value);
             }
-            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_PARSESTRING;
@@ -3318,7 +4571,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<string>.Enumerate_int_Array_150(string value)
+            IEnumerable<float[]> ITypeConverter<string>.Enumerate_float_Array_150(string value)
             {
                 
                 yield break;
@@ -3731,17 +4984,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            string ITypeConverter<string>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            string ITypeConverter<string>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
                 return Serializer.ToString(value);
                 
             }
-            BTTNFEBodyPart ITypeConverter<string>.ConvertTo_BTTNFEBodyPart(string value)
+            BTTN4KBodyPart ITypeConverter<string>.ConvertTo_BTTN4KBodyPart(string value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_string(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_string(value);
             }
-            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_PARSESTRING;
@@ -3750,7 +5003,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<string>.Enumerate_BTTNFEBodyPart(string value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<string>.Enumerate_BTTN4KBodyPart(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            BTTN4KMood ITypeConverter<string>.ConvertTo_BTTN4KMood(string value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<string>.Enumerate_BTTN4KMood(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            BTTN4KPurpose ITypeConverter<string>.ConvertTo_BTTN4KPurpose(string value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<string>.Enumerate_BTTN4KPurpose(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            BTTN4KType ITypeConverter<string>.ConvertTo_BTTN4KType(string value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<string>.Enumerate_BTTN4KType(string value)
             {
                 
                 yield break;
@@ -3875,17 +5200,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_bool(bool value)
+            float[] ITypeConverter<float[]>.ConvertFrom_bool(bool value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'bool' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'bool' to 'float[]'.");
                 
             }
-            bool ITypeConverter<int[]>.ConvertTo_bool(int[] value)
+            bool ITypeConverter<float[]>.ConvertTo_bool(float[] value)
             {
-                return TypeConverter<bool>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<bool>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_bool()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_bool()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -3894,33 +5219,33 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<bool> ITypeConverter<int[]>.Enumerate_bool(int[] value)
+            IEnumerable<bool> ITypeConverter<float[]>.Enumerate_bool(float[] value)
             {
                 
                 {
                     
-                    for (int int_0 = 0; int_0 < 150; ++int_0)
+                    for (int float_0 = 0; float_0 < 150; ++float_0)
                     
                     {
                         
-                        yield return (TypeConverter<bool>.ConvertFrom_int(value[int_0]));
+                        yield return (TypeConverter<bool>.ConvertFrom_float(value[float_0]));
                         
                     }
                 }
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_int(int value)
+            float[] ITypeConverter<float[]>.ConvertFrom_int(int value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'int' to 'float[]'.");
                 
             }
-            int ITypeConverter<int[]>.ConvertTo_int(int[] value)
+            int ITypeConverter<float[]>.ConvertTo_int(float[] value)
             {
-                return TypeConverter<int>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<int>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_int()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_int()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -3929,68 +5254,81 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int> ITypeConverter<int[]>.Enumerate_int(int[] value)
+            IEnumerable<int> ITypeConverter<float[]>.Enumerate_int(float[] value)
+            {
+                
+                yield break;
+            }
+            float[] ITypeConverter<float[]>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'float[]'.");
+                
+            }
+            long ITypeConverter<float[]>.ConvertTo_long(float[] value)
+            {
+                return TypeConverter<long>.ConvertFrom_float_Array_150(value);
+            }
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<float[]>.Enumerate_long(float[] value)
+            {
+                
+                yield break;
+            }
+            float[] ITypeConverter<float[]>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'float[]'.");
+                
+            }
+            float ITypeConverter<float[]>.ConvertTo_float(float[] value)
+            {
+                return TypeConverter<float>.ConvertFrom_float_Array_150(value);
+            }
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<float[]>.Enumerate_float(float[] value)
             {
                 
                 {
                     
-                    for (int int_0 = 0; int_0 < 150; ++int_0)
+                    for (int float_0 = 0; float_0 < 150; ++float_0)
                     
                     {
                         
-                        yield return (value[int_0]);
+                        yield return (value[float_0]);
                         
                     }
                 }
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_long(long value)
+            float[] ITypeConverter<float[]>.ConvertFrom_DateTime(DateTime value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'long' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'DateTime' to 'float[]'.");
                 
             }
-            long ITypeConverter<int[]>.ConvertTo_long(int[] value)
+            DateTime ITypeConverter<float[]>.ConvertTo_DateTime(float[] value)
             {
-                return TypeConverter<long>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<DateTime>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_long()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<long> ITypeConverter<int[]>.Enumerate_long(int[] value)
-            {
-                
-                {
-                    
-                    for (int int_0 = 0; int_0 < 150; ++int_0)
-                    
-                    {
-                        
-                        yield return (value[int_0]);
-                        
-                    }
-                }
-                
-                yield break;
-            }
-            int[] ITypeConverter<int[]>.ConvertFrom_DateTime(DateTime value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'DateTime' to 'int[]'.");
-                
-            }
-            DateTime ITypeConverter<int[]>.ConvertTo_DateTime(int[] value)
-            {
-                return TypeConverter<DateTime>.ConvertFrom_int_Array_150(value);
-            }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_DateTime()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_DateTime()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -3999,27 +5337,27 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<DateTime> ITypeConverter<int[]>.Enumerate_DateTime(int[] value)
+            IEnumerable<DateTime> ITypeConverter<float[]>.Enumerate_DateTime(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_string(string value)
+            float[] ITypeConverter<float[]>.ConvertFrom_string(string value)
             {
                 
                 {
                     #region String parse
-                    int[] intermediate_result;
+                    float[] intermediate_result;
                     bool conversion_success;
                     
                     {
-                        conversion_success = ExternalParser.TryParse_int_Array_150(value, out intermediate_result);
+                        conversion_success = ExternalParser.TryParse_float_Array_150(value, out intermediate_result);
                     }
                     
                     if (!conversion_success)
                     {
                         
-                        Throw.cannot_parse(value, "int[]");
+                        Throw.cannot_parse(value, "float[]");
                         
                     }
                     return intermediate_result;
@@ -4027,11 +5365,11 @@ namespace BTTN4KNFE
                 }
                 
             }
-            string ITypeConverter<int[]>.ConvertTo_string(int[] value)
+            string ITypeConverter<float[]>.ConvertTo_string(float[] value)
             {
-                return TypeConverter<string>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<string>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_string()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_string()
             {
                 
                 return TypeConversionAction.TC_TOSTRING;
@@ -4040,33 +5378,33 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<string> ITypeConverter<int[]>.Enumerate_string(int[] value)
+            IEnumerable<string> ITypeConverter<float[]>.Enumerate_string(float[] value)
             {
                 
                 {
                     
-                    for (int int_0 = 0; int_0 < 150; ++int_0)
+                    for (int float_0 = 0; float_0 < 150; ++float_0)
                     
                     {
                         
-                        yield return (TypeConverter<string>.ConvertFrom_int(value[int_0]));
+                        yield return (TypeConverter<string>.ConvertFrom_float(value[float_0]));
                         
                     }
                 }
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_int_Array_150(int[] value)
+            float[] ITypeConverter<float[]>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                return (int[])value;
+                return (float[])value;
                 
             }
-            int[] ITypeConverter<int[]>.ConvertTo_int_Array_150(int[] value)
+            float[] ITypeConverter<float[]>.ConvertTo_float_Array_150(float[] value)
             {
-                return TypeConverter<int[]>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<float[]>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_ASSIGN;
@@ -4075,57 +5413,46 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<int[]>.Enumerate_int_Array_150(int[] value)
+            IEnumerable<float[]> ITypeConverter<float[]>.Enumerate_float_Array_150(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_List_long(List<long> value)
+            float[] ITypeConverter<float[]>.ConvertFrom_List_long(List<long> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<long>' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'List<long>' to 'float[]'.");
                 
             }
-            List<long> ITypeConverter<int[]>.ConvertTo_List_long(int[] value)
+            List<long> ITypeConverter<float[]>.ConvertTo_List_long(float[] value)
             {
-                return TypeConverter<List<long>>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<List<long>>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_List_long()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_List_long()
             {
                 
-                return TypeConversionAction.TC_ARRAYTOLIST;
+                return TypeConversionAction.TC_NONCONVERTIBLE;
                 
             }
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<long>> ITypeConverter<int[]>.Enumerate_List_long(int[] value)
+            IEnumerable<List<long>> ITypeConverter<float[]>.Enumerate_List_long(float[] value)
             {
-                
-                {
-                    
-                    for (int int_0 = 0; int_0 < 150; ++int_0)
-                    
-                    {
-                        
-                        yield return (TypeConverter<List<long>>.ConvertFrom_int(value[int_0]));
-                        
-                    }
-                }
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_List_string(List<string> value)
+            float[] ITypeConverter<float[]>.ConvertFrom_List_string(List<string> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<string>' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'float[]'.");
                 
             }
-            List<string> ITypeConverter<int[]>.ConvertTo_List_string(int[] value)
+            List<string> ITypeConverter<float[]>.ConvertTo_List_string(float[] value)
             {
-                return TypeConverter<List<string>>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<List<string>>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_List_string()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_List_string()
             {
                 
                 return TypeConversionAction.TC_WRAPINLIST;
@@ -4134,33 +5461,33 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<string>> ITypeConverter<int[]>.Enumerate_List_string(int[] value)
+            IEnumerable<List<string>> ITypeConverter<float[]>.Enumerate_List_string(float[] value)
             {
                 
                 {
                     
-                    for (int int_0 = 0; int_0 < 150; ++int_0)
+                    for (int float_0 = 0; float_0 < 150; ++float_0)
                     
                     {
                         
-                        yield return (TypeConverter<List<string>>.ConvertFrom_int(value[int_0]));
+                        yield return (TypeConverter<List<string>>.ConvertFrom_float(value[float_0]));
                         
                     }
                 }
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_List_BTTKeyValuePair(List<BTTKeyValuePair> value)
+            float[] ITypeConverter<float[]>.ConvertFrom_List_BTTKeyValuePair(List<BTTKeyValuePair> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<BTTKeyValuePair>' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'List<BTTKeyValuePair>' to 'float[]'.");
                 
             }
-            List<BTTKeyValuePair> ITypeConverter<int[]>.ConvertTo_List_BTTKeyValuePair(int[] value)
+            List<BTTKeyValuePair> ITypeConverter<float[]>.ConvertTo_List_BTTKeyValuePair(float[] value)
             {
-                return TypeConverter<List<BTTKeyValuePair>>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<List<BTTKeyValuePair>>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_List_BTTKeyValuePair()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_List_BTTKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4169,22 +5496,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<BTTKeyValuePair>> ITypeConverter<int[]>.Enumerate_List_BTTKeyValuePair(int[] value)
+            IEnumerable<List<BTTKeyValuePair>> ITypeConverter<float[]>.Enumerate_List_BTTKeyValuePair(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTClaim(BTTClaim value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTClaim(BTTClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTClaim' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTClaim' to 'float[]'.");
                 
             }
-            BTTClaim ITypeConverter<int[]>.ConvertTo_BTTClaim(int[] value)
+            BTTClaim ITypeConverter<float[]>.ConvertTo_BTTClaim(float[] value)
             {
-                return TypeConverter<BTTClaim>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTClaim>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTClaim()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4193,22 +5520,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTClaim> ITypeConverter<int[]>.Enumerate_BTTClaim(int[] value)
+            IEnumerable<BTTClaim> ITypeConverter<float[]>.Enumerate_BTTClaim(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTEncryptedClaims(BTTEncryptedClaims value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTEncryptedClaims(BTTEncryptedClaims value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims' to 'float[]'.");
                 
             }
-            BTTEncryptedClaims ITypeConverter<int[]>.ConvertTo_BTTEncryptedClaims(int[] value)
+            BTTEncryptedClaims ITypeConverter<float[]>.ConvertTo_BTTEncryptedClaims(float[] value)
             {
-                return TypeConverter<BTTEncryptedClaims>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTEncryptedClaims>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTEncryptedClaims()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTEncryptedClaims()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4217,22 +5544,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTEncryptedClaims> ITypeConverter<int[]>.Enumerate_BTTEncryptedClaims(int[] value)
+            IEnumerable<BTTEncryptedClaims> ITypeConverter<float[]>.Enumerate_BTTEncryptedClaims(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTGenericCredential_Envelope(BTTGenericCredential_Envelope value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTGenericCredential_Envelope(BTTGenericCredential_Envelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_Envelope' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_Envelope' to 'float[]'.");
                 
             }
-            BTTGenericCredential_Envelope ITypeConverter<int[]>.ConvertTo_BTTGenericCredential_Envelope(int[] value)
+            BTTGenericCredential_Envelope ITypeConverter<float[]>.ConvertTo_BTTGenericCredential_Envelope(float[] value)
             {
-                return TypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTGenericCredential_Envelope()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTGenericCredential_Envelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4241,22 +5568,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTGenericCredential_Envelope> ITypeConverter<int[]>.Enumerate_BTTGenericCredential_Envelope(int[] value)
+            IEnumerable<BTTGenericCredential_Envelope> ITypeConverter<float[]>.Enumerate_BTTGenericCredential_Envelope(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTGenericCredential_EnvelopeContent(BTTGenericCredential_EnvelopeContent value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTGenericCredential_EnvelopeContent(BTTGenericCredential_EnvelopeContent value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeContent' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeContent' to 'float[]'.");
                 
             }
-            BTTGenericCredential_EnvelopeContent ITypeConverter<int[]>.ConvertTo_BTTGenericCredential_EnvelopeContent(int[] value)
+            BTTGenericCredential_EnvelopeContent ITypeConverter<float[]>.ConvertTo_BTTGenericCredential_EnvelopeContent(float[] value)
             {
-                return TypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTGenericCredential_EnvelopeContent()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTGenericCredential_EnvelopeContent()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4265,22 +5592,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTGenericCredential_EnvelopeContent> ITypeConverter<int[]>.Enumerate_BTTGenericCredential_EnvelopeContent(int[] value)
+            IEnumerable<BTTGenericCredential_EnvelopeContent> ITypeConverter<float[]>.Enumerate_BTTGenericCredential_EnvelopeContent(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(BTTGenericCredential_EnvelopeSeal value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(BTTGenericCredential_EnvelopeSeal value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeSeal' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeSeal' to 'float[]'.");
                 
             }
-            BTTGenericCredential_EnvelopeSeal ITypeConverter<int[]>.ConvertTo_BTTGenericCredential_EnvelopeSeal(int[] value)
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<float[]>.ConvertTo_BTTGenericCredential_EnvelopeSeal(float[] value)
             {
-                return TypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTGenericCredential_EnvelopeSeal()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTGenericCredential_EnvelopeSeal()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4289,22 +5616,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTGenericCredential_EnvelopeSeal> ITypeConverter<int[]>.Enumerate_BTTGenericCredential_EnvelopeSeal(int[] value)
+            IEnumerable<BTTGenericCredential_EnvelopeSeal> ITypeConverter<float[]>.Enumerate_BTTGenericCredential_EnvelopeSeal(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTGenericCredential_PackingLabel(BTTGenericCredential_PackingLabel value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTGenericCredential_PackingLabel(BTTGenericCredential_PackingLabel value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_PackingLabel' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_PackingLabel' to 'float[]'.");
                 
             }
-            BTTGenericCredential_PackingLabel ITypeConverter<int[]>.ConvertTo_BTTGenericCredential_PackingLabel(int[] value)
+            BTTGenericCredential_PackingLabel ITypeConverter<float[]>.ConvertTo_BTTGenericCredential_PackingLabel(float[] value)
             {
-                return TypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTGenericCredential_PackingLabel()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTGenericCredential_PackingLabel()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4313,22 +5640,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTGenericCredential_PackingLabel> ITypeConverter<int[]>.Enumerate_BTTGenericCredential_PackingLabel(int[] value)
+            IEnumerable<BTTGenericCredential_PackingLabel> ITypeConverter<float[]>.Enumerate_BTTGenericCredential_PackingLabel(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTKeyValuePair(BTTKeyValuePair value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTKeyValuePair(BTTKeyValuePair value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTKeyValuePair' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTKeyValuePair' to 'float[]'.");
                 
             }
-            BTTKeyValuePair ITypeConverter<int[]>.ConvertTo_BTTKeyValuePair(int[] value)
+            BTTKeyValuePair ITypeConverter<float[]>.ConvertTo_BTTKeyValuePair(float[] value)
             {
-                return TypeConverter<BTTKeyValuePair>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTKeyValuePair>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTKeyValuePair()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4337,22 +5664,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTKeyValuePair> ITypeConverter<int[]>.Enumerate_BTTKeyValuePair(int[] value)
+            IEnumerable<BTTKeyValuePair> ITypeConverter<float[]>.Enumerate_BTTKeyValuePair(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTNFE_N4K_Claims(BTTNFE_N4K_Claims value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTNFE_N4K_Claims(BTTNFE_N4K_Claims value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims' to 'float[]'.");
                 
             }
-            BTTNFE_N4K_Claims ITypeConverter<int[]>.ConvertTo_BTTNFE_N4K_Claims(int[] value)
+            BTTNFE_N4K_Claims ITypeConverter<float[]>.ConvertTo_BTTNFE_N4K_Claims(float[] value)
             {
-                return TypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTNFE_N4K_Claims()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTNFE_N4K_Claims()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4361,22 +5688,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFE_N4K_Claims> ITypeConverter<int[]>.Enumerate_BTTNFE_N4K_Claims(int[] value)
+            IEnumerable<BTTNFE_N4K_Claims> ITypeConverter<float[]>.Enumerate_BTTNFE_N4K_Claims(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTNFE_N4K_Envelope(BTTNFE_N4K_Envelope value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTNFE_N4K_Envelope(BTTNFE_N4K_Envelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Envelope' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Envelope' to 'float[]'.");
                 
             }
-            BTTNFE_N4K_Envelope ITypeConverter<int[]>.ConvertTo_BTTNFE_N4K_Envelope(int[] value)
+            BTTNFE_N4K_Envelope ITypeConverter<float[]>.ConvertTo_BTTNFE_N4K_Envelope(float[] value)
             {
-                return TypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTNFE_N4K_Envelope()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTNFE_N4K_Envelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4385,22 +5712,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFE_N4K_Envelope> ITypeConverter<int[]>.Enumerate_BTTNFE_N4K_Envelope(int[] value)
+            IEnumerable<BTTNFE_N4K_Envelope> ITypeConverter<float[]>.Enumerate_BTTNFE_N4K_Envelope(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(BTTNFE_N4K_EnvelopeContent value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(BTTNFE_N4K_EnvelopeContent value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_EnvelopeContent' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_EnvelopeContent' to 'float[]'.");
                 
             }
-            BTTNFE_N4K_EnvelopeContent ITypeConverter<int[]>.ConvertTo_BTTNFE_N4K_EnvelopeContent(int[] value)
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<float[]>.ConvertTo_BTTNFE_N4K_EnvelopeContent(float[] value)
             {
-                return TypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTNFE_N4K_EnvelopeContent()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTNFE_N4K_EnvelopeContent()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4409,22 +5736,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFE_N4K_EnvelopeContent> ITypeConverter<int[]>.Enumerate_BTTNFE_N4K_EnvelopeContent(int[] value)
+            IEnumerable<BTTNFE_N4K_EnvelopeContent> ITypeConverter<float[]>.Enumerate_BTTNFE_N4K_EnvelopeContent(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(BTTNFE_N4K_SealedEnvelope value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(BTTNFE_N4K_SealedEnvelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_SealedEnvelope' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_SealedEnvelope' to 'float[]'.");
                 
             }
-            BTTNFE_N4K_SealedEnvelope ITypeConverter<int[]>.ConvertTo_BTTNFE_N4K_SealedEnvelope(int[] value)
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<float[]>.ConvertTo_BTTNFE_N4K_SealedEnvelope(float[] value)
             {
-                return TypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTNFE_N4K_SealedEnvelope()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTNFE_N4K_SealedEnvelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4433,22 +5760,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFE_N4K_SealedEnvelope> ITypeConverter<int[]>.Enumerate_BTTNFE_N4K_SealedEnvelope(int[] value)
+            IEnumerable<BTTNFE_N4K_SealedEnvelope> ITypeConverter<float[]>.Enumerate_BTTNFE_N4K_SealedEnvelope(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(BTTVerifiableCredential_SealedEnvelope value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(BTTVerifiableCredential_SealedEnvelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTVerifiableCredential_SealedEnvelope' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTVerifiableCredential_SealedEnvelope' to 'float[]'.");
                 
             }
-            BTTVerifiableCredential_SealedEnvelope ITypeConverter<int[]>.ConvertTo_BTTVerifiableCredential_SealedEnvelope(int[] value)
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<float[]>.ConvertTo_BTTVerifiableCredential_SealedEnvelope(float[] value)
             {
-                return TypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTVerifiableCredential_SealedEnvelope()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTVerifiableCredential_SealedEnvelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4457,22 +5784,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTVerifiableCredential_SealedEnvelope> ITypeConverter<int[]>.Enumerate_BTTVerifiableCredential_SealedEnvelope(int[] value)
+            IEnumerable<BTTVerifiableCredential_SealedEnvelope> ITypeConverter<float[]>.Enumerate_BTTVerifiableCredential_SealedEnvelope(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTEncryptionFlag(BTTEncryptionFlag value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTEncryptionFlag(BTTEncryptionFlag value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTEncryptionFlag' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptionFlag' to 'float[]'.");
                 
             }
-            BTTEncryptionFlag ITypeConverter<int[]>.ConvertTo_BTTEncryptionFlag(int[] value)
+            BTTEncryptionFlag ITypeConverter<float[]>.ConvertTo_BTTEncryptionFlag(float[] value)
             {
-                return TypeConverter<BTTEncryptionFlag>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTEncryptionFlag>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTEncryptionFlag()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTEncryptionFlag()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4481,22 +5808,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTEncryptionFlag> ITypeConverter<int[]>.Enumerate_BTTEncryptionFlag(int[] value)
+            IEnumerable<BTTEncryptionFlag> ITypeConverter<float[]>.Enumerate_BTTEncryptionFlag(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTGenericCredentialType(BTTGenericCredentialType value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTGenericCredentialType(BTTGenericCredentialType value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTGenericCredentialType' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredentialType' to 'float[]'.");
                 
             }
-            BTTGenericCredentialType ITypeConverter<int[]>.ConvertTo_BTTGenericCredentialType(int[] value)
+            BTTGenericCredentialType ITypeConverter<float[]>.ConvertTo_BTTGenericCredentialType(float[] value)
             {
-                return TypeConverter<BTTGenericCredentialType>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTGenericCredentialType>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTGenericCredentialType()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTGenericCredentialType()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4505,22 +5832,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTGenericCredentialType> ITypeConverter<int[]>.Enumerate_BTTGenericCredentialType(int[] value)
+            IEnumerable<BTTGenericCredentialType> ITypeConverter<float[]>.Enumerate_BTTGenericCredentialType(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'float[]'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<int[]>.ConvertTo_BTTNFEBodyPart(int[] value)
+            BTTN4KBodyPart ITypeConverter<float[]>.ConvertTo_BTTN4KBodyPart(float[] value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4529,22 +5856,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<int[]>.Enumerate_BTTNFEBodyPart(int[] value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<float[]>.Enumerate_BTTN4KBodyPart(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTTrustLevel(BTTTrustLevel value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTTrustLevel' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'float[]'.");
                 
             }
-            BTTTrustLevel ITypeConverter<int[]>.ConvertTo_BTTTrustLevel(int[] value)
+            BTTN4KMood ITypeConverter<float[]>.ConvertTo_BTTN4KMood(float[] value)
             {
-                return TypeConverter<BTTTrustLevel>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTN4KMood>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTTrustLevel()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTN4KMood()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4553,22 +5880,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTTrustLevel> ITypeConverter<int[]>.Enumerate_BTTTrustLevel(int[] value)
+            IEnumerable<BTTN4KMood> ITypeConverter<float[]>.Enumerate_BTTN4KMood(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_List_List_BTTKeyValuePair(List<List<BTTKeyValuePair>> value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<List<BTTKeyValuePair>>' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'float[]'.");
                 
             }
-            List<List<BTTKeyValuePair>> ITypeConverter<int[]>.ConvertTo_List_List_BTTKeyValuePair(int[] value)
+            BTTN4KPurpose ITypeConverter<float[]>.ConvertTo_BTTN4KPurpose(float[] value)
             {
-                return TypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_List_List_BTTKeyValuePair()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTN4KPurpose()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4577,22 +5904,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<List<BTTKeyValuePair>>> ITypeConverter<int[]>.Enumerate_List_List_BTTKeyValuePair(int[] value)
+            IEnumerable<BTTN4KPurpose> ITypeConverter<float[]>.Enumerate_BTTN4KPurpose(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_List_BTTClaim(List<BTTClaim> value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTN4KType(BTTN4KType value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<BTTClaim>' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'float[]'.");
                 
             }
-            List<BTTClaim> ITypeConverter<int[]>.ConvertTo_List_BTTClaim(int[] value)
+            BTTN4KType ITypeConverter<float[]>.ConvertTo_BTTN4KType(float[] value)
             {
-                return TypeConverter<List<BTTClaim>>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTN4KType>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_List_BTTClaim()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTN4KType()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4601,22 +5928,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<BTTClaim>> ITypeConverter<int[]>.Enumerate_List_BTTClaim(int[] value)
+            IEnumerable<BTTN4KType> ITypeConverter<float[]>.Enumerate_BTTN4KType(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTEncryptedClaims_nullable(BTTEncryptedClaims? value)
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTTrustLevel(BTTTrustLevel value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims?' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'BTTTrustLevel' to 'float[]'.");
                 
             }
-            BTTEncryptedClaims? ITypeConverter<int[]>.ConvertTo_BTTEncryptedClaims_nullable(int[] value)
+            BTTTrustLevel ITypeConverter<float[]>.ConvertTo_BTTTrustLevel(float[] value)
             {
-                return TypeConverter<BTTEncryptedClaims?>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<BTTTrustLevel>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTEncryptedClaims_nullable()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTTrustLevel()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4625,22 +5952,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTEncryptedClaims?> ITypeConverter<int[]>.Enumerate_BTTEncryptedClaims_nullable(int[] value)
+            IEnumerable<BTTTrustLevel> ITypeConverter<float[]>.Enumerate_BTTTrustLevel(float[] value)
             {
                 
                 yield break;
             }
-            int[] ITypeConverter<int[]>.ConvertFrom_BTTNFE_N4K_Claims_nullable(BTTNFE_N4K_Claims? value)
+            float[] ITypeConverter<float[]>.ConvertFrom_List_List_BTTKeyValuePair(List<List<BTTKeyValuePair>> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims?' to 'int[]'.");
+                throw new InvalidCastException("Invalid cast from 'List<List<BTTKeyValuePair>>' to 'float[]'.");
                 
             }
-            BTTNFE_N4K_Claims? ITypeConverter<int[]>.ConvertTo_BTTNFE_N4K_Claims_nullable(int[] value)
+            List<List<BTTKeyValuePair>> ITypeConverter<float[]>.ConvertTo_List_List_BTTKeyValuePair(float[] value)
             {
-                return TypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_int_Array_150(value);
+                return TypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_float_Array_150(value);
             }
-            TypeConversionAction ITypeConverter<int[]>.GetConversionActionTo_BTTNFE_N4K_Claims_nullable()
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_List_List_BTTKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4649,7 +5976,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFE_N4K_Claims?> ITypeConverter<int[]>.Enumerate_BTTNFE_N4K_Claims_nullable(int[] value)
+            IEnumerable<List<List<BTTKeyValuePair>>> ITypeConverter<float[]>.Enumerate_List_List_BTTKeyValuePair(float[] value)
+            {
+                
+                yield break;
+            }
+            float[] ITypeConverter<float[]>.ConvertFrom_List_BTTClaim(List<BTTClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<BTTClaim>' to 'float[]'.");
+                
+            }
+            List<BTTClaim> ITypeConverter<float[]>.ConvertTo_List_BTTClaim(float[] value)
+            {
+                return TypeConverter<List<BTTClaim>>.ConvertFrom_float_Array_150(value);
+            }
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_List_BTTClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<BTTClaim>> ITypeConverter<float[]>.Enumerate_List_BTTClaim(float[] value)
+            {
+                
+                yield break;
+            }
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTEncryptedClaims_nullable(BTTEncryptedClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims?' to 'float[]'.");
+                
+            }
+            BTTEncryptedClaims? ITypeConverter<float[]>.ConvertTo_BTTEncryptedClaims_nullable(float[] value)
+            {
+                return TypeConverter<BTTEncryptedClaims?>.ConvertFrom_float_Array_150(value);
+            }
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTEncryptedClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptedClaims?> ITypeConverter<float[]>.Enumerate_BTTEncryptedClaims_nullable(float[] value)
+            {
+                
+                yield break;
+            }
+            float[] ITypeConverter<float[]>.ConvertFrom_BTTNFE_N4K_Claims_nullable(BTTNFE_N4K_Claims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims?' to 'float[]'.");
+                
+            }
+            BTTNFE_N4K_Claims? ITypeConverter<float[]>.ConvertTo_BTTNFE_N4K_Claims_nullable(float[] value)
+            {
+                return TypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_float_Array_150(value);
+            }
+            TypeConversionAction ITypeConverter<float[]>.GetConversionActionTo_BTTNFE_N4K_Claims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Claims?> ITypeConverter<float[]>.Enumerate_BTTNFE_N4K_Claims_nullable(float[] value)
             {
                 
                 yield break;
@@ -4740,6 +6139,33 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            List<long> ITypeConverter<List<long>>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'List<long>'.");
+                
+            }
+            float ITypeConverter<List<long>>.ConvertTo_float(List<long> value)
+            {
+                return TypeConverter<float>.ConvertFrom_List_long(value);
+            }
+            TypeConversionAction ITypeConverter<List<long>>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<List<long>>.Enumerate_float(List<long> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<float>.ConvertFrom_long(element);
+                
+                yield break;
+            }
             List<long> ITypeConverter<List<long>>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -4817,17 +6243,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            List<long> ITypeConverter<List<long>>.ConvertFrom_int_Array_150(int[] value)
+            List<long> ITypeConverter<List<long>>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                return TypeConverter<int[]>.Enumerate_long(value).ToList();
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'List<long>'.");
                 
             }
-            int[] ITypeConverter<List<long>>.ConvertTo_int_Array_150(List<long> value)
+            float[] ITypeConverter<List<long>>.ConvertTo_float_Array_150(List<long> value)
             {
-                return TypeConverter<int[]>.ConvertFrom_List_long(value);
+                return TypeConverter<float[]>.ConvertFrom_List_long(value);
             }
-            TypeConversionAction ITypeConverter<List<long>>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<List<long>>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4836,7 +6262,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<List<long>>.Enumerate_int_Array_150(List<long> value)
+            IEnumerable<float[]> ITypeConverter<List<long>>.Enumerate_float_Array_150(List<long> value)
             {
                 
                 yield break;
@@ -5262,17 +6688,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            List<long> ITypeConverter<List<long>>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            List<long> ITypeConverter<List<long>>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'List<long>'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'List<long>'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<List<long>>.ConvertTo_BTTNFEBodyPart(List<long> value)
+            BTTN4KBodyPart ITypeConverter<List<long>>.ConvertTo_BTTN4KBodyPart(List<long> value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_List_long(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_List_long(value);
             }
-            TypeConversionAction ITypeConverter<List<long>>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<List<long>>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -5281,7 +6707,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<List<long>>.Enumerate_BTTNFEBodyPart(List<long> value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<List<long>>.Enumerate_BTTN4KBodyPart(List<long> value)
+            {
+                
+                yield break;
+            }
+            List<long> ITypeConverter<List<long>>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'List<long>'.");
+                
+            }
+            BTTN4KMood ITypeConverter<List<long>>.ConvertTo_BTTN4KMood(List<long> value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_List_long(value);
+            }
+            TypeConversionAction ITypeConverter<List<long>>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<List<long>>.Enumerate_BTTN4KMood(List<long> value)
+            {
+                
+                yield break;
+            }
+            List<long> ITypeConverter<List<long>>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'List<long>'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<List<long>>.ConvertTo_BTTN4KPurpose(List<long> value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_List_long(value);
+            }
+            TypeConversionAction ITypeConverter<List<long>>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<List<long>>.Enumerate_BTTN4KPurpose(List<long> value)
+            {
+                
+                yield break;
+            }
+            List<long> ITypeConverter<List<long>>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'List<long>'.");
+                
+            }
+            BTTN4KType ITypeConverter<List<long>>.ConvertTo_BTTN4KType(List<long> value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_List_long(value);
+            }
+            TypeConversionAction ITypeConverter<List<long>>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<List<long>>.Enumerate_BTTN4KType(List<long> value)
             {
                 
                 yield break;
@@ -5499,6 +6997,37 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_float(float value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_float(value));
+                    return intermediate_result;
+                }
+                
+            }
+            float ITypeConverter<List<string>>.ConvertTo_float(List<string> value)
+            {
+                return TypeConverter<float>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<List<string>>.Enumerate_float(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<float>.ConvertFrom_string(element);
+                
+                yield break;
+            }
             List<string> ITypeConverter<List<string>>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -5583,21 +7112,21 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            List<string> ITypeConverter<List<string>>.ConvertFrom_int_Array_150(int[] value)
+            List<string> ITypeConverter<List<string>>.ConvertFrom_float_Array_150(float[] value)
             {
                 
                 {
                     List<string> intermediate_result = new List<string>();
-                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_int_Array_150(value));
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_float_Array_150(value));
                     return intermediate_result;
                 }
                 
             }
-            int[] ITypeConverter<List<string>>.ConvertTo_int_Array_150(List<string> value)
+            float[] ITypeConverter<List<string>>.ConvertTo_float_Array_150(List<string> value)
             {
-                return TypeConverter<int[]>.ConvertFrom_List_string(value);
+                return TypeConverter<float[]>.ConvertFrom_List_string(value);
             }
-            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -5606,11 +7135,11 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<List<string>>.Enumerate_int_Array_150(List<string> value)
+            IEnumerable<float[]> ITypeConverter<List<string>>.Enumerate_float_Array_150(List<string> value)
             {
                 
                 foreach (var element in value)
-                    yield return TypeConverter<int[]>.ConvertFrom_string(element);
+                    yield return TypeConverter<float[]>.ConvertFrom_string(element);
                 
                 yield break;
             }
@@ -6143,21 +7672,21 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            List<string> ITypeConverter<List<string>>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            List<string> ITypeConverter<List<string>>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
                 {
                     List<string> intermediate_result = new List<string>();
-                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_BTTNFEBodyPart(value));
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_BTTN4KBodyPart(value));
                     return intermediate_result;
                 }
                 
             }
-            BTTNFEBodyPart ITypeConverter<List<string>>.ConvertTo_BTTNFEBodyPart(List<string> value)
+            BTTN4KBodyPart ITypeConverter<List<string>>.ConvertTo_BTTN4KBodyPart(List<string> value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_List_string(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_List_string(value);
             }
-            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -6166,11 +7695,104 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<List<string>>.Enumerate_BTTNFEBodyPart(List<string> value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<List<string>>.Enumerate_BTTN4KBodyPart(List<string> value)
             {
                 
                 foreach (var element in value)
-                    yield return TypeConverter<BTTNFEBodyPart>.ConvertFrom_string(element);
+                    yield return TypeConverter<BTTN4KBodyPart>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_BTTN4KMood(value));
+                    return intermediate_result;
+                }
+                
+            }
+            BTTN4KMood ITypeConverter<List<string>>.ConvertTo_BTTN4KMood(List<string> value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<List<string>>.Enumerate_BTTN4KMood(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<BTTN4KMood>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_BTTN4KPurpose(value));
+                    return intermediate_result;
+                }
+                
+            }
+            BTTN4KPurpose ITypeConverter<List<string>>.ConvertTo_BTTN4KPurpose(List<string> value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<List<string>>.Enumerate_BTTN4KPurpose(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<BTTN4KPurpose>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_BTTN4KType(value));
+                    return intermediate_result;
+                }
+                
+            }
+            BTTN4KType ITypeConverter<List<string>>.ConvertTo_BTTN4KType(List<string> value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<List<string>>.Enumerate_BTTN4KType(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<BTTN4KType>.ConvertFrom_string(element);
                 
                 yield break;
             }
@@ -6407,6 +8029,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            List<BTTKeyValuePair> ITypeConverter<List<BTTKeyValuePair>>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'List<BTTKeyValuePair>'.");
+                
+            }
+            float ITypeConverter<List<BTTKeyValuePair>>.ConvertTo_float(List<BTTKeyValuePair> value)
+            {
+                return TypeConverter<float>.ConvertFrom_List_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<BTTKeyValuePair>>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<List<BTTKeyValuePair>>.Enumerate_float(List<BTTKeyValuePair> value)
+            {
+                
+                yield break;
+            }
             List<BTTKeyValuePair> ITypeConverter<List<BTTKeyValuePair>>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -6484,17 +8130,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            List<BTTKeyValuePair> ITypeConverter<List<BTTKeyValuePair>>.ConvertFrom_int_Array_150(int[] value)
+            List<BTTKeyValuePair> ITypeConverter<List<BTTKeyValuePair>>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'List<BTTKeyValuePair>'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'List<BTTKeyValuePair>'.");
                 
             }
-            int[] ITypeConverter<List<BTTKeyValuePair>>.ConvertTo_int_Array_150(List<BTTKeyValuePair> value)
+            float[] ITypeConverter<List<BTTKeyValuePair>>.ConvertTo_float_Array_150(List<BTTKeyValuePair> value)
             {
-                return TypeConverter<int[]>.ConvertFrom_List_BTTKeyValuePair(value);
+                return TypeConverter<float[]>.ConvertFrom_List_BTTKeyValuePair(value);
             }
-            TypeConversionAction ITypeConverter<List<BTTKeyValuePair>>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<List<BTTKeyValuePair>>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -6503,7 +8149,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<List<BTTKeyValuePair>>.Enumerate_int_Array_150(List<BTTKeyValuePair> value)
+            IEnumerable<float[]> ITypeConverter<List<BTTKeyValuePair>>.Enumerate_float_Array_150(List<BTTKeyValuePair> value)
             {
                 
                 yield break;
@@ -6936,17 +8582,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            List<BTTKeyValuePair> ITypeConverter<List<BTTKeyValuePair>>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            List<BTTKeyValuePair> ITypeConverter<List<BTTKeyValuePair>>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'List<BTTKeyValuePair>'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'List<BTTKeyValuePair>'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<List<BTTKeyValuePair>>.ConvertTo_BTTNFEBodyPart(List<BTTKeyValuePair> value)
+            BTTN4KBodyPart ITypeConverter<List<BTTKeyValuePair>>.ConvertTo_BTTN4KBodyPart(List<BTTKeyValuePair> value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_List_BTTKeyValuePair(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_List_BTTKeyValuePair(value);
             }
-            TypeConversionAction ITypeConverter<List<BTTKeyValuePair>>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<List<BTTKeyValuePair>>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -6955,7 +8601,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<List<BTTKeyValuePair>>.Enumerate_BTTNFEBodyPart(List<BTTKeyValuePair> value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<List<BTTKeyValuePair>>.Enumerate_BTTN4KBodyPart(List<BTTKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<BTTKeyValuePair> ITypeConverter<List<BTTKeyValuePair>>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'List<BTTKeyValuePair>'.");
+                
+            }
+            BTTN4KMood ITypeConverter<List<BTTKeyValuePair>>.ConvertTo_BTTN4KMood(List<BTTKeyValuePair> value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_List_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<BTTKeyValuePair>>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<List<BTTKeyValuePair>>.Enumerate_BTTN4KMood(List<BTTKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<BTTKeyValuePair> ITypeConverter<List<BTTKeyValuePair>>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'List<BTTKeyValuePair>'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<List<BTTKeyValuePair>>.ConvertTo_BTTN4KPurpose(List<BTTKeyValuePair> value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_List_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<BTTKeyValuePair>>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<List<BTTKeyValuePair>>.Enumerate_BTTN4KPurpose(List<BTTKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<BTTKeyValuePair> ITypeConverter<List<BTTKeyValuePair>>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'List<BTTKeyValuePair>'.");
+                
+            }
+            BTTN4KType ITypeConverter<List<BTTKeyValuePair>>.ConvertTo_BTTN4KType(List<BTTKeyValuePair> value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_List_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<BTTKeyValuePair>>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<List<BTTKeyValuePair>>.Enumerate_BTTN4KType(List<BTTKeyValuePair> value)
             {
                 
                 yield break;
@@ -7155,6 +8873,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTClaim ITypeConverter<BTTClaim>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTClaim'.");
+                
+            }
+            float ITypeConverter<BTTClaim>.ConvertTo_float(BTTClaim value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTClaim(value);
+            }
+            TypeConversionAction ITypeConverter<BTTClaim>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTClaim>.Enumerate_float(BTTClaim value)
+            {
+                
+                yield break;
+            }
             BTTClaim ITypeConverter<BTTClaim>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -7220,17 +8962,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTClaim ITypeConverter<BTTClaim>.ConvertFrom_int_Array_150(int[] value)
+            BTTClaim ITypeConverter<BTTClaim>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTClaim'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTClaim'.");
                 
             }
-            int[] ITypeConverter<BTTClaim>.ConvertTo_int_Array_150(BTTClaim value)
+            float[] ITypeConverter<BTTClaim>.ConvertTo_float_Array_150(BTTClaim value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTClaim(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTClaim(value);
             }
-            TypeConversionAction ITypeConverter<BTTClaim>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTClaim>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -7239,7 +8981,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTClaim>.Enumerate_int_Array_150(BTTClaim value)
+            IEnumerable<float[]> ITypeConverter<BTTClaim>.Enumerate_float_Array_150(BTTClaim value)
             {
                 
                 yield break;
@@ -7652,17 +9394,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTClaim ITypeConverter<BTTClaim>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTClaim ITypeConverter<BTTClaim>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTClaim'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTClaim'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTClaim>.ConvertTo_BTTNFEBodyPart(BTTClaim value)
+            BTTN4KBodyPart ITypeConverter<BTTClaim>.ConvertTo_BTTN4KBodyPart(BTTClaim value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTClaim(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTClaim(value);
             }
-            TypeConversionAction ITypeConverter<BTTClaim>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTClaim>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -7671,7 +9413,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTClaim>.Enumerate_BTTNFEBodyPart(BTTClaim value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTClaim>.Enumerate_BTTN4KBodyPart(BTTClaim value)
+            {
+                
+                yield break;
+            }
+            BTTClaim ITypeConverter<BTTClaim>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTClaim'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTClaim>.ConvertTo_BTTN4KMood(BTTClaim value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTClaim(value);
+            }
+            TypeConversionAction ITypeConverter<BTTClaim>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTClaim>.Enumerate_BTTN4KMood(BTTClaim value)
+            {
+                
+                yield break;
+            }
+            BTTClaim ITypeConverter<BTTClaim>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTClaim'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTClaim>.ConvertTo_BTTN4KPurpose(BTTClaim value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTClaim(value);
+            }
+            TypeConversionAction ITypeConverter<BTTClaim>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTClaim>.Enumerate_BTTN4KPurpose(BTTClaim value)
+            {
+                
+                yield break;
+            }
+            BTTClaim ITypeConverter<BTTClaim>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTClaim'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTClaim>.ConvertTo_BTTN4KType(BTTClaim value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTClaim(value);
+            }
+            TypeConversionAction ITypeConverter<BTTClaim>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTClaim>.Enumerate_BTTN4KType(BTTClaim value)
             {
                 
                 yield break;
@@ -7868,6 +9682,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTEncryptedClaims ITypeConverter<BTTEncryptedClaims>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTEncryptedClaims'.");
+                
+            }
+            float ITypeConverter<BTTEncryptedClaims>.ConvertTo_float(BTTEncryptedClaims value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTEncryptedClaims>.Enumerate_float(BTTEncryptedClaims value)
+            {
+                
+                yield break;
+            }
             BTTEncryptedClaims ITypeConverter<BTTEncryptedClaims>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -7933,17 +9771,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTEncryptedClaims ITypeConverter<BTTEncryptedClaims>.ConvertFrom_int_Array_150(int[] value)
+            BTTEncryptedClaims ITypeConverter<BTTEncryptedClaims>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTEncryptedClaims'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTEncryptedClaims'.");
                 
             }
-            int[] ITypeConverter<BTTEncryptedClaims>.ConvertTo_int_Array_150(BTTEncryptedClaims value)
+            float[] ITypeConverter<BTTEncryptedClaims>.ConvertTo_float_Array_150(BTTEncryptedClaims value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTEncryptedClaims(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTEncryptedClaims(value);
             }
-            TypeConversionAction ITypeConverter<BTTEncryptedClaims>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -7952,7 +9790,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTEncryptedClaims>.Enumerate_int_Array_150(BTTEncryptedClaims value)
+            IEnumerable<float[]> ITypeConverter<BTTEncryptedClaims>.Enumerate_float_Array_150(BTTEncryptedClaims value)
             {
                 
                 yield break;
@@ -8365,17 +10203,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTEncryptedClaims ITypeConverter<BTTEncryptedClaims>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTEncryptedClaims ITypeConverter<BTTEncryptedClaims>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTEncryptedClaims'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTEncryptedClaims'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTEncryptedClaims>.ConvertTo_BTTNFEBodyPart(BTTEncryptedClaims value)
+            BTTN4KBodyPart ITypeConverter<BTTEncryptedClaims>.ConvertTo_BTTN4KBodyPart(BTTEncryptedClaims value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTEncryptedClaims(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTEncryptedClaims(value);
             }
-            TypeConversionAction ITypeConverter<BTTEncryptedClaims>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -8384,7 +10222,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTEncryptedClaims>.Enumerate_BTTNFEBodyPart(BTTEncryptedClaims value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTEncryptedClaims>.Enumerate_BTTN4KBodyPart(BTTEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            BTTEncryptedClaims ITypeConverter<BTTEncryptedClaims>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTEncryptedClaims'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTEncryptedClaims>.ConvertTo_BTTN4KMood(BTTEncryptedClaims value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTEncryptedClaims>.Enumerate_BTTN4KMood(BTTEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            BTTEncryptedClaims ITypeConverter<BTTEncryptedClaims>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTEncryptedClaims'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTEncryptedClaims>.ConvertTo_BTTN4KPurpose(BTTEncryptedClaims value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTEncryptedClaims>.Enumerate_BTTN4KPurpose(BTTEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            BTTEncryptedClaims ITypeConverter<BTTEncryptedClaims>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTEncryptedClaims'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTEncryptedClaims>.ConvertTo_BTTN4KType(BTTEncryptedClaims value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTEncryptedClaims>.Enumerate_BTTN4KType(BTTEncryptedClaims value)
             {
                 
                 yield break;
@@ -8581,6 +10491,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTGenericCredential_Envelope ITypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTGenericCredential_Envelope'.");
+                
+            }
+            float ITypeConverter<BTTGenericCredential_Envelope>.ConvertTo_float(BTTGenericCredential_Envelope value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTGenericCredential_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_Envelope>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTGenericCredential_Envelope>.Enumerate_float(BTTGenericCredential_Envelope value)
+            {
+                
+                yield break;
+            }
             BTTGenericCredential_Envelope ITypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -8646,17 +10580,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTGenericCredential_Envelope ITypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_int_Array_150(int[] value)
+            BTTGenericCredential_Envelope ITypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTGenericCredential_Envelope'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTGenericCredential_Envelope'.");
                 
             }
-            int[] ITypeConverter<BTTGenericCredential_Envelope>.ConvertTo_int_Array_150(BTTGenericCredential_Envelope value)
+            float[] ITypeConverter<BTTGenericCredential_Envelope>.ConvertTo_float_Array_150(BTTGenericCredential_Envelope value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTGenericCredential_Envelope(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTGenericCredential_Envelope(value);
             }
-            TypeConversionAction ITypeConverter<BTTGenericCredential_Envelope>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTGenericCredential_Envelope>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -8665,7 +10599,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTGenericCredential_Envelope>.Enumerate_int_Array_150(BTTGenericCredential_Envelope value)
+            IEnumerable<float[]> ITypeConverter<BTTGenericCredential_Envelope>.Enumerate_float_Array_150(BTTGenericCredential_Envelope value)
             {
                 
                 yield break;
@@ -9078,17 +11012,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTGenericCredential_Envelope ITypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTGenericCredential_Envelope ITypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTGenericCredential_Envelope'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTGenericCredential_Envelope'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTGenericCredential_Envelope>.ConvertTo_BTTNFEBodyPart(BTTGenericCredential_Envelope value)
+            BTTN4KBodyPart ITypeConverter<BTTGenericCredential_Envelope>.ConvertTo_BTTN4KBodyPart(BTTGenericCredential_Envelope value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTGenericCredential_Envelope(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTGenericCredential_Envelope(value);
             }
-            TypeConversionAction ITypeConverter<BTTGenericCredential_Envelope>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTGenericCredential_Envelope>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -9097,7 +11031,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTGenericCredential_Envelope>.Enumerate_BTTNFEBodyPart(BTTGenericCredential_Envelope value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTGenericCredential_Envelope>.Enumerate_BTTN4KBodyPart(BTTGenericCredential_Envelope value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_Envelope ITypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTGenericCredential_Envelope'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTGenericCredential_Envelope>.ConvertTo_BTTN4KMood(BTTGenericCredential_Envelope value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTGenericCredential_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_Envelope>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTGenericCredential_Envelope>.Enumerate_BTTN4KMood(BTTGenericCredential_Envelope value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_Envelope ITypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTGenericCredential_Envelope'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTGenericCredential_Envelope>.ConvertTo_BTTN4KPurpose(BTTGenericCredential_Envelope value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTGenericCredential_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_Envelope>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTGenericCredential_Envelope>.Enumerate_BTTN4KPurpose(BTTGenericCredential_Envelope value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_Envelope ITypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTGenericCredential_Envelope'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTGenericCredential_Envelope>.ConvertTo_BTTN4KType(BTTGenericCredential_Envelope value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTGenericCredential_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_Envelope>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTGenericCredential_Envelope>.Enumerate_BTTN4KType(BTTGenericCredential_Envelope value)
             {
                 
                 yield break;
@@ -9294,6 +11300,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTGenericCredential_EnvelopeContent'.");
+                
+            }
+            float ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertTo_float(BTTGenericCredential_EnvelopeContent value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTGenericCredential_EnvelopeContent(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeContent>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTGenericCredential_EnvelopeContent>.Enumerate_float(BTTGenericCredential_EnvelopeContent value)
+            {
+                
+                yield break;
+            }
             BTTGenericCredential_EnvelopeContent ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -9359,17 +11389,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_int_Array_150(int[] value)
+            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTGenericCredential_EnvelopeContent'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTGenericCredential_EnvelopeContent'.");
                 
             }
-            int[] ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertTo_int_Array_150(BTTGenericCredential_EnvelopeContent value)
+            float[] ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertTo_float_Array_150(BTTGenericCredential_EnvelopeContent value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTGenericCredential_EnvelopeContent(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTGenericCredential_EnvelopeContent(value);
             }
-            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeContent>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeContent>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -9378,7 +11408,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTGenericCredential_EnvelopeContent>.Enumerate_int_Array_150(BTTGenericCredential_EnvelopeContent value)
+            IEnumerable<float[]> ITypeConverter<BTTGenericCredential_EnvelopeContent>.Enumerate_float_Array_150(BTTGenericCredential_EnvelopeContent value)
             {
                 
                 yield break;
@@ -9791,17 +11821,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTGenericCredential_EnvelopeContent'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTGenericCredential_EnvelopeContent'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertTo_BTTNFEBodyPart(BTTGenericCredential_EnvelopeContent value)
+            BTTN4KBodyPart ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertTo_BTTN4KBodyPart(BTTGenericCredential_EnvelopeContent value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTGenericCredential_EnvelopeContent(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTGenericCredential_EnvelopeContent(value);
             }
-            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeContent>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeContent>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -9810,7 +11840,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTGenericCredential_EnvelopeContent>.Enumerate_BTTNFEBodyPart(BTTGenericCredential_EnvelopeContent value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTGenericCredential_EnvelopeContent>.Enumerate_BTTN4KBodyPart(BTTGenericCredential_EnvelopeContent value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTGenericCredential_EnvelopeContent'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertTo_BTTN4KMood(BTTGenericCredential_EnvelopeContent value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTGenericCredential_EnvelopeContent(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeContent>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTGenericCredential_EnvelopeContent>.Enumerate_BTTN4KMood(BTTGenericCredential_EnvelopeContent value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTGenericCredential_EnvelopeContent'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertTo_BTTN4KPurpose(BTTGenericCredential_EnvelopeContent value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTGenericCredential_EnvelopeContent(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeContent>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTGenericCredential_EnvelopeContent>.Enumerate_BTTN4KPurpose(BTTGenericCredential_EnvelopeContent value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTGenericCredential_EnvelopeContent'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertTo_BTTN4KType(BTTGenericCredential_EnvelopeContent value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTGenericCredential_EnvelopeContent(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeContent>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTGenericCredential_EnvelopeContent>.Enumerate_BTTN4KType(BTTGenericCredential_EnvelopeContent value)
             {
                 
                 yield break;
@@ -10007,6 +12109,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTGenericCredential_EnvelopeSeal'.");
+                
+            }
+            float ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertTo_float(BTTGenericCredential_EnvelopeSeal value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeSeal>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTGenericCredential_EnvelopeSeal>.Enumerate_float(BTTGenericCredential_EnvelopeSeal value)
+            {
+                
+                yield break;
+            }
             BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -10072,17 +12198,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_int_Array_150(int[] value)
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTGenericCredential_EnvelopeSeal'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTGenericCredential_EnvelopeSeal'.");
                 
             }
-            int[] ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertTo_int_Array_150(BTTGenericCredential_EnvelopeSeal value)
+            float[] ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertTo_float_Array_150(BTTGenericCredential_EnvelopeSeal value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(value);
             }
-            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeSeal>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeSeal>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -10091,7 +12217,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTGenericCredential_EnvelopeSeal>.Enumerate_int_Array_150(BTTGenericCredential_EnvelopeSeal value)
+            IEnumerable<float[]> ITypeConverter<BTTGenericCredential_EnvelopeSeal>.Enumerate_float_Array_150(BTTGenericCredential_EnvelopeSeal value)
             {
                 
                 yield break;
@@ -10504,17 +12630,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTGenericCredential_EnvelopeSeal'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTGenericCredential_EnvelopeSeal'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertTo_BTTNFEBodyPart(BTTGenericCredential_EnvelopeSeal value)
+            BTTN4KBodyPart ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertTo_BTTN4KBodyPart(BTTGenericCredential_EnvelopeSeal value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(value);
             }
-            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeSeal>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeSeal>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -10523,7 +12649,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTGenericCredential_EnvelopeSeal>.Enumerate_BTTNFEBodyPart(BTTGenericCredential_EnvelopeSeal value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTGenericCredential_EnvelopeSeal>.Enumerate_BTTN4KBodyPart(BTTGenericCredential_EnvelopeSeal value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTGenericCredential_EnvelopeSeal'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertTo_BTTN4KMood(BTTGenericCredential_EnvelopeSeal value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeSeal>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTGenericCredential_EnvelopeSeal>.Enumerate_BTTN4KMood(BTTGenericCredential_EnvelopeSeal value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTGenericCredential_EnvelopeSeal'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertTo_BTTN4KPurpose(BTTGenericCredential_EnvelopeSeal value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeSeal>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTGenericCredential_EnvelopeSeal>.Enumerate_BTTN4KPurpose(BTTGenericCredential_EnvelopeSeal value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTGenericCredential_EnvelopeSeal'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertTo_BTTN4KType(BTTGenericCredential_EnvelopeSeal value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_EnvelopeSeal>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTGenericCredential_EnvelopeSeal>.Enumerate_BTTN4KType(BTTGenericCredential_EnvelopeSeal value)
             {
                 
                 yield break;
@@ -10720,6 +12918,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTGenericCredential_PackingLabel ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTGenericCredential_PackingLabel'.");
+                
+            }
+            float ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertTo_float(BTTGenericCredential_PackingLabel value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTGenericCredential_PackingLabel(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_PackingLabel>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTGenericCredential_PackingLabel>.Enumerate_float(BTTGenericCredential_PackingLabel value)
+            {
+                
+                yield break;
+            }
             BTTGenericCredential_PackingLabel ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -10785,17 +13007,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTGenericCredential_PackingLabel ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_int_Array_150(int[] value)
+            BTTGenericCredential_PackingLabel ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTGenericCredential_PackingLabel'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTGenericCredential_PackingLabel'.");
                 
             }
-            int[] ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertTo_int_Array_150(BTTGenericCredential_PackingLabel value)
+            float[] ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertTo_float_Array_150(BTTGenericCredential_PackingLabel value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTGenericCredential_PackingLabel(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTGenericCredential_PackingLabel(value);
             }
-            TypeConversionAction ITypeConverter<BTTGenericCredential_PackingLabel>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTGenericCredential_PackingLabel>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -10804,7 +13026,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTGenericCredential_PackingLabel>.Enumerate_int_Array_150(BTTGenericCredential_PackingLabel value)
+            IEnumerable<float[]> ITypeConverter<BTTGenericCredential_PackingLabel>.Enumerate_float_Array_150(BTTGenericCredential_PackingLabel value)
             {
                 
                 yield break;
@@ -11217,17 +13439,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTGenericCredential_PackingLabel ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTGenericCredential_PackingLabel ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTGenericCredential_PackingLabel'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTGenericCredential_PackingLabel'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertTo_BTTNFEBodyPart(BTTGenericCredential_PackingLabel value)
+            BTTN4KBodyPart ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertTo_BTTN4KBodyPart(BTTGenericCredential_PackingLabel value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTGenericCredential_PackingLabel(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTGenericCredential_PackingLabel(value);
             }
-            TypeConversionAction ITypeConverter<BTTGenericCredential_PackingLabel>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTGenericCredential_PackingLabel>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -11236,7 +13458,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTGenericCredential_PackingLabel>.Enumerate_BTTNFEBodyPart(BTTGenericCredential_PackingLabel value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTGenericCredential_PackingLabel>.Enumerate_BTTN4KBodyPart(BTTGenericCredential_PackingLabel value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_PackingLabel ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTGenericCredential_PackingLabel'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertTo_BTTN4KMood(BTTGenericCredential_PackingLabel value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTGenericCredential_PackingLabel(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_PackingLabel>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTGenericCredential_PackingLabel>.Enumerate_BTTN4KMood(BTTGenericCredential_PackingLabel value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_PackingLabel ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTGenericCredential_PackingLabel'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertTo_BTTN4KPurpose(BTTGenericCredential_PackingLabel value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTGenericCredential_PackingLabel(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_PackingLabel>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTGenericCredential_PackingLabel>.Enumerate_BTTN4KPurpose(BTTGenericCredential_PackingLabel value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredential_PackingLabel ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTGenericCredential_PackingLabel'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTGenericCredential_PackingLabel>.ConvertTo_BTTN4KType(BTTGenericCredential_PackingLabel value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTGenericCredential_PackingLabel(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredential_PackingLabel>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTGenericCredential_PackingLabel>.Enumerate_BTTN4KType(BTTGenericCredential_PackingLabel value)
             {
                 
                 yield break;
@@ -11433,6 +13727,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTKeyValuePair ITypeConverter<BTTKeyValuePair>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTKeyValuePair'.");
+                
+            }
+            float ITypeConverter<BTTKeyValuePair>.ConvertTo_float(BTTKeyValuePair value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<BTTKeyValuePair>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTKeyValuePair>.Enumerate_float(BTTKeyValuePair value)
+            {
+                
+                yield break;
+            }
             BTTKeyValuePair ITypeConverter<BTTKeyValuePair>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -11498,17 +13816,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTKeyValuePair ITypeConverter<BTTKeyValuePair>.ConvertFrom_int_Array_150(int[] value)
+            BTTKeyValuePair ITypeConverter<BTTKeyValuePair>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTKeyValuePair'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTKeyValuePair'.");
                 
             }
-            int[] ITypeConverter<BTTKeyValuePair>.ConvertTo_int_Array_150(BTTKeyValuePair value)
+            float[] ITypeConverter<BTTKeyValuePair>.ConvertTo_float_Array_150(BTTKeyValuePair value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTKeyValuePair(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTKeyValuePair(value);
             }
-            TypeConversionAction ITypeConverter<BTTKeyValuePair>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTKeyValuePair>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -11517,7 +13835,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTKeyValuePair>.Enumerate_int_Array_150(BTTKeyValuePair value)
+            IEnumerable<float[]> ITypeConverter<BTTKeyValuePair>.Enumerate_float_Array_150(BTTKeyValuePair value)
             {
                 
                 yield break;
@@ -11930,17 +14248,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTKeyValuePair ITypeConverter<BTTKeyValuePair>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTKeyValuePair ITypeConverter<BTTKeyValuePair>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTKeyValuePair'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTKeyValuePair'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTKeyValuePair>.ConvertTo_BTTNFEBodyPart(BTTKeyValuePair value)
+            BTTN4KBodyPart ITypeConverter<BTTKeyValuePair>.ConvertTo_BTTN4KBodyPart(BTTKeyValuePair value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTKeyValuePair(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTKeyValuePair(value);
             }
-            TypeConversionAction ITypeConverter<BTTKeyValuePair>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTKeyValuePair>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -11949,7 +14267,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTKeyValuePair>.Enumerate_BTTNFEBodyPart(BTTKeyValuePair value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTKeyValuePair>.Enumerate_BTTN4KBodyPart(BTTKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            BTTKeyValuePair ITypeConverter<BTTKeyValuePair>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTKeyValuePair'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTKeyValuePair>.ConvertTo_BTTN4KMood(BTTKeyValuePair value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<BTTKeyValuePair>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTKeyValuePair>.Enumerate_BTTN4KMood(BTTKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            BTTKeyValuePair ITypeConverter<BTTKeyValuePair>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTKeyValuePair'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTKeyValuePair>.ConvertTo_BTTN4KPurpose(BTTKeyValuePair value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<BTTKeyValuePair>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTKeyValuePair>.Enumerate_BTTN4KPurpose(BTTKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            BTTKeyValuePair ITypeConverter<BTTKeyValuePair>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTKeyValuePair'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTKeyValuePair>.ConvertTo_BTTN4KType(BTTKeyValuePair value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<BTTKeyValuePair>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTKeyValuePair>.Enumerate_BTTN4KType(BTTKeyValuePair value)
             {
                 
                 yield break;
@@ -12146,6 +14536,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTNFE_N4K_Claims ITypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTNFE_N4K_Claims'.");
+                
+            }
+            float ITypeConverter<BTTNFE_N4K_Claims>.ConvertTo_float(BTTNFE_N4K_Claims value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTNFE_N4K_Claims(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTNFE_N4K_Claims>.Enumerate_float(BTTNFE_N4K_Claims value)
+            {
+                
+                yield break;
+            }
             BTTNFE_N4K_Claims ITypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -12211,17 +14625,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFE_N4K_Claims ITypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_int_Array_150(int[] value)
+            BTTNFE_N4K_Claims ITypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTNFE_N4K_Claims'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTNFE_N4K_Claims'.");
                 
             }
-            int[] ITypeConverter<BTTNFE_N4K_Claims>.ConvertTo_int_Array_150(BTTNFE_N4K_Claims value)
+            float[] ITypeConverter<BTTNFE_N4K_Claims>.ConvertTo_float_Array_150(BTTNFE_N4K_Claims value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTNFE_N4K_Claims(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTNFE_N4K_Claims(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -12230,7 +14644,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTNFE_N4K_Claims>.Enumerate_int_Array_150(BTTNFE_N4K_Claims value)
+            IEnumerable<float[]> ITypeConverter<BTTNFE_N4K_Claims>.Enumerate_float_Array_150(BTTNFE_N4K_Claims value)
             {
                 
                 yield break;
@@ -12643,17 +15057,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFE_N4K_Claims ITypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTNFE_N4K_Claims ITypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTNFE_N4K_Claims'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTNFE_N4K_Claims'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFE_N4K_Claims>.ConvertTo_BTTNFEBodyPart(BTTNFE_N4K_Claims value)
+            BTTN4KBodyPart ITypeConverter<BTTNFE_N4K_Claims>.ConvertTo_BTTN4KBodyPart(BTTNFE_N4K_Claims value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFE_N4K_Claims(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTNFE_N4K_Claims(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -12662,7 +15076,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTNFE_N4K_Claims>.Enumerate_BTTNFEBodyPart(BTTNFE_N4K_Claims value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTNFE_N4K_Claims>.Enumerate_BTTN4KBodyPart(BTTNFE_N4K_Claims value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_Claims ITypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTNFE_N4K_Claims'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTNFE_N4K_Claims>.ConvertTo_BTTN4KMood(BTTNFE_N4K_Claims value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTNFE_N4K_Claims(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTNFE_N4K_Claims>.Enumerate_BTTN4KMood(BTTNFE_N4K_Claims value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_Claims ITypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTNFE_N4K_Claims'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTNFE_N4K_Claims>.ConvertTo_BTTN4KPurpose(BTTNFE_N4K_Claims value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTNFE_N4K_Claims(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTNFE_N4K_Claims>.Enumerate_BTTN4KPurpose(BTTNFE_N4K_Claims value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_Claims ITypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTNFE_N4K_Claims'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTNFE_N4K_Claims>.ConvertTo_BTTN4KType(BTTNFE_N4K_Claims value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTNFE_N4K_Claims(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTNFE_N4K_Claims>.Enumerate_BTTN4KType(BTTNFE_N4K_Claims value)
             {
                 
                 yield break;
@@ -12859,6 +15345,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTNFE_N4K_Envelope ITypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTNFE_N4K_Envelope'.");
+                
+            }
+            float ITypeConverter<BTTNFE_N4K_Envelope>.ConvertTo_float(BTTNFE_N4K_Envelope value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTNFE_N4K_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Envelope>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTNFE_N4K_Envelope>.Enumerate_float(BTTNFE_N4K_Envelope value)
+            {
+                
+                yield break;
+            }
             BTTNFE_N4K_Envelope ITypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -12924,17 +15434,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFE_N4K_Envelope ITypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_int_Array_150(int[] value)
+            BTTNFE_N4K_Envelope ITypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTNFE_N4K_Envelope'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTNFE_N4K_Envelope'.");
                 
             }
-            int[] ITypeConverter<BTTNFE_N4K_Envelope>.ConvertTo_int_Array_150(BTTNFE_N4K_Envelope value)
+            float[] ITypeConverter<BTTNFE_N4K_Envelope>.ConvertTo_float_Array_150(BTTNFE_N4K_Envelope value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTNFE_N4K_Envelope(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTNFE_N4K_Envelope(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFE_N4K_Envelope>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Envelope>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -12943,7 +15453,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTNFE_N4K_Envelope>.Enumerate_int_Array_150(BTTNFE_N4K_Envelope value)
+            IEnumerable<float[]> ITypeConverter<BTTNFE_N4K_Envelope>.Enumerate_float_Array_150(BTTNFE_N4K_Envelope value)
             {
                 
                 yield break;
@@ -13356,17 +15866,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFE_N4K_Envelope ITypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTNFE_N4K_Envelope ITypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTNFE_N4K_Envelope'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTNFE_N4K_Envelope'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFE_N4K_Envelope>.ConvertTo_BTTNFEBodyPart(BTTNFE_N4K_Envelope value)
+            BTTN4KBodyPart ITypeConverter<BTTNFE_N4K_Envelope>.ConvertTo_BTTN4KBodyPart(BTTNFE_N4K_Envelope value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFE_N4K_Envelope(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTNFE_N4K_Envelope(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFE_N4K_Envelope>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Envelope>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -13375,7 +15885,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTNFE_N4K_Envelope>.Enumerate_BTTNFEBodyPart(BTTNFE_N4K_Envelope value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTNFE_N4K_Envelope>.Enumerate_BTTN4KBodyPart(BTTNFE_N4K_Envelope value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_Envelope ITypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTNFE_N4K_Envelope'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTNFE_N4K_Envelope>.ConvertTo_BTTN4KMood(BTTNFE_N4K_Envelope value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTNFE_N4K_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Envelope>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTNFE_N4K_Envelope>.Enumerate_BTTN4KMood(BTTNFE_N4K_Envelope value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_Envelope ITypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTNFE_N4K_Envelope'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTNFE_N4K_Envelope>.ConvertTo_BTTN4KPurpose(BTTNFE_N4K_Envelope value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTNFE_N4K_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Envelope>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTNFE_N4K_Envelope>.Enumerate_BTTN4KPurpose(BTTNFE_N4K_Envelope value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_Envelope ITypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTNFE_N4K_Envelope'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTNFE_N4K_Envelope>.ConvertTo_BTTN4KType(BTTNFE_N4K_Envelope value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTNFE_N4K_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Envelope>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTNFE_N4K_Envelope>.Enumerate_BTTN4KType(BTTNFE_N4K_Envelope value)
             {
                 
                 yield break;
@@ -13572,6 +16154,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTNFE_N4K_EnvelopeContent'.");
+                
+            }
+            float ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertTo_float(BTTNFE_N4K_EnvelopeContent value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_EnvelopeContent>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTNFE_N4K_EnvelopeContent>.Enumerate_float(BTTNFE_N4K_EnvelopeContent value)
+            {
+                
+                yield break;
+            }
             BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -13637,17 +16243,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_int_Array_150(int[] value)
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTNFE_N4K_EnvelopeContent'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTNFE_N4K_EnvelopeContent'.");
                 
             }
-            int[] ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertTo_int_Array_150(BTTNFE_N4K_EnvelopeContent value)
+            float[] ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertTo_float_Array_150(BTTNFE_N4K_EnvelopeContent value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFE_N4K_EnvelopeContent>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_EnvelopeContent>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -13656,7 +16262,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTNFE_N4K_EnvelopeContent>.Enumerate_int_Array_150(BTTNFE_N4K_EnvelopeContent value)
+            IEnumerable<float[]> ITypeConverter<BTTNFE_N4K_EnvelopeContent>.Enumerate_float_Array_150(BTTNFE_N4K_EnvelopeContent value)
             {
                 
                 yield break;
@@ -14069,17 +16675,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTNFE_N4K_EnvelopeContent'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTNFE_N4K_EnvelopeContent'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertTo_BTTNFEBodyPart(BTTNFE_N4K_EnvelopeContent value)
+            BTTN4KBodyPart ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertTo_BTTN4KBodyPart(BTTNFE_N4K_EnvelopeContent value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFE_N4K_EnvelopeContent>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_EnvelopeContent>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -14088,7 +16694,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTNFE_N4K_EnvelopeContent>.Enumerate_BTTNFEBodyPart(BTTNFE_N4K_EnvelopeContent value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTNFE_N4K_EnvelopeContent>.Enumerate_BTTN4KBodyPart(BTTNFE_N4K_EnvelopeContent value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTNFE_N4K_EnvelopeContent'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertTo_BTTN4KMood(BTTNFE_N4K_EnvelopeContent value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_EnvelopeContent>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTNFE_N4K_EnvelopeContent>.Enumerate_BTTN4KMood(BTTNFE_N4K_EnvelopeContent value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTNFE_N4K_EnvelopeContent'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertTo_BTTN4KPurpose(BTTNFE_N4K_EnvelopeContent value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_EnvelopeContent>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTNFE_N4K_EnvelopeContent>.Enumerate_BTTN4KPurpose(BTTNFE_N4K_EnvelopeContent value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTNFE_N4K_EnvelopeContent'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertTo_BTTN4KType(BTTNFE_N4K_EnvelopeContent value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_EnvelopeContent>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTNFE_N4K_EnvelopeContent>.Enumerate_BTTN4KType(BTTNFE_N4K_EnvelopeContent value)
             {
                 
                 yield break;
@@ -14285,6 +16963,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTNFE_N4K_SealedEnvelope'.");
+                
+            }
+            float ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertTo_float(BTTNFE_N4K_SealedEnvelope value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_SealedEnvelope>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTNFE_N4K_SealedEnvelope>.Enumerate_float(BTTNFE_N4K_SealedEnvelope value)
+            {
+                
+                yield break;
+            }
             BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -14350,17 +17052,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_int_Array_150(int[] value)
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTNFE_N4K_SealedEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTNFE_N4K_SealedEnvelope'.");
                 
             }
-            int[] ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertTo_int_Array_150(BTTNFE_N4K_SealedEnvelope value)
+            float[] ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertTo_float_Array_150(BTTNFE_N4K_SealedEnvelope value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFE_N4K_SealedEnvelope>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_SealedEnvelope>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -14369,7 +17071,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTNFE_N4K_SealedEnvelope>.Enumerate_int_Array_150(BTTNFE_N4K_SealedEnvelope value)
+            IEnumerable<float[]> ITypeConverter<BTTNFE_N4K_SealedEnvelope>.Enumerate_float_Array_150(BTTNFE_N4K_SealedEnvelope value)
             {
                 
                 yield break;
@@ -14782,17 +17484,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTNFE_N4K_SealedEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTNFE_N4K_SealedEnvelope'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertTo_BTTNFEBodyPart(BTTNFE_N4K_SealedEnvelope value)
+            BTTN4KBodyPart ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertTo_BTTN4KBodyPart(BTTNFE_N4K_SealedEnvelope value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFE_N4K_SealedEnvelope>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_SealedEnvelope>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -14801,7 +17503,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTNFE_N4K_SealedEnvelope>.Enumerate_BTTNFEBodyPart(BTTNFE_N4K_SealedEnvelope value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTNFE_N4K_SealedEnvelope>.Enumerate_BTTN4KBodyPart(BTTNFE_N4K_SealedEnvelope value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTNFE_N4K_SealedEnvelope'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertTo_BTTN4KMood(BTTNFE_N4K_SealedEnvelope value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_SealedEnvelope>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTNFE_N4K_SealedEnvelope>.Enumerate_BTTN4KMood(BTTNFE_N4K_SealedEnvelope value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTNFE_N4K_SealedEnvelope'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertTo_BTTN4KPurpose(BTTNFE_N4K_SealedEnvelope value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_SealedEnvelope>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTNFE_N4K_SealedEnvelope>.Enumerate_BTTN4KPurpose(BTTNFE_N4K_SealedEnvelope value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTNFE_N4K_SealedEnvelope'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertTo_BTTN4KType(BTTNFE_N4K_SealedEnvelope value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_SealedEnvelope>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTNFE_N4K_SealedEnvelope>.Enumerate_BTTN4KType(BTTNFE_N4K_SealedEnvelope value)
             {
                 
                 yield break;
@@ -14998,6 +17772,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTVerifiableCredential_SealedEnvelope'.");
+                
+            }
+            float ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertTo_float(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.Enumerate_float(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                
+                yield break;
+            }
             BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -15063,17 +17861,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_int_Array_150(int[] value)
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTVerifiableCredential_SealedEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTVerifiableCredential_SealedEnvelope'.");
                 
             }
-            int[] ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertTo_int_Array_150(BTTVerifiableCredential_SealedEnvelope value)
+            float[] ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertTo_float_Array_150(BTTVerifiableCredential_SealedEnvelope value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(value);
             }
-            TypeConversionAction ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -15082,7 +17880,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.Enumerate_int_Array_150(BTTVerifiableCredential_SealedEnvelope value)
+            IEnumerable<float[]> ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.Enumerate_float_Array_150(BTTVerifiableCredential_SealedEnvelope value)
             {
                 
                 yield break;
@@ -15495,17 +18293,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTVerifiableCredential_SealedEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTVerifiableCredential_SealedEnvelope'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertTo_BTTNFEBodyPart(BTTVerifiableCredential_SealedEnvelope value)
+            BTTN4KBodyPart ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertTo_BTTN4KBodyPart(BTTVerifiableCredential_SealedEnvelope value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(value);
             }
-            TypeConversionAction ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -15514,7 +18312,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.Enumerate_BTTNFEBodyPart(BTTVerifiableCredential_SealedEnvelope value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.Enumerate_BTTN4KBodyPart(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                
+                yield break;
+            }
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTVerifiableCredential_SealedEnvelope'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertTo_BTTN4KMood(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.Enumerate_BTTN4KMood(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                
+                yield break;
+            }
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTVerifiableCredential_SealedEnvelope'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertTo_BTTN4KPurpose(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.Enumerate_BTTN4KPurpose(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                
+                yield break;
+            }
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTVerifiableCredential_SealedEnvelope'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertTo_BTTN4KType(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTVerifiableCredential_SealedEnvelope>.Enumerate_BTTN4KType(BTTVerifiableCredential_SealedEnvelope value)
             {
                 
                 yield break;
@@ -15711,6 +18581,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTEncryptionFlag ITypeConverter<BTTEncryptionFlag>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTEncryptionFlag'.");
+                
+            }
+            float ITypeConverter<BTTEncryptionFlag>.ConvertTo_float(BTTEncryptionFlag value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptionFlag>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTEncryptionFlag>.Enumerate_float(BTTEncryptionFlag value)
+            {
+                
+                yield break;
+            }
             BTTEncryptionFlag ITypeConverter<BTTEncryptionFlag>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -15776,17 +18670,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTEncryptionFlag ITypeConverter<BTTEncryptionFlag>.ConvertFrom_int_Array_150(int[] value)
+            BTTEncryptionFlag ITypeConverter<BTTEncryptionFlag>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTEncryptionFlag'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTEncryptionFlag'.");
                 
             }
-            int[] ITypeConverter<BTTEncryptionFlag>.ConvertTo_int_Array_150(BTTEncryptionFlag value)
+            float[] ITypeConverter<BTTEncryptionFlag>.ConvertTo_float_Array_150(BTTEncryptionFlag value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTEncryptionFlag(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTEncryptionFlag(value);
             }
-            TypeConversionAction ITypeConverter<BTTEncryptionFlag>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTEncryptionFlag>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -15795,7 +18689,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTEncryptionFlag>.Enumerate_int_Array_150(BTTEncryptionFlag value)
+            IEnumerable<float[]> ITypeConverter<BTTEncryptionFlag>.Enumerate_float_Array_150(BTTEncryptionFlag value)
             {
                 
                 yield break;
@@ -16208,17 +19102,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTEncryptionFlag ITypeConverter<BTTEncryptionFlag>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTEncryptionFlag ITypeConverter<BTTEncryptionFlag>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTEncryptionFlag'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTEncryptionFlag'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTEncryptionFlag>.ConvertTo_BTTNFEBodyPart(BTTEncryptionFlag value)
+            BTTN4KBodyPart ITypeConverter<BTTEncryptionFlag>.ConvertTo_BTTN4KBodyPart(BTTEncryptionFlag value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTEncryptionFlag(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTEncryptionFlag(value);
             }
-            TypeConversionAction ITypeConverter<BTTEncryptionFlag>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTEncryptionFlag>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -16227,7 +19121,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTEncryptionFlag>.Enumerate_BTTNFEBodyPart(BTTEncryptionFlag value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTEncryptionFlag>.Enumerate_BTTN4KBodyPart(BTTEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            BTTEncryptionFlag ITypeConverter<BTTEncryptionFlag>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTEncryptionFlag'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTEncryptionFlag>.ConvertTo_BTTN4KMood(BTTEncryptionFlag value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptionFlag>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTEncryptionFlag>.Enumerate_BTTN4KMood(BTTEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            BTTEncryptionFlag ITypeConverter<BTTEncryptionFlag>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTEncryptionFlag'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTEncryptionFlag>.ConvertTo_BTTN4KPurpose(BTTEncryptionFlag value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptionFlag>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTEncryptionFlag>.Enumerate_BTTN4KPurpose(BTTEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            BTTEncryptionFlag ITypeConverter<BTTEncryptionFlag>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTEncryptionFlag'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTEncryptionFlag>.ConvertTo_BTTN4KType(BTTEncryptionFlag value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptionFlag>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTEncryptionFlag>.Enumerate_BTTN4KType(BTTEncryptionFlag value)
             {
                 
                 yield break;
@@ -16424,6 +19390,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTGenericCredentialType ITypeConverter<BTTGenericCredentialType>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTGenericCredentialType'.");
+                
+            }
+            float ITypeConverter<BTTGenericCredentialType>.ConvertTo_float(BTTGenericCredentialType value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTGenericCredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredentialType>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTGenericCredentialType>.Enumerate_float(BTTGenericCredentialType value)
+            {
+                
+                yield break;
+            }
             BTTGenericCredentialType ITypeConverter<BTTGenericCredentialType>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -16489,17 +19479,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTGenericCredentialType ITypeConverter<BTTGenericCredentialType>.ConvertFrom_int_Array_150(int[] value)
+            BTTGenericCredentialType ITypeConverter<BTTGenericCredentialType>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTGenericCredentialType'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTGenericCredentialType'.");
                 
             }
-            int[] ITypeConverter<BTTGenericCredentialType>.ConvertTo_int_Array_150(BTTGenericCredentialType value)
+            float[] ITypeConverter<BTTGenericCredentialType>.ConvertTo_float_Array_150(BTTGenericCredentialType value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTGenericCredentialType(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTGenericCredentialType(value);
             }
-            TypeConversionAction ITypeConverter<BTTGenericCredentialType>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTGenericCredentialType>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -16508,7 +19498,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTGenericCredentialType>.Enumerate_int_Array_150(BTTGenericCredentialType value)
+            IEnumerable<float[]> ITypeConverter<BTTGenericCredentialType>.Enumerate_float_Array_150(BTTGenericCredentialType value)
             {
                 
                 yield break;
@@ -16921,17 +19911,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTGenericCredentialType ITypeConverter<BTTGenericCredentialType>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTGenericCredentialType ITypeConverter<BTTGenericCredentialType>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTGenericCredentialType'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTGenericCredentialType'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTGenericCredentialType>.ConvertTo_BTTNFEBodyPart(BTTGenericCredentialType value)
+            BTTN4KBodyPart ITypeConverter<BTTGenericCredentialType>.ConvertTo_BTTN4KBodyPart(BTTGenericCredentialType value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTGenericCredentialType(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTGenericCredentialType(value);
             }
-            TypeConversionAction ITypeConverter<BTTGenericCredentialType>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTGenericCredentialType>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -16940,7 +19930,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTGenericCredentialType>.Enumerate_BTTNFEBodyPart(BTTGenericCredentialType value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTGenericCredentialType>.Enumerate_BTTN4KBodyPart(BTTGenericCredentialType value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredentialType ITypeConverter<BTTGenericCredentialType>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTGenericCredentialType'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTGenericCredentialType>.ConvertTo_BTTN4KMood(BTTGenericCredentialType value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTGenericCredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredentialType>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTGenericCredentialType>.Enumerate_BTTN4KMood(BTTGenericCredentialType value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredentialType ITypeConverter<BTTGenericCredentialType>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTGenericCredentialType'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTGenericCredentialType>.ConvertTo_BTTN4KPurpose(BTTGenericCredentialType value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTGenericCredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredentialType>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTGenericCredentialType>.Enumerate_BTTN4KPurpose(BTTGenericCredentialType value)
+            {
+                
+                yield break;
+            }
+            BTTGenericCredentialType ITypeConverter<BTTGenericCredentialType>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTGenericCredentialType'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTGenericCredentialType>.ConvertTo_BTTN4KType(BTTGenericCredentialType value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTGenericCredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTGenericCredentialType>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTGenericCredentialType>.Enumerate_BTTN4KType(BTTGenericCredentialType value)
             {
                 
                 yield break;
@@ -17065,41 +20127,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_bool(bool value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_bool(bool value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'bool' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'bool' to 'BTTN4KBodyPart'.");
                 
             }
-            bool ITypeConverter<BTTNFEBodyPart>.ConvertTo_bool(BTTNFEBodyPart value)
+            bool ITypeConverter<BTTN4KBodyPart>.ConvertTo_bool(BTTN4KBodyPart value)
             {
-                return TypeConverter<bool>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<bool>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_bool()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<bool> ITypeConverter<BTTNFEBodyPart>.Enumerate_bool(BTTNFEBodyPart value)
-            {
-                
-                yield break;
-            }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_int(int value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'int' to 'BTTNFEBodyPart'.");
-                
-            }
-            int ITypeConverter<BTTNFEBodyPart>.ConvertTo_int(BTTNFEBodyPart value)
-            {
-                return TypeConverter<int>.ConvertFrom_BTTNFEBodyPart(value);
-            }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_int()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_bool()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17108,22 +20146,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int> ITypeConverter<BTTNFEBodyPart>.Enumerate_int(BTTNFEBodyPart value)
+            IEnumerable<bool> ITypeConverter<BTTN4KBodyPart>.Enumerate_bool(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_long(long value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_int(int value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'long' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'int' to 'BTTN4KBodyPart'.");
                 
             }
-            long ITypeConverter<BTTNFEBodyPart>.ConvertTo_long(BTTNFEBodyPart value)
+            int ITypeConverter<BTTN4KBodyPart>.ConvertTo_int(BTTN4KBodyPart value)
             {
-                return TypeConverter<long>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<int>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_long()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_int()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17132,22 +20170,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<long> ITypeConverter<BTTNFEBodyPart>.Enumerate_long(BTTNFEBodyPart value)
+            IEnumerable<int> ITypeConverter<BTTN4KBodyPart>.Enumerate_int(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_DateTime(DateTime value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_long(long value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'DateTime' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'long' to 'BTTN4KBodyPart'.");
                 
             }
-            DateTime ITypeConverter<BTTNFEBodyPart>.ConvertTo_DateTime(BTTNFEBodyPart value)
+            long ITypeConverter<BTTN4KBodyPart>.ConvertTo_long(BTTN4KBodyPart value)
             {
-                return TypeConverter<DateTime>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<long>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_DateTime()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_long()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17156,27 +20194,75 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<DateTime> ITypeConverter<BTTNFEBodyPart>.Enumerate_DateTime(BTTNFEBodyPart value)
+            IEnumerable<long> ITypeConverter<BTTN4KBodyPart>.Enumerate_long(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_string(string value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTN4KBodyPart'.");
+                
+            }
+            float ITypeConverter<BTTN4KBodyPart>.ConvertTo_float(BTTN4KBodyPart value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTN4KBodyPart(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTN4KBodyPart>.Enumerate_float(BTTN4KBodyPart value)
+            {
+                
+                yield break;
+            }
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_DateTime(DateTime value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'DateTime' to 'BTTN4KBodyPart'.");
+                
+            }
+            DateTime ITypeConverter<BTTN4KBodyPart>.ConvertTo_DateTime(BTTN4KBodyPart value)
+            {
+                return TypeConverter<DateTime>.ConvertFrom_BTTN4KBodyPart(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_DateTime()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<DateTime> ITypeConverter<BTTN4KBodyPart>.Enumerate_DateTime(BTTN4KBodyPart value)
+            {
+                
+                yield break;
+            }
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_string(string value)
             {
                 
                 {
                     #region String parse
-                    BTTNFEBodyPart intermediate_result;
+                    BTTN4KBodyPart intermediate_result;
                     bool conversion_success;
                     
                     {
-                        conversion_success = BTTNFEBodyPart.TryParse(value, out intermediate_result);
+                        conversion_success = BTTN4KBodyPart.TryParse(value, out intermediate_result);
                     }
                     
                     if (!conversion_success)
                     {
                         
-                        Throw.cannot_parse(value, "BTTNFEBodyPart");
+                        Throw.cannot_parse(value, "BTTN4KBodyPart");
                         
                     }
                     return intermediate_result;
@@ -17184,11 +20270,11 @@ namespace BTTN4KNFE
                 }
                 
             }
-            string ITypeConverter<BTTNFEBodyPart>.ConvertTo_string(BTTNFEBodyPart value)
+            string ITypeConverter<BTTN4KBodyPart>.ConvertTo_string(BTTN4KBodyPart value)
             {
-                return TypeConverter<string>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<string>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_string()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_string()
             {
                 
                 return TypeConversionAction.TC_TOSTRING;
@@ -17197,22 +20283,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<string> ITypeConverter<BTTNFEBodyPart>.Enumerate_string(BTTNFEBodyPart value)
+            IEnumerable<string> ITypeConverter<BTTN4KBodyPart>.Enumerate_string(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_int_Array_150(int[] value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTN4KBodyPart'.");
                 
             }
-            int[] ITypeConverter<BTTNFEBodyPart>.ConvertTo_int_Array_150(BTTNFEBodyPart value)
+            float[] ITypeConverter<BTTN4KBodyPart>.ConvertTo_float_Array_150(BTTN4KBodyPart value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17221,22 +20307,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTNFEBodyPart>.Enumerate_int_Array_150(BTTNFEBodyPart value)
+            IEnumerable<float[]> ITypeConverter<BTTN4KBodyPart>.Enumerate_float_Array_150(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_List_long(List<long> value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_List_long(List<long> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<long>' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'List<long>' to 'BTTN4KBodyPart'.");
                 
             }
-            List<long> ITypeConverter<BTTNFEBodyPart>.ConvertTo_List_long(BTTNFEBodyPart value)
+            List<long> ITypeConverter<BTTN4KBodyPart>.ConvertTo_List_long(BTTN4KBodyPart value)
             {
-                return TypeConverter<List<long>>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<List<long>>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_List_long()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_List_long()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17245,22 +20331,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<long>> ITypeConverter<BTTNFEBodyPart>.Enumerate_List_long(BTTNFEBodyPart value)
+            IEnumerable<List<long>> ITypeConverter<BTTN4KBodyPart>.Enumerate_List_long(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_List_string(List<string> value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_List_string(List<string> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<string>' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'BTTN4KBodyPart'.");
                 
             }
-            List<string> ITypeConverter<BTTNFEBodyPart>.ConvertTo_List_string(BTTNFEBodyPart value)
+            List<string> ITypeConverter<BTTN4KBodyPart>.ConvertTo_List_string(BTTN4KBodyPart value)
             {
-                return TypeConverter<List<string>>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<List<string>>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_List_string()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_List_string()
             {
                 
                 return TypeConversionAction.TC_WRAPINLIST;
@@ -17269,22 +20355,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<string>> ITypeConverter<BTTNFEBodyPart>.Enumerate_List_string(BTTNFEBodyPart value)
+            IEnumerable<List<string>> ITypeConverter<BTTN4KBodyPart>.Enumerate_List_string(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_List_BTTKeyValuePair(List<BTTKeyValuePair> value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_List_BTTKeyValuePair(List<BTTKeyValuePair> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<BTTKeyValuePair>' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'List<BTTKeyValuePair>' to 'BTTN4KBodyPart'.");
                 
             }
-            List<BTTKeyValuePair> ITypeConverter<BTTNFEBodyPart>.ConvertTo_List_BTTKeyValuePair(BTTNFEBodyPart value)
+            List<BTTKeyValuePair> ITypeConverter<BTTN4KBodyPart>.ConvertTo_List_BTTKeyValuePair(BTTN4KBodyPart value)
             {
-                return TypeConverter<List<BTTKeyValuePair>>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<List<BTTKeyValuePair>>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_List_BTTKeyValuePair()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_List_BTTKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17293,22 +20379,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<BTTKeyValuePair>> ITypeConverter<BTTNFEBodyPart>.Enumerate_List_BTTKeyValuePair(BTTNFEBodyPart value)
+            IEnumerable<List<BTTKeyValuePair>> ITypeConverter<BTTN4KBodyPart>.Enumerate_List_BTTKeyValuePair(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTClaim(BTTClaim value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTClaim(BTTClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTClaim' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTClaim' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTClaim ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTClaim(BTTNFEBodyPart value)
+            BTTClaim ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTClaim(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTClaim>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTClaim>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTClaim()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17317,22 +20403,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTClaim> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTClaim(BTTNFEBodyPart value)
+            IEnumerable<BTTClaim> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTClaim(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTEncryptedClaims(BTTEncryptedClaims value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTEncryptedClaims(BTTEncryptedClaims value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTEncryptedClaims ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTEncryptedClaims(BTTNFEBodyPart value)
+            BTTEncryptedClaims ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTEncryptedClaims(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTEncryptedClaims>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTEncryptedClaims>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTEncryptedClaims()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTEncryptedClaims()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17341,22 +20427,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTEncryptedClaims> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTEncryptedClaims(BTTNFEBodyPart value)
+            IEnumerable<BTTEncryptedClaims> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTEncryptedClaims(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTGenericCredential_Envelope(BTTGenericCredential_Envelope value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTGenericCredential_Envelope(BTTGenericCredential_Envelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_Envelope' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_Envelope' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTGenericCredential_Envelope ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTGenericCredential_Envelope(BTTNFEBodyPart value)
+            BTTGenericCredential_Envelope ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTGenericCredential_Envelope(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTGenericCredential_Envelope()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTGenericCredential_Envelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17365,22 +20451,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTGenericCredential_Envelope> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTGenericCredential_Envelope(BTTNFEBodyPart value)
+            IEnumerable<BTTGenericCredential_Envelope> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTGenericCredential_Envelope(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTGenericCredential_EnvelopeContent(BTTGenericCredential_EnvelopeContent value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTGenericCredential_EnvelopeContent(BTTGenericCredential_EnvelopeContent value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeContent' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeContent' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTGenericCredential_EnvelopeContent(BTTNFEBodyPart value)
+            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTGenericCredential_EnvelopeContent(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTGenericCredential_EnvelopeContent()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTGenericCredential_EnvelopeContent()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17389,22 +20475,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTGenericCredential_EnvelopeContent> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTGenericCredential_EnvelopeContent(BTTNFEBodyPart value)
+            IEnumerable<BTTGenericCredential_EnvelopeContent> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTGenericCredential_EnvelopeContent(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(BTTGenericCredential_EnvelopeSeal value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(BTTGenericCredential_EnvelopeSeal value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeSeal' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeSeal' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTGenericCredential_EnvelopeSeal(BTTNFEBodyPart value)
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTGenericCredential_EnvelopeSeal(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTGenericCredential_EnvelopeSeal()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTGenericCredential_EnvelopeSeal()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17413,22 +20499,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTGenericCredential_EnvelopeSeal> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTGenericCredential_EnvelopeSeal(BTTNFEBodyPart value)
+            IEnumerable<BTTGenericCredential_EnvelopeSeal> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTGenericCredential_EnvelopeSeal(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTGenericCredential_PackingLabel(BTTGenericCredential_PackingLabel value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTGenericCredential_PackingLabel(BTTGenericCredential_PackingLabel value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_PackingLabel' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_PackingLabel' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTGenericCredential_PackingLabel ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTGenericCredential_PackingLabel(BTTNFEBodyPart value)
+            BTTGenericCredential_PackingLabel ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTGenericCredential_PackingLabel(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTGenericCredential_PackingLabel()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTGenericCredential_PackingLabel()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17437,22 +20523,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTGenericCredential_PackingLabel> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTGenericCredential_PackingLabel(BTTNFEBodyPart value)
+            IEnumerable<BTTGenericCredential_PackingLabel> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTGenericCredential_PackingLabel(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTKeyValuePair(BTTKeyValuePair value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTKeyValuePair(BTTKeyValuePair value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTKeyValuePair' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTKeyValuePair' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTKeyValuePair ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTKeyValuePair(BTTNFEBodyPart value)
+            BTTKeyValuePair ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTKeyValuePair(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTKeyValuePair>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTKeyValuePair>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTKeyValuePair()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17461,22 +20547,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTKeyValuePair> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTKeyValuePair(BTTNFEBodyPart value)
+            IEnumerable<BTTKeyValuePair> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTKeyValuePair(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFE_N4K_Claims(BTTNFE_N4K_Claims value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTNFE_N4K_Claims(BTTNFE_N4K_Claims value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTNFE_N4K_Claims ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTNFE_N4K_Claims(BTTNFEBodyPart value)
+            BTTNFE_N4K_Claims ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTNFE_N4K_Claims(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTNFE_N4K_Claims()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTNFE_N4K_Claims()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17485,22 +20571,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFE_N4K_Claims> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTNFE_N4K_Claims(BTTNFEBodyPart value)
+            IEnumerable<BTTNFE_N4K_Claims> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTNFE_N4K_Claims(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFE_N4K_Envelope(BTTNFE_N4K_Envelope value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTNFE_N4K_Envelope(BTTNFE_N4K_Envelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Envelope' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Envelope' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTNFE_N4K_Envelope ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTNFE_N4K_Envelope(BTTNFEBodyPart value)
+            BTTNFE_N4K_Envelope ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTNFE_N4K_Envelope(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTNFE_N4K_Envelope()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTNFE_N4K_Envelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17509,22 +20595,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFE_N4K_Envelope> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTNFE_N4K_Envelope(BTTNFEBodyPart value)
+            IEnumerable<BTTNFE_N4K_Envelope> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTNFE_N4K_Envelope(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(BTTNFE_N4K_EnvelopeContent value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(BTTNFE_N4K_EnvelopeContent value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_EnvelopeContent' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_EnvelopeContent' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTNFE_N4K_EnvelopeContent(BTTNFEBodyPart value)
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTNFE_N4K_EnvelopeContent(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTNFE_N4K_EnvelopeContent()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTNFE_N4K_EnvelopeContent()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17533,22 +20619,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFE_N4K_EnvelopeContent> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTNFE_N4K_EnvelopeContent(BTTNFEBodyPart value)
+            IEnumerable<BTTNFE_N4K_EnvelopeContent> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTNFE_N4K_EnvelopeContent(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(BTTNFE_N4K_SealedEnvelope value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(BTTNFE_N4K_SealedEnvelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_SealedEnvelope' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_SealedEnvelope' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTNFE_N4K_SealedEnvelope(BTTNFEBodyPart value)
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTNFE_N4K_SealedEnvelope(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTNFE_N4K_SealedEnvelope()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTNFE_N4K_SealedEnvelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17557,22 +20643,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFE_N4K_SealedEnvelope> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTNFE_N4K_SealedEnvelope(BTTNFEBodyPart value)
+            IEnumerable<BTTNFE_N4K_SealedEnvelope> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTNFE_N4K_SealedEnvelope(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(BTTVerifiableCredential_SealedEnvelope value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(BTTVerifiableCredential_SealedEnvelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTVerifiableCredential_SealedEnvelope' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTVerifiableCredential_SealedEnvelope' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTVerifiableCredential_SealedEnvelope(BTTNFEBodyPart value)
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTVerifiableCredential_SealedEnvelope(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTVerifiableCredential_SealedEnvelope()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTVerifiableCredential_SealedEnvelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17581,22 +20667,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTVerifiableCredential_SealedEnvelope> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTVerifiableCredential_SealedEnvelope(BTTNFEBodyPart value)
+            IEnumerable<BTTVerifiableCredential_SealedEnvelope> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTVerifiableCredential_SealedEnvelope(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTEncryptionFlag(BTTEncryptionFlag value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTEncryptionFlag(BTTEncryptionFlag value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTEncryptionFlag' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptionFlag' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTEncryptionFlag ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTEncryptionFlag(BTTNFEBodyPart value)
+            BTTEncryptionFlag ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTEncryptionFlag(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTEncryptionFlag>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTEncryptionFlag>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTEncryptionFlag()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTEncryptionFlag()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17605,22 +20691,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTEncryptionFlag> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTEncryptionFlag(BTTNFEBodyPart value)
+            IEnumerable<BTTEncryptionFlag> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTEncryptionFlag(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTGenericCredentialType(BTTGenericCredentialType value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTGenericCredentialType(BTTGenericCredentialType value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTGenericCredentialType' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredentialType' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTGenericCredentialType ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTGenericCredentialType(BTTNFEBodyPart value)
+            BTTGenericCredentialType ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTGenericCredentialType(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTGenericCredentialType>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTGenericCredentialType>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTGenericCredentialType()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTGenericCredentialType()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17629,22 +20715,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTGenericCredentialType> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTGenericCredentialType(BTTNFEBodyPart value)
+            IEnumerable<BTTGenericCredentialType> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTGenericCredentialType(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                return (BTTNFEBodyPart)value;
+                return (BTTN4KBodyPart)value;
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_ASSIGN;
@@ -17653,22 +20739,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTNFEBodyPart(BTTNFEBodyPart value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTTrustLevel(BTTTrustLevel value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTTrustLevel' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTTrustLevel ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTTrustLevel(BTTNFEBodyPart value)
+            BTTN4KMood ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTN4KMood(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTTrustLevel>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTTrustLevel()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTN4KMood()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17677,22 +20763,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTTrustLevel> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTTrustLevel(BTTNFEBodyPart value)
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTN4KMood(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_List_List_BTTKeyValuePair(List<List<BTTKeyValuePair>> value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<List<BTTKeyValuePair>>' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTN4KBodyPart'.");
                 
             }
-            List<List<BTTKeyValuePair>> ITypeConverter<BTTNFEBodyPart>.ConvertTo_List_List_BTTKeyValuePair(BTTNFEBodyPart value)
+            BTTN4KPurpose ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTN4KPurpose(BTTN4KBodyPart value)
             {
-                return TypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_List_List_BTTKeyValuePair()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTN4KPurpose()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17701,22 +20787,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<List<BTTKeyValuePair>>> ITypeConverter<BTTNFEBodyPart>.Enumerate_List_List_BTTKeyValuePair(BTTNFEBodyPart value)
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTN4KPurpose(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_List_BTTClaim(List<BTTClaim> value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTN4KType(BTTN4KType value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<BTTClaim>' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTN4KBodyPart'.");
                 
             }
-            List<BTTClaim> ITypeConverter<BTTNFEBodyPart>.ConvertTo_List_BTTClaim(BTTNFEBodyPart value)
+            BTTN4KType ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTN4KType(BTTN4KBodyPart value)
             {
-                return TypeConverter<List<BTTClaim>>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_List_BTTClaim()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTN4KType()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17725,22 +20811,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<BTTClaim>> ITypeConverter<BTTNFEBodyPart>.Enumerate_List_BTTClaim(BTTNFEBodyPart value)
+            IEnumerable<BTTN4KType> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTN4KType(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTEncryptedClaims_nullable(BTTEncryptedClaims? value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTTrustLevel(BTTTrustLevel value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims?' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'BTTTrustLevel' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTEncryptedClaims? ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTEncryptedClaims_nullable(BTTNFEBodyPart value)
+            BTTTrustLevel ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTTrustLevel(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTEncryptedClaims?>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<BTTTrustLevel>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTEncryptedClaims_nullable()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTTrustLevel()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17749,22 +20835,22 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTEncryptedClaims?> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTEncryptedClaims_nullable(BTTNFEBodyPart value)
+            IEnumerable<BTTTrustLevel> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTTrustLevel(BTTN4KBodyPart value)
             {
                 
                 yield break;
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFE_N4K_Claims_nullable(BTTNFE_N4K_Claims? value)
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_List_List_BTTKeyValuePair(List<List<BTTKeyValuePair>> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims?' to 'BTTNFEBodyPart'.");
+                throw new InvalidCastException("Invalid cast from 'List<List<BTTKeyValuePair>>' to 'BTTN4KBodyPart'.");
                 
             }
-            BTTNFE_N4K_Claims? ITypeConverter<BTTNFEBodyPart>.ConvertTo_BTTNFE_N4K_Claims_nullable(BTTNFEBodyPart value)
+            List<List<BTTKeyValuePair>> ITypeConverter<BTTN4KBodyPart>.ConvertTo_List_List_BTTKeyValuePair(BTTN4KBodyPart value)
             {
-                return TypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_BTTNFEBodyPart(value);
+                return TypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_BTTN4KBodyPart(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFEBodyPart>.GetConversionActionTo_BTTNFE_N4K_Claims_nullable()
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_List_List_BTTKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17773,7 +20859,2506 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFE_N4K_Claims?> ITypeConverter<BTTNFEBodyPart>.Enumerate_BTTNFE_N4K_Claims_nullable(BTTNFEBodyPart value)
+            IEnumerable<List<List<BTTKeyValuePair>>> ITypeConverter<BTTN4KBodyPart>.Enumerate_List_List_BTTKeyValuePair(BTTN4KBodyPart value)
+            {
+                
+                yield break;
+            }
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_List_BTTClaim(List<BTTClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<BTTClaim>' to 'BTTN4KBodyPart'.");
+                
+            }
+            List<BTTClaim> ITypeConverter<BTTN4KBodyPart>.ConvertTo_List_BTTClaim(BTTN4KBodyPart value)
+            {
+                return TypeConverter<List<BTTClaim>>.ConvertFrom_BTTN4KBodyPart(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_List_BTTClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<BTTClaim>> ITypeConverter<BTTN4KBodyPart>.Enumerate_List_BTTClaim(BTTN4KBodyPart value)
+            {
+                
+                yield break;
+            }
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTEncryptedClaims_nullable(BTTEncryptedClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims?' to 'BTTN4KBodyPart'.");
+                
+            }
+            BTTEncryptedClaims? ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTEncryptedClaims_nullable(BTTN4KBodyPart value)
+            {
+                return TypeConverter<BTTEncryptedClaims?>.ConvertFrom_BTTN4KBodyPart(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTEncryptedClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptedClaims?> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTEncryptedClaims_nullable(BTTN4KBodyPart value)
+            {
+                
+                yield break;
+            }
+            BTTN4KBodyPart ITypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTNFE_N4K_Claims_nullable(BTTNFE_N4K_Claims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims?' to 'BTTN4KBodyPart'.");
+                
+            }
+            BTTNFE_N4K_Claims? ITypeConverter<BTTN4KBodyPart>.ConvertTo_BTTNFE_N4K_Claims_nullable(BTTN4KBodyPart value)
+            {
+                return TypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_BTTN4KBodyPart(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KBodyPart>.GetConversionActionTo_BTTNFE_N4K_Claims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Claims?> ITypeConverter<BTTN4KBodyPart>.Enumerate_BTTNFE_N4K_Claims_nullable(BTTN4KBodyPart value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'BTTN4KMood'.");
+                
+            }
+            bool ITypeConverter<BTTN4KMood>.ConvertTo_bool(BTTN4KMood value)
+            {
+                return TypeConverter<bool>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<BTTN4KMood>.Enumerate_bool(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_int(int value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'int' to 'BTTN4KMood'.");
+                
+            }
+            int ITypeConverter<BTTN4KMood>.ConvertTo_int(BTTN4KMood value)
+            {
+                return TypeConverter<int>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_int()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<int> ITypeConverter<BTTN4KMood>.Enumerate_int(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'BTTN4KMood'.");
+                
+            }
+            long ITypeConverter<BTTN4KMood>.ConvertTo_long(BTTN4KMood value)
+            {
+                return TypeConverter<long>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<BTTN4KMood>.Enumerate_long(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTN4KMood'.");
+                
+            }
+            float ITypeConverter<BTTN4KMood>.ConvertTo_float(BTTN4KMood value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTN4KMood>.Enumerate_float(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_DateTime(DateTime value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'DateTime' to 'BTTN4KMood'.");
+                
+            }
+            DateTime ITypeConverter<BTTN4KMood>.ConvertTo_DateTime(BTTN4KMood value)
+            {
+                return TypeConverter<DateTime>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_DateTime()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<DateTime> ITypeConverter<BTTN4KMood>.Enumerate_DateTime(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    BTTN4KMood intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = BTTN4KMood.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "BTTN4KMood");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<BTTN4KMood>.ConvertTo_string(BTTN4KMood value)
+            {
+                return TypeConverter<string>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<BTTN4KMood>.Enumerate_string(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_float_Array_150(float[] value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTN4KMood'.");
+                
+            }
+            float[] ITypeConverter<BTTN4KMood>.ConvertTo_float_Array_150(BTTN4KMood value)
+            {
+                return TypeConverter<float[]>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_float_Array_150()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float[]> ITypeConverter<BTTN4KMood>.Enumerate_float_Array_150(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_List_long(List<long> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<long>' to 'BTTN4KMood'.");
+                
+            }
+            List<long> ITypeConverter<BTTN4KMood>.ConvertTo_List_long(BTTN4KMood value)
+            {
+                return TypeConverter<List<long>>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_List_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<long>> ITypeConverter<BTTN4KMood>.Enumerate_List_long(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'BTTN4KMood'.");
+                
+            }
+            List<string> ITypeConverter<BTTN4KMood>.ConvertTo_List_string(BTTN4KMood value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<BTTN4KMood>.Enumerate_List_string(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_List_BTTKeyValuePair(List<BTTKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<BTTKeyValuePair>' to 'BTTN4KMood'.");
+                
+            }
+            List<BTTKeyValuePair> ITypeConverter<BTTN4KMood>.ConvertTo_List_BTTKeyValuePair(BTTN4KMood value)
+            {
+                return TypeConverter<List<BTTKeyValuePair>>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_List_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<BTTKeyValuePair>> ITypeConverter<BTTN4KMood>.Enumerate_List_BTTKeyValuePair(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTClaim(BTTClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTClaim' to 'BTTN4KMood'.");
+                
+            }
+            BTTClaim ITypeConverter<BTTN4KMood>.ConvertTo_BTTClaim(BTTN4KMood value)
+            {
+                return TypeConverter<BTTClaim>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTClaim> ITypeConverter<BTTN4KMood>.Enumerate_BTTClaim(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTEncryptedClaims(BTTEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims' to 'BTTN4KMood'.");
+                
+            }
+            BTTEncryptedClaims ITypeConverter<BTTN4KMood>.ConvertTo_BTTEncryptedClaims(BTTN4KMood value)
+            {
+                return TypeConverter<BTTEncryptedClaims>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptedClaims> ITypeConverter<BTTN4KMood>.Enumerate_BTTEncryptedClaims(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTGenericCredential_Envelope(BTTGenericCredential_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_Envelope' to 'BTTN4KMood'.");
+                
+            }
+            BTTGenericCredential_Envelope ITypeConverter<BTTN4KMood>.ConvertTo_BTTGenericCredential_Envelope(BTTN4KMood value)
+            {
+                return TypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTGenericCredential_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_Envelope> ITypeConverter<BTTN4KMood>.Enumerate_BTTGenericCredential_Envelope(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTGenericCredential_EnvelopeContent(BTTGenericCredential_EnvelopeContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeContent' to 'BTTN4KMood'.");
+                
+            }
+            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTN4KMood>.ConvertTo_BTTGenericCredential_EnvelopeContent(BTTN4KMood value)
+            {
+                return TypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTGenericCredential_EnvelopeContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_EnvelopeContent> ITypeConverter<BTTN4KMood>.Enumerate_BTTGenericCredential_EnvelopeContent(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(BTTGenericCredential_EnvelopeSeal value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeSeal' to 'BTTN4KMood'.");
+                
+            }
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTN4KMood>.ConvertTo_BTTGenericCredential_EnvelopeSeal(BTTN4KMood value)
+            {
+                return TypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTGenericCredential_EnvelopeSeal()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_EnvelopeSeal> ITypeConverter<BTTN4KMood>.Enumerate_BTTGenericCredential_EnvelopeSeal(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTGenericCredential_PackingLabel(BTTGenericCredential_PackingLabel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_PackingLabel' to 'BTTN4KMood'.");
+                
+            }
+            BTTGenericCredential_PackingLabel ITypeConverter<BTTN4KMood>.ConvertTo_BTTGenericCredential_PackingLabel(BTTN4KMood value)
+            {
+                return TypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTGenericCredential_PackingLabel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_PackingLabel> ITypeConverter<BTTN4KMood>.Enumerate_BTTGenericCredential_PackingLabel(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTKeyValuePair(BTTKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTKeyValuePair' to 'BTTN4KMood'.");
+                
+            }
+            BTTKeyValuePair ITypeConverter<BTTN4KMood>.ConvertTo_BTTKeyValuePair(BTTN4KMood value)
+            {
+                return TypeConverter<BTTKeyValuePair>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTKeyValuePair> ITypeConverter<BTTN4KMood>.Enumerate_BTTKeyValuePair(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTNFE_N4K_Claims(BTTNFE_N4K_Claims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims' to 'BTTN4KMood'.");
+                
+            }
+            BTTNFE_N4K_Claims ITypeConverter<BTTN4KMood>.ConvertTo_BTTNFE_N4K_Claims(BTTN4KMood value)
+            {
+                return TypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTNFE_N4K_Claims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Claims> ITypeConverter<BTTN4KMood>.Enumerate_BTTNFE_N4K_Claims(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTNFE_N4K_Envelope(BTTNFE_N4K_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Envelope' to 'BTTN4KMood'.");
+                
+            }
+            BTTNFE_N4K_Envelope ITypeConverter<BTTN4KMood>.ConvertTo_BTTNFE_N4K_Envelope(BTTN4KMood value)
+            {
+                return TypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTNFE_N4K_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Envelope> ITypeConverter<BTTN4KMood>.Enumerate_BTTNFE_N4K_Envelope(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(BTTNFE_N4K_EnvelopeContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_EnvelopeContent' to 'BTTN4KMood'.");
+                
+            }
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTN4KMood>.ConvertTo_BTTNFE_N4K_EnvelopeContent(BTTN4KMood value)
+            {
+                return TypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTNFE_N4K_EnvelopeContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_EnvelopeContent> ITypeConverter<BTTN4KMood>.Enumerate_BTTNFE_N4K_EnvelopeContent(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(BTTNFE_N4K_SealedEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_SealedEnvelope' to 'BTTN4KMood'.");
+                
+            }
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTN4KMood>.ConvertTo_BTTNFE_N4K_SealedEnvelope(BTTN4KMood value)
+            {
+                return TypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTNFE_N4K_SealedEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_SealedEnvelope> ITypeConverter<BTTN4KMood>.Enumerate_BTTNFE_N4K_SealedEnvelope(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTVerifiableCredential_SealedEnvelope' to 'BTTN4KMood'.");
+                
+            }
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTN4KMood>.ConvertTo_BTTVerifiableCredential_SealedEnvelope(BTTN4KMood value)
+            {
+                return TypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTVerifiableCredential_SealedEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTVerifiableCredential_SealedEnvelope> ITypeConverter<BTTN4KMood>.Enumerate_BTTVerifiableCredential_SealedEnvelope(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTEncryptionFlag(BTTEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptionFlag' to 'BTTN4KMood'.");
+                
+            }
+            BTTEncryptionFlag ITypeConverter<BTTN4KMood>.ConvertTo_BTTEncryptionFlag(BTTN4KMood value)
+            {
+                return TypeConverter<BTTEncryptionFlag>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptionFlag> ITypeConverter<BTTN4KMood>.Enumerate_BTTEncryptionFlag(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTGenericCredentialType(BTTGenericCredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredentialType' to 'BTTN4KMood'.");
+                
+            }
+            BTTGenericCredentialType ITypeConverter<BTTN4KMood>.ConvertTo_BTTGenericCredentialType(BTTN4KMood value)
+            {
+                return TypeConverter<BTTGenericCredentialType>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTGenericCredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredentialType> ITypeConverter<BTTN4KMood>.Enumerate_BTTGenericCredentialType(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTN4KMood'.");
+                
+            }
+            BTTN4KBodyPart ITypeConverter<BTTN4KMood>.ConvertTo_BTTN4KBodyPart(BTTN4KMood value)
+            {
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTN4KBodyPart()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTN4KMood>.Enumerate_BTTN4KBodyPart(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                return (BTTN4KMood)value;
+                
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertTo_BTTN4KMood(BTTN4KMood value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTN4KMood>.Enumerate_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTN4KMood'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KMood>.ConvertTo_BTTN4KPurpose(BTTN4KMood value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTN4KMood>.Enumerate_BTTN4KPurpose(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTN4KMood'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTN4KMood>.ConvertTo_BTTN4KType(BTTN4KMood value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTN4KMood>.Enumerate_BTTN4KType(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTTrustLevel(BTTTrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTTrustLevel' to 'BTTN4KMood'.");
+                
+            }
+            BTTTrustLevel ITypeConverter<BTTN4KMood>.ConvertTo_BTTTrustLevel(BTTN4KMood value)
+            {
+                return TypeConverter<BTTTrustLevel>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTTrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTTrustLevel> ITypeConverter<BTTN4KMood>.Enumerate_BTTTrustLevel(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_List_List_BTTKeyValuePair(List<List<BTTKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<BTTKeyValuePair>>' to 'BTTN4KMood'.");
+                
+            }
+            List<List<BTTKeyValuePair>> ITypeConverter<BTTN4KMood>.ConvertTo_List_List_BTTKeyValuePair(BTTN4KMood value)
+            {
+                return TypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_List_List_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<BTTKeyValuePair>>> ITypeConverter<BTTN4KMood>.Enumerate_List_List_BTTKeyValuePair(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_List_BTTClaim(List<BTTClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<BTTClaim>' to 'BTTN4KMood'.");
+                
+            }
+            List<BTTClaim> ITypeConverter<BTTN4KMood>.ConvertTo_List_BTTClaim(BTTN4KMood value)
+            {
+                return TypeConverter<List<BTTClaim>>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_List_BTTClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<BTTClaim>> ITypeConverter<BTTN4KMood>.Enumerate_List_BTTClaim(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTEncryptedClaims_nullable(BTTEncryptedClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims?' to 'BTTN4KMood'.");
+                
+            }
+            BTTEncryptedClaims? ITypeConverter<BTTN4KMood>.ConvertTo_BTTEncryptedClaims_nullable(BTTN4KMood value)
+            {
+                return TypeConverter<BTTEncryptedClaims?>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTEncryptedClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptedClaims?> ITypeConverter<BTTN4KMood>.Enumerate_BTTEncryptedClaims_nullable(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KMood ITypeConverter<BTTN4KMood>.ConvertFrom_BTTNFE_N4K_Claims_nullable(BTTNFE_N4K_Claims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims?' to 'BTTN4KMood'.");
+                
+            }
+            BTTNFE_N4K_Claims? ITypeConverter<BTTN4KMood>.ConvertTo_BTTNFE_N4K_Claims_nullable(BTTN4KMood value)
+            {
+                return TypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_BTTN4KMood(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KMood>.GetConversionActionTo_BTTNFE_N4K_Claims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Claims?> ITypeConverter<BTTN4KMood>.Enumerate_BTTNFE_N4K_Claims_nullable(BTTN4KMood value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'BTTN4KPurpose'.");
+                
+            }
+            bool ITypeConverter<BTTN4KPurpose>.ConvertTo_bool(BTTN4KPurpose value)
+            {
+                return TypeConverter<bool>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<BTTN4KPurpose>.Enumerate_bool(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_int(int value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'int' to 'BTTN4KPurpose'.");
+                
+            }
+            int ITypeConverter<BTTN4KPurpose>.ConvertTo_int(BTTN4KPurpose value)
+            {
+                return TypeConverter<int>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_int()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<int> ITypeConverter<BTTN4KPurpose>.Enumerate_int(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'BTTN4KPurpose'.");
+                
+            }
+            long ITypeConverter<BTTN4KPurpose>.ConvertTo_long(BTTN4KPurpose value)
+            {
+                return TypeConverter<long>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<BTTN4KPurpose>.Enumerate_long(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTN4KPurpose'.");
+                
+            }
+            float ITypeConverter<BTTN4KPurpose>.ConvertTo_float(BTTN4KPurpose value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTN4KPurpose>.Enumerate_float(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_DateTime(DateTime value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'DateTime' to 'BTTN4KPurpose'.");
+                
+            }
+            DateTime ITypeConverter<BTTN4KPurpose>.ConvertTo_DateTime(BTTN4KPurpose value)
+            {
+                return TypeConverter<DateTime>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_DateTime()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<DateTime> ITypeConverter<BTTN4KPurpose>.Enumerate_DateTime(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    BTTN4KPurpose intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = BTTN4KPurpose.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "BTTN4KPurpose");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<BTTN4KPurpose>.ConvertTo_string(BTTN4KPurpose value)
+            {
+                return TypeConverter<string>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<BTTN4KPurpose>.Enumerate_string(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_float_Array_150(float[] value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTN4KPurpose'.");
+                
+            }
+            float[] ITypeConverter<BTTN4KPurpose>.ConvertTo_float_Array_150(BTTN4KPurpose value)
+            {
+                return TypeConverter<float[]>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_float_Array_150()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float[]> ITypeConverter<BTTN4KPurpose>.Enumerate_float_Array_150(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_List_long(List<long> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<long>' to 'BTTN4KPurpose'.");
+                
+            }
+            List<long> ITypeConverter<BTTN4KPurpose>.ConvertTo_List_long(BTTN4KPurpose value)
+            {
+                return TypeConverter<List<long>>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_List_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<long>> ITypeConverter<BTTN4KPurpose>.Enumerate_List_long(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'BTTN4KPurpose'.");
+                
+            }
+            List<string> ITypeConverter<BTTN4KPurpose>.ConvertTo_List_string(BTTN4KPurpose value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<BTTN4KPurpose>.Enumerate_List_string(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_List_BTTKeyValuePair(List<BTTKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<BTTKeyValuePair>' to 'BTTN4KPurpose'.");
+                
+            }
+            List<BTTKeyValuePair> ITypeConverter<BTTN4KPurpose>.ConvertTo_List_BTTKeyValuePair(BTTN4KPurpose value)
+            {
+                return TypeConverter<List<BTTKeyValuePair>>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_List_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<BTTKeyValuePair>> ITypeConverter<BTTN4KPurpose>.Enumerate_List_BTTKeyValuePair(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTClaim(BTTClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTClaim' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTClaim ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTClaim(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTClaim>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTClaim> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTClaim(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTEncryptedClaims(BTTEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTEncryptedClaims ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTEncryptedClaims(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTEncryptedClaims>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptedClaims> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTEncryptedClaims(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTGenericCredential_Envelope(BTTGenericCredential_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_Envelope' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTGenericCredential_Envelope ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTGenericCredential_Envelope(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTGenericCredential_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_Envelope> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTGenericCredential_Envelope(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTGenericCredential_EnvelopeContent(BTTGenericCredential_EnvelopeContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeContent' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTGenericCredential_EnvelopeContent(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTGenericCredential_EnvelopeContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_EnvelopeContent> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTGenericCredential_EnvelopeContent(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(BTTGenericCredential_EnvelopeSeal value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeSeal' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTGenericCredential_EnvelopeSeal(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTGenericCredential_EnvelopeSeal()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_EnvelopeSeal> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTGenericCredential_EnvelopeSeal(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTGenericCredential_PackingLabel(BTTGenericCredential_PackingLabel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_PackingLabel' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTGenericCredential_PackingLabel ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTGenericCredential_PackingLabel(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTGenericCredential_PackingLabel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_PackingLabel> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTGenericCredential_PackingLabel(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTKeyValuePair(BTTKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTKeyValuePair' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTKeyValuePair ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTKeyValuePair(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTKeyValuePair>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTKeyValuePair> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTKeyValuePair(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTNFE_N4K_Claims(BTTNFE_N4K_Claims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTNFE_N4K_Claims ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTNFE_N4K_Claims(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTNFE_N4K_Claims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Claims> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTNFE_N4K_Claims(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTNFE_N4K_Envelope(BTTNFE_N4K_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Envelope' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTNFE_N4K_Envelope ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTNFE_N4K_Envelope(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTNFE_N4K_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Envelope> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTNFE_N4K_Envelope(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(BTTNFE_N4K_EnvelopeContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_EnvelopeContent' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTNFE_N4K_EnvelopeContent(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTNFE_N4K_EnvelopeContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_EnvelopeContent> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTNFE_N4K_EnvelopeContent(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(BTTNFE_N4K_SealedEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_SealedEnvelope' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTNFE_N4K_SealedEnvelope(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTNFE_N4K_SealedEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_SealedEnvelope> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTNFE_N4K_SealedEnvelope(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTVerifiableCredential_SealedEnvelope' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTVerifiableCredential_SealedEnvelope(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTVerifiableCredential_SealedEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTVerifiableCredential_SealedEnvelope> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTVerifiableCredential_SealedEnvelope(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTEncryptionFlag(BTTEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptionFlag' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTEncryptionFlag ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTEncryptionFlag(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTEncryptionFlag>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptionFlag> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTEncryptionFlag(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTGenericCredentialType(BTTGenericCredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredentialType' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTGenericCredentialType ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTGenericCredentialType(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTGenericCredentialType>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTGenericCredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredentialType> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTGenericCredentialType(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTN4KBodyPart ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTN4KBodyPart(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTN4KBodyPart()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTN4KBodyPart(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTN4KMood(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTN4KMood(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                return (BTTN4KPurpose)value;
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTN4KType(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTN4KType(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTTrustLevel(BTTTrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTTrustLevel' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTTrustLevel ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTTrustLevel(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTTrustLevel>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTTrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTTrustLevel> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTTrustLevel(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_List_List_BTTKeyValuePair(List<List<BTTKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<BTTKeyValuePair>>' to 'BTTN4KPurpose'.");
+                
+            }
+            List<List<BTTKeyValuePair>> ITypeConverter<BTTN4KPurpose>.ConvertTo_List_List_BTTKeyValuePair(BTTN4KPurpose value)
+            {
+                return TypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_List_List_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<BTTKeyValuePair>>> ITypeConverter<BTTN4KPurpose>.Enumerate_List_List_BTTKeyValuePair(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_List_BTTClaim(List<BTTClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<BTTClaim>' to 'BTTN4KPurpose'.");
+                
+            }
+            List<BTTClaim> ITypeConverter<BTTN4KPurpose>.ConvertTo_List_BTTClaim(BTTN4KPurpose value)
+            {
+                return TypeConverter<List<BTTClaim>>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_List_BTTClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<BTTClaim>> ITypeConverter<BTTN4KPurpose>.Enumerate_List_BTTClaim(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTEncryptedClaims_nullable(BTTEncryptedClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims?' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTEncryptedClaims? ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTEncryptedClaims_nullable(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTEncryptedClaims?>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTEncryptedClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptedClaims?> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTEncryptedClaims_nullable(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KPurpose>.ConvertFrom_BTTNFE_N4K_Claims_nullable(BTTNFE_N4K_Claims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims?' to 'BTTN4KPurpose'.");
+                
+            }
+            BTTNFE_N4K_Claims? ITypeConverter<BTTN4KPurpose>.ConvertTo_BTTNFE_N4K_Claims_nullable(BTTN4KPurpose value)
+            {
+                return TypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_BTTN4KPurpose(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KPurpose>.GetConversionActionTo_BTTNFE_N4K_Claims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Claims?> ITypeConverter<BTTN4KPurpose>.Enumerate_BTTNFE_N4K_Claims_nullable(BTTN4KPurpose value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'BTTN4KType'.");
+                
+            }
+            bool ITypeConverter<BTTN4KType>.ConvertTo_bool(BTTN4KType value)
+            {
+                return TypeConverter<bool>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<BTTN4KType>.Enumerate_bool(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_int(int value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'int' to 'BTTN4KType'.");
+                
+            }
+            int ITypeConverter<BTTN4KType>.ConvertTo_int(BTTN4KType value)
+            {
+                return TypeConverter<int>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_int()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<int> ITypeConverter<BTTN4KType>.Enumerate_int(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'BTTN4KType'.");
+                
+            }
+            long ITypeConverter<BTTN4KType>.ConvertTo_long(BTTN4KType value)
+            {
+                return TypeConverter<long>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<BTTN4KType>.Enumerate_long(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTN4KType'.");
+                
+            }
+            float ITypeConverter<BTTN4KType>.ConvertTo_float(BTTN4KType value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTN4KType>.Enumerate_float(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_DateTime(DateTime value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'DateTime' to 'BTTN4KType'.");
+                
+            }
+            DateTime ITypeConverter<BTTN4KType>.ConvertTo_DateTime(BTTN4KType value)
+            {
+                return TypeConverter<DateTime>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_DateTime()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<DateTime> ITypeConverter<BTTN4KType>.Enumerate_DateTime(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    BTTN4KType intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = BTTN4KType.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "BTTN4KType");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<BTTN4KType>.ConvertTo_string(BTTN4KType value)
+            {
+                return TypeConverter<string>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<BTTN4KType>.Enumerate_string(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_float_Array_150(float[] value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTN4KType'.");
+                
+            }
+            float[] ITypeConverter<BTTN4KType>.ConvertTo_float_Array_150(BTTN4KType value)
+            {
+                return TypeConverter<float[]>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_float_Array_150()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float[]> ITypeConverter<BTTN4KType>.Enumerate_float_Array_150(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_List_long(List<long> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<long>' to 'BTTN4KType'.");
+                
+            }
+            List<long> ITypeConverter<BTTN4KType>.ConvertTo_List_long(BTTN4KType value)
+            {
+                return TypeConverter<List<long>>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_List_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<long>> ITypeConverter<BTTN4KType>.Enumerate_List_long(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'BTTN4KType'.");
+                
+            }
+            List<string> ITypeConverter<BTTN4KType>.ConvertTo_List_string(BTTN4KType value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<BTTN4KType>.Enumerate_List_string(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_List_BTTKeyValuePair(List<BTTKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<BTTKeyValuePair>' to 'BTTN4KType'.");
+                
+            }
+            List<BTTKeyValuePair> ITypeConverter<BTTN4KType>.ConvertTo_List_BTTKeyValuePair(BTTN4KType value)
+            {
+                return TypeConverter<List<BTTKeyValuePair>>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_List_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<BTTKeyValuePair>> ITypeConverter<BTTN4KType>.Enumerate_List_BTTKeyValuePair(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTClaim(BTTClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTClaim' to 'BTTN4KType'.");
+                
+            }
+            BTTClaim ITypeConverter<BTTN4KType>.ConvertTo_BTTClaim(BTTN4KType value)
+            {
+                return TypeConverter<BTTClaim>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTClaim> ITypeConverter<BTTN4KType>.Enumerate_BTTClaim(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTEncryptedClaims(BTTEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims' to 'BTTN4KType'.");
+                
+            }
+            BTTEncryptedClaims ITypeConverter<BTTN4KType>.ConvertTo_BTTEncryptedClaims(BTTN4KType value)
+            {
+                return TypeConverter<BTTEncryptedClaims>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptedClaims> ITypeConverter<BTTN4KType>.Enumerate_BTTEncryptedClaims(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTGenericCredential_Envelope(BTTGenericCredential_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_Envelope' to 'BTTN4KType'.");
+                
+            }
+            BTTGenericCredential_Envelope ITypeConverter<BTTN4KType>.ConvertTo_BTTGenericCredential_Envelope(BTTN4KType value)
+            {
+                return TypeConverter<BTTGenericCredential_Envelope>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTGenericCredential_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_Envelope> ITypeConverter<BTTN4KType>.Enumerate_BTTGenericCredential_Envelope(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTGenericCredential_EnvelopeContent(BTTGenericCredential_EnvelopeContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeContent' to 'BTTN4KType'.");
+                
+            }
+            BTTGenericCredential_EnvelopeContent ITypeConverter<BTTN4KType>.ConvertTo_BTTGenericCredential_EnvelopeContent(BTTN4KType value)
+            {
+                return TypeConverter<BTTGenericCredential_EnvelopeContent>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTGenericCredential_EnvelopeContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_EnvelopeContent> ITypeConverter<BTTN4KType>.Enumerate_BTTGenericCredential_EnvelopeContent(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTGenericCredential_EnvelopeSeal(BTTGenericCredential_EnvelopeSeal value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_EnvelopeSeal' to 'BTTN4KType'.");
+                
+            }
+            BTTGenericCredential_EnvelopeSeal ITypeConverter<BTTN4KType>.ConvertTo_BTTGenericCredential_EnvelopeSeal(BTTN4KType value)
+            {
+                return TypeConverter<BTTGenericCredential_EnvelopeSeal>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTGenericCredential_EnvelopeSeal()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_EnvelopeSeal> ITypeConverter<BTTN4KType>.Enumerate_BTTGenericCredential_EnvelopeSeal(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTGenericCredential_PackingLabel(BTTGenericCredential_PackingLabel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredential_PackingLabel' to 'BTTN4KType'.");
+                
+            }
+            BTTGenericCredential_PackingLabel ITypeConverter<BTTN4KType>.ConvertTo_BTTGenericCredential_PackingLabel(BTTN4KType value)
+            {
+                return TypeConverter<BTTGenericCredential_PackingLabel>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTGenericCredential_PackingLabel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredential_PackingLabel> ITypeConverter<BTTN4KType>.Enumerate_BTTGenericCredential_PackingLabel(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTKeyValuePair(BTTKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTKeyValuePair' to 'BTTN4KType'.");
+                
+            }
+            BTTKeyValuePair ITypeConverter<BTTN4KType>.ConvertTo_BTTKeyValuePair(BTTN4KType value)
+            {
+                return TypeConverter<BTTKeyValuePair>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTKeyValuePair> ITypeConverter<BTTN4KType>.Enumerate_BTTKeyValuePair(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTNFE_N4K_Claims(BTTNFE_N4K_Claims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims' to 'BTTN4KType'.");
+                
+            }
+            BTTNFE_N4K_Claims ITypeConverter<BTTN4KType>.ConvertTo_BTTNFE_N4K_Claims(BTTN4KType value)
+            {
+                return TypeConverter<BTTNFE_N4K_Claims>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTNFE_N4K_Claims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Claims> ITypeConverter<BTTN4KType>.Enumerate_BTTNFE_N4K_Claims(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTNFE_N4K_Envelope(BTTNFE_N4K_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Envelope' to 'BTTN4KType'.");
+                
+            }
+            BTTNFE_N4K_Envelope ITypeConverter<BTTN4KType>.ConvertTo_BTTNFE_N4K_Envelope(BTTN4KType value)
+            {
+                return TypeConverter<BTTNFE_N4K_Envelope>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTNFE_N4K_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Envelope> ITypeConverter<BTTN4KType>.Enumerate_BTTNFE_N4K_Envelope(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTNFE_N4K_EnvelopeContent(BTTNFE_N4K_EnvelopeContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_EnvelopeContent' to 'BTTN4KType'.");
+                
+            }
+            BTTNFE_N4K_EnvelopeContent ITypeConverter<BTTN4KType>.ConvertTo_BTTNFE_N4K_EnvelopeContent(BTTN4KType value)
+            {
+                return TypeConverter<BTTNFE_N4K_EnvelopeContent>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTNFE_N4K_EnvelopeContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_EnvelopeContent> ITypeConverter<BTTN4KType>.Enumerate_BTTNFE_N4K_EnvelopeContent(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(BTTNFE_N4K_SealedEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_SealedEnvelope' to 'BTTN4KType'.");
+                
+            }
+            BTTNFE_N4K_SealedEnvelope ITypeConverter<BTTN4KType>.ConvertTo_BTTNFE_N4K_SealedEnvelope(BTTN4KType value)
+            {
+                return TypeConverter<BTTNFE_N4K_SealedEnvelope>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTNFE_N4K_SealedEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_SealedEnvelope> ITypeConverter<BTTN4KType>.Enumerate_BTTNFE_N4K_SealedEnvelope(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTVerifiableCredential_SealedEnvelope(BTTVerifiableCredential_SealedEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTVerifiableCredential_SealedEnvelope' to 'BTTN4KType'.");
+                
+            }
+            BTTVerifiableCredential_SealedEnvelope ITypeConverter<BTTN4KType>.ConvertTo_BTTVerifiableCredential_SealedEnvelope(BTTN4KType value)
+            {
+                return TypeConverter<BTTVerifiableCredential_SealedEnvelope>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTVerifiableCredential_SealedEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTVerifiableCredential_SealedEnvelope> ITypeConverter<BTTN4KType>.Enumerate_BTTVerifiableCredential_SealedEnvelope(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTEncryptionFlag(BTTEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptionFlag' to 'BTTN4KType'.");
+                
+            }
+            BTTEncryptionFlag ITypeConverter<BTTN4KType>.ConvertTo_BTTEncryptionFlag(BTTN4KType value)
+            {
+                return TypeConverter<BTTEncryptionFlag>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptionFlag> ITypeConverter<BTTN4KType>.Enumerate_BTTEncryptionFlag(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTGenericCredentialType(BTTGenericCredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTGenericCredentialType' to 'BTTN4KType'.");
+                
+            }
+            BTTGenericCredentialType ITypeConverter<BTTN4KType>.ConvertTo_BTTGenericCredentialType(BTTN4KType value)
+            {
+                return TypeConverter<BTTGenericCredentialType>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTGenericCredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTGenericCredentialType> ITypeConverter<BTTN4KType>.Enumerate_BTTGenericCredentialType(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTN4KType'.");
+                
+            }
+            BTTN4KBodyPart ITypeConverter<BTTN4KType>.ConvertTo_BTTN4KBodyPart(BTTN4KType value)
+            {
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTN4KBodyPart()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTN4KType>.Enumerate_BTTN4KBodyPart(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTN4KType'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTN4KType>.ConvertTo_BTTN4KMood(BTTN4KType value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTN4KType>.Enumerate_BTTN4KMood(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTN4KType'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTN4KType>.ConvertTo_BTTN4KPurpose(BTTN4KType value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTN4KType>.Enumerate_BTTN4KPurpose(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                return (BTTN4KType)value;
+                
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertTo_BTTN4KType(BTTN4KType value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTN4KType>.Enumerate_BTTN4KType(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTTrustLevel(BTTTrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTTrustLevel' to 'BTTN4KType'.");
+                
+            }
+            BTTTrustLevel ITypeConverter<BTTN4KType>.ConvertTo_BTTTrustLevel(BTTN4KType value)
+            {
+                return TypeConverter<BTTTrustLevel>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTTrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTTrustLevel> ITypeConverter<BTTN4KType>.Enumerate_BTTTrustLevel(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_List_List_BTTKeyValuePair(List<List<BTTKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<BTTKeyValuePair>>' to 'BTTN4KType'.");
+                
+            }
+            List<List<BTTKeyValuePair>> ITypeConverter<BTTN4KType>.ConvertTo_List_List_BTTKeyValuePair(BTTN4KType value)
+            {
+                return TypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_List_List_BTTKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<BTTKeyValuePair>>> ITypeConverter<BTTN4KType>.Enumerate_List_List_BTTKeyValuePair(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_List_BTTClaim(List<BTTClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<BTTClaim>' to 'BTTN4KType'.");
+                
+            }
+            List<BTTClaim> ITypeConverter<BTTN4KType>.ConvertTo_List_BTTClaim(BTTN4KType value)
+            {
+                return TypeConverter<List<BTTClaim>>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_List_BTTClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<BTTClaim>> ITypeConverter<BTTN4KType>.Enumerate_List_BTTClaim(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTEncryptedClaims_nullable(BTTEncryptedClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTEncryptedClaims?' to 'BTTN4KType'.");
+                
+            }
+            BTTEncryptedClaims? ITypeConverter<BTTN4KType>.ConvertTo_BTTEncryptedClaims_nullable(BTTN4KType value)
+            {
+                return TypeConverter<BTTEncryptedClaims?>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTEncryptedClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTEncryptedClaims?> ITypeConverter<BTTN4KType>.Enumerate_BTTEncryptedClaims_nullable(BTTN4KType value)
+            {
+                
+                yield break;
+            }
+            BTTN4KType ITypeConverter<BTTN4KType>.ConvertFrom_BTTNFE_N4K_Claims_nullable(BTTNFE_N4K_Claims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTNFE_N4K_Claims?' to 'BTTN4KType'.");
+                
+            }
+            BTTNFE_N4K_Claims? ITypeConverter<BTTN4KType>.ConvertTo_BTTNFE_N4K_Claims_nullable(BTTN4KType value)
+            {
+                return TypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_BTTN4KType(value);
+            }
+            TypeConversionAction ITypeConverter<BTTN4KType>.GetConversionActionTo_BTTNFE_N4K_Claims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTNFE_N4K_Claims?> ITypeConverter<BTTN4KType>.Enumerate_BTTNFE_N4K_Claims_nullable(BTTN4KType value)
             {
                 
                 yield break;
@@ -17850,6 +23435,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTTrustLevel ITypeConverter<BTTTrustLevel>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTTrustLevel'.");
+                
+            }
+            float ITypeConverter<BTTTrustLevel>.ConvertTo_float(BTTTrustLevel value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTTrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<BTTTrustLevel>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTTrustLevel>.Enumerate_float(BTTTrustLevel value)
+            {
+                
+                yield break;
+            }
             BTTTrustLevel ITypeConverter<BTTTrustLevel>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -17915,17 +23524,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTTrustLevel ITypeConverter<BTTTrustLevel>.ConvertFrom_int_Array_150(int[] value)
+            BTTTrustLevel ITypeConverter<BTTTrustLevel>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTTrustLevel'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTTrustLevel'.");
                 
             }
-            int[] ITypeConverter<BTTTrustLevel>.ConvertTo_int_Array_150(BTTTrustLevel value)
+            float[] ITypeConverter<BTTTrustLevel>.ConvertTo_float_Array_150(BTTTrustLevel value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTTrustLevel(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTTrustLevel(value);
             }
-            TypeConversionAction ITypeConverter<BTTTrustLevel>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTTrustLevel>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17934,7 +23543,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTTrustLevel>.Enumerate_int_Array_150(BTTTrustLevel value)
+            IEnumerable<float[]> ITypeConverter<BTTTrustLevel>.Enumerate_float_Array_150(BTTTrustLevel value)
             {
                 
                 yield break;
@@ -18347,17 +23956,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTTrustLevel ITypeConverter<BTTTrustLevel>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTTrustLevel ITypeConverter<BTTTrustLevel>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTTrustLevel'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTTrustLevel'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTTrustLevel>.ConvertTo_BTTNFEBodyPart(BTTTrustLevel value)
+            BTTN4KBodyPart ITypeConverter<BTTTrustLevel>.ConvertTo_BTTN4KBodyPart(BTTTrustLevel value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTTrustLevel(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTTrustLevel(value);
             }
-            TypeConversionAction ITypeConverter<BTTTrustLevel>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTTrustLevel>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -18366,7 +23975,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTTrustLevel>.Enumerate_BTTNFEBodyPart(BTTTrustLevel value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTTrustLevel>.Enumerate_BTTN4KBodyPart(BTTTrustLevel value)
+            {
+                
+                yield break;
+            }
+            BTTTrustLevel ITypeConverter<BTTTrustLevel>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTTrustLevel'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTTrustLevel>.ConvertTo_BTTN4KMood(BTTTrustLevel value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTTrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<BTTTrustLevel>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTTrustLevel>.Enumerate_BTTN4KMood(BTTTrustLevel value)
+            {
+                
+                yield break;
+            }
+            BTTTrustLevel ITypeConverter<BTTTrustLevel>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTTrustLevel'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTTrustLevel>.ConvertTo_BTTN4KPurpose(BTTTrustLevel value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTTrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<BTTTrustLevel>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTTrustLevel>.Enumerate_BTTN4KPurpose(BTTTrustLevel value)
+            {
+                
+                yield break;
+            }
+            BTTTrustLevel ITypeConverter<BTTTrustLevel>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTTrustLevel'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTTrustLevel>.ConvertTo_BTTN4KType(BTTTrustLevel value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTTrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<BTTTrustLevel>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTTrustLevel>.Enumerate_BTTN4KType(BTTTrustLevel value)
             {
                 
                 yield break;
@@ -18563,6 +24244,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            List<List<BTTKeyValuePair>> ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'List<List<BTTKeyValuePair>>'.");
+                
+            }
+            float ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertTo_float(List<List<BTTKeyValuePair>> value)
+            {
+                return TypeConverter<float>.ConvertFrom_List_List_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<BTTKeyValuePair>>>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<List<List<BTTKeyValuePair>>>.Enumerate_float(List<List<BTTKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
             List<List<BTTKeyValuePair>> ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -18640,17 +24345,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            List<List<BTTKeyValuePair>> ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_int_Array_150(int[] value)
+            List<List<BTTKeyValuePair>> ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'List<List<BTTKeyValuePair>>'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'List<List<BTTKeyValuePair>>'.");
                 
             }
-            int[] ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertTo_int_Array_150(List<List<BTTKeyValuePair>> value)
+            float[] ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertTo_float_Array_150(List<List<BTTKeyValuePair>> value)
             {
-                return TypeConverter<int[]>.ConvertFrom_List_List_BTTKeyValuePair(value);
+                return TypeConverter<float[]>.ConvertFrom_List_List_BTTKeyValuePair(value);
             }
-            TypeConversionAction ITypeConverter<List<List<BTTKeyValuePair>>>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<List<List<BTTKeyValuePair>>>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -18659,7 +24364,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<List<List<BTTKeyValuePair>>>.Enumerate_int_Array_150(List<List<BTTKeyValuePair>> value)
+            IEnumerable<float[]> ITypeConverter<List<List<BTTKeyValuePair>>>.Enumerate_float_Array_150(List<List<BTTKeyValuePair>> value)
             {
                 
                 yield break;
@@ -19096,17 +24801,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            List<List<BTTKeyValuePair>> ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            List<List<BTTKeyValuePair>> ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'List<List<BTTKeyValuePair>>'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'List<List<BTTKeyValuePair>>'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertTo_BTTNFEBodyPart(List<List<BTTKeyValuePair>> value)
+            BTTN4KBodyPart ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertTo_BTTN4KBodyPart(List<List<BTTKeyValuePair>> value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_List_List_BTTKeyValuePair(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_List_List_BTTKeyValuePair(value);
             }
-            TypeConversionAction ITypeConverter<List<List<BTTKeyValuePair>>>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<List<List<BTTKeyValuePair>>>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -19115,7 +24820,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<List<List<BTTKeyValuePair>>>.Enumerate_BTTNFEBodyPart(List<List<BTTKeyValuePair>> value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<List<List<BTTKeyValuePair>>>.Enumerate_BTTN4KBodyPart(List<List<BTTKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<BTTKeyValuePair>> ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'List<List<BTTKeyValuePair>>'.");
+                
+            }
+            BTTN4KMood ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertTo_BTTN4KMood(List<List<BTTKeyValuePair>> value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_List_List_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<BTTKeyValuePair>>>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<List<List<BTTKeyValuePair>>>.Enumerate_BTTN4KMood(List<List<BTTKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<BTTKeyValuePair>> ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'List<List<BTTKeyValuePair>>'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertTo_BTTN4KPurpose(List<List<BTTKeyValuePair>> value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_List_List_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<BTTKeyValuePair>>>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<List<List<BTTKeyValuePair>>>.Enumerate_BTTN4KPurpose(List<List<BTTKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<BTTKeyValuePair>> ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'List<List<BTTKeyValuePair>>'.");
+                
+            }
+            BTTN4KType ITypeConverter<List<List<BTTKeyValuePair>>>.ConvertTo_BTTN4KType(List<List<BTTKeyValuePair>> value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_List_List_BTTKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<BTTKeyValuePair>>>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<List<List<BTTKeyValuePair>>>.Enumerate_BTTN4KType(List<List<BTTKeyValuePair>> value)
             {
                 
                 yield break;
@@ -19315,6 +25092,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            List<BTTClaim> ITypeConverter<List<BTTClaim>>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'List<BTTClaim>'.");
+                
+            }
+            float ITypeConverter<List<BTTClaim>>.ConvertTo_float(List<BTTClaim> value)
+            {
+                return TypeConverter<float>.ConvertFrom_List_BTTClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<BTTClaim>>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<List<BTTClaim>>.Enumerate_float(List<BTTClaim> value)
+            {
+                
+                yield break;
+            }
             List<BTTClaim> ITypeConverter<List<BTTClaim>>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -19392,17 +25193,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            List<BTTClaim> ITypeConverter<List<BTTClaim>>.ConvertFrom_int_Array_150(int[] value)
+            List<BTTClaim> ITypeConverter<List<BTTClaim>>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'List<BTTClaim>'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'List<BTTClaim>'.");
                 
             }
-            int[] ITypeConverter<List<BTTClaim>>.ConvertTo_int_Array_150(List<BTTClaim> value)
+            float[] ITypeConverter<List<BTTClaim>>.ConvertTo_float_Array_150(List<BTTClaim> value)
             {
-                return TypeConverter<int[]>.ConvertFrom_List_BTTClaim(value);
+                return TypeConverter<float[]>.ConvertFrom_List_BTTClaim(value);
             }
-            TypeConversionAction ITypeConverter<List<BTTClaim>>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<List<BTTClaim>>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -19411,7 +25212,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<List<BTTClaim>>.Enumerate_int_Array_150(List<BTTClaim> value)
+            IEnumerable<float[]> ITypeConverter<List<BTTClaim>>.Enumerate_float_Array_150(List<BTTClaim> value)
             {
                 
                 yield break;
@@ -19841,17 +25642,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            List<BTTClaim> ITypeConverter<List<BTTClaim>>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            List<BTTClaim> ITypeConverter<List<BTTClaim>>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'List<BTTClaim>'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'List<BTTClaim>'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<List<BTTClaim>>.ConvertTo_BTTNFEBodyPart(List<BTTClaim> value)
+            BTTN4KBodyPart ITypeConverter<List<BTTClaim>>.ConvertTo_BTTN4KBodyPart(List<BTTClaim> value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_List_BTTClaim(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_List_BTTClaim(value);
             }
-            TypeConversionAction ITypeConverter<List<BTTClaim>>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<List<BTTClaim>>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -19860,7 +25661,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<List<BTTClaim>>.Enumerate_BTTNFEBodyPart(List<BTTClaim> value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<List<BTTClaim>>.Enumerate_BTTN4KBodyPart(List<BTTClaim> value)
+            {
+                
+                yield break;
+            }
+            List<BTTClaim> ITypeConverter<List<BTTClaim>>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'List<BTTClaim>'.");
+                
+            }
+            BTTN4KMood ITypeConverter<List<BTTClaim>>.ConvertTo_BTTN4KMood(List<BTTClaim> value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_List_BTTClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<BTTClaim>>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<List<BTTClaim>>.Enumerate_BTTN4KMood(List<BTTClaim> value)
+            {
+                
+                yield break;
+            }
+            List<BTTClaim> ITypeConverter<List<BTTClaim>>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'List<BTTClaim>'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<List<BTTClaim>>.ConvertTo_BTTN4KPurpose(List<BTTClaim> value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_List_BTTClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<BTTClaim>>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<List<BTTClaim>>.Enumerate_BTTN4KPurpose(List<BTTClaim> value)
+            {
+                
+                yield break;
+            }
+            List<BTTClaim> ITypeConverter<List<BTTClaim>>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'List<BTTClaim>'.");
+                
+            }
+            BTTN4KType ITypeConverter<List<BTTClaim>>.ConvertTo_BTTN4KType(List<BTTClaim> value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_List_BTTClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<BTTClaim>>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<List<BTTClaim>>.Enumerate_BTTN4KType(List<BTTClaim> value)
             {
                 
                 yield break;
@@ -20060,6 +25933,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTEncryptedClaims? ITypeConverter<BTTEncryptedClaims?>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTEncryptedClaims?'.");
+                
+            }
+            float ITypeConverter<BTTEncryptedClaims?>.ConvertTo_float(BTTEncryptedClaims? value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTEncryptedClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims?>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTEncryptedClaims?>.Enumerate_float(BTTEncryptedClaims? value)
+            {
+                
+                yield break;
+            }
             BTTEncryptedClaims? ITypeConverter<BTTEncryptedClaims?>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -20125,17 +26022,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTEncryptedClaims? ITypeConverter<BTTEncryptedClaims?>.ConvertFrom_int_Array_150(int[] value)
+            BTTEncryptedClaims? ITypeConverter<BTTEncryptedClaims?>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTEncryptedClaims?'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTEncryptedClaims?'.");
                 
             }
-            int[] ITypeConverter<BTTEncryptedClaims?>.ConvertTo_int_Array_150(BTTEncryptedClaims? value)
+            float[] ITypeConverter<BTTEncryptedClaims?>.ConvertTo_float_Array_150(BTTEncryptedClaims? value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTEncryptedClaims_nullable(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<BTTEncryptedClaims?>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims?>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -20144,7 +26041,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTEncryptedClaims?>.Enumerate_int_Array_150(BTTEncryptedClaims? value)
+            IEnumerable<float[]> ITypeConverter<BTTEncryptedClaims?>.Enumerate_float_Array_150(BTTEncryptedClaims? value)
             {
                 
                 yield break;
@@ -20557,17 +26454,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTEncryptedClaims? ITypeConverter<BTTEncryptedClaims?>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTEncryptedClaims? ITypeConverter<BTTEncryptedClaims?>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTEncryptedClaims?'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTEncryptedClaims?'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTEncryptedClaims?>.ConvertTo_BTTNFEBodyPart(BTTEncryptedClaims? value)
+            BTTN4KBodyPart ITypeConverter<BTTEncryptedClaims?>.ConvertTo_BTTN4KBodyPart(BTTEncryptedClaims? value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTEncryptedClaims_nullable(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<BTTEncryptedClaims?>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims?>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -20576,7 +26473,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTEncryptedClaims?>.Enumerate_BTTNFEBodyPart(BTTEncryptedClaims? value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTEncryptedClaims?>.Enumerate_BTTN4KBodyPart(BTTEncryptedClaims? value)
+            {
+                
+                yield break;
+            }
+            BTTEncryptedClaims? ITypeConverter<BTTEncryptedClaims?>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTEncryptedClaims?'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTEncryptedClaims?>.ConvertTo_BTTN4KMood(BTTEncryptedClaims? value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTEncryptedClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims?>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTEncryptedClaims?>.Enumerate_BTTN4KMood(BTTEncryptedClaims? value)
+            {
+                
+                yield break;
+            }
+            BTTEncryptedClaims? ITypeConverter<BTTEncryptedClaims?>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTEncryptedClaims?'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTEncryptedClaims?>.ConvertTo_BTTN4KPurpose(BTTEncryptedClaims? value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTEncryptedClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims?>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTEncryptedClaims?>.Enumerate_BTTN4KPurpose(BTTEncryptedClaims? value)
+            {
+                
+                yield break;
+            }
+            BTTEncryptedClaims? ITypeConverter<BTTEncryptedClaims?>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTEncryptedClaims?'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTEncryptedClaims?>.ConvertTo_BTTN4KType(BTTEncryptedClaims? value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTEncryptedClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<BTTEncryptedClaims?>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTEncryptedClaims?>.Enumerate_BTTN4KType(BTTEncryptedClaims? value)
             {
                 
                 yield break;
@@ -20773,6 +26742,30 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
+            BTTNFE_N4K_Claims? ITypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_float(float value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'float' to 'BTTNFE_N4K_Claims?'.");
+                
+            }
+            float ITypeConverter<BTTNFE_N4K_Claims?>.ConvertTo_float(BTTNFE_N4K_Claims? value)
+            {
+                return TypeConverter<float>.ConvertFrom_BTTNFE_N4K_Claims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims?>.GetConversionActionTo_float()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<float> ITypeConverter<BTTNFE_N4K_Claims?>.Enumerate_float(BTTNFE_N4K_Claims? value)
+            {
+                
+                yield break;
+            }
             BTTNFE_N4K_Claims? ITypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_DateTime(DateTime value)
             {
                 
@@ -20838,17 +26831,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFE_N4K_Claims? ITypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_int_Array_150(int[] value)
+            BTTNFE_N4K_Claims? ITypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_float_Array_150(float[] value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'int[]' to 'BTTNFE_N4K_Claims?'.");
+                throw new InvalidCastException("Invalid cast from 'float[]' to 'BTTNFE_N4K_Claims?'.");
                 
             }
-            int[] ITypeConverter<BTTNFE_N4K_Claims?>.ConvertTo_int_Array_150(BTTNFE_N4K_Claims? value)
+            float[] ITypeConverter<BTTNFE_N4K_Claims?>.ConvertTo_float_Array_150(BTTNFE_N4K_Claims? value)
             {
-                return TypeConverter<int[]>.ConvertFrom_BTTNFE_N4K_Claims_nullable(value);
+                return TypeConverter<float[]>.ConvertFrom_BTTNFE_N4K_Claims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims?>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims?>.GetConversionActionTo_float_Array_150()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -20857,7 +26850,7 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<int[]> ITypeConverter<BTTNFE_N4K_Claims?>.Enumerate_int_Array_150(BTTNFE_N4K_Claims? value)
+            IEnumerable<float[]> ITypeConverter<BTTNFE_N4K_Claims?>.Enumerate_float_Array_150(BTTNFE_N4K_Claims? value)
             {
                 
                 yield break;
@@ -21270,17 +27263,17 @@ namespace BTTN4KNFE
                 
                 yield break;
             }
-            BTTNFE_N4K_Claims? ITypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            BTTNFE_N4K_Claims? ITypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'BTTNFEBodyPart' to 'BTTNFE_N4K_Claims?'.");
+                throw new InvalidCastException("Invalid cast from 'BTTN4KBodyPart' to 'BTTNFE_N4K_Claims?'.");
                 
             }
-            BTTNFEBodyPart ITypeConverter<BTTNFE_N4K_Claims?>.ConvertTo_BTTNFEBodyPart(BTTNFE_N4K_Claims? value)
+            BTTN4KBodyPart ITypeConverter<BTTNFE_N4K_Claims?>.ConvertTo_BTTN4KBodyPart(BTTNFE_N4K_Claims? value)
             {
-                return TypeConverter<BTTNFEBodyPart>.ConvertFrom_BTTNFE_N4K_Claims_nullable(value);
+                return TypeConverter<BTTN4KBodyPart>.ConvertFrom_BTTNFE_N4K_Claims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims?>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims?>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -21289,7 +27282,79 @@ namespace BTTN4KNFE
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<BTTNFE_N4K_Claims?>.Enumerate_BTTNFEBodyPart(BTTNFE_N4K_Claims? value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<BTTNFE_N4K_Claims?>.Enumerate_BTTN4KBodyPart(BTTNFE_N4K_Claims? value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_Claims? ITypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KMood' to 'BTTNFE_N4K_Claims?'.");
+                
+            }
+            BTTN4KMood ITypeConverter<BTTNFE_N4K_Claims?>.ConvertTo_BTTN4KMood(BTTNFE_N4K_Claims? value)
+            {
+                return TypeConverter<BTTN4KMood>.ConvertFrom_BTTNFE_N4K_Claims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims?>.GetConversionActionTo_BTTN4KMood()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KMood> ITypeConverter<BTTNFE_N4K_Claims?>.Enumerate_BTTN4KMood(BTTNFE_N4K_Claims? value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_Claims? ITypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KPurpose' to 'BTTNFE_N4K_Claims?'.");
+                
+            }
+            BTTN4KPurpose ITypeConverter<BTTNFE_N4K_Claims?>.ConvertTo_BTTN4KPurpose(BTTNFE_N4K_Claims? value)
+            {
+                return TypeConverter<BTTN4KPurpose>.ConvertFrom_BTTNFE_N4K_Claims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims?>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KPurpose> ITypeConverter<BTTNFE_N4K_Claims?>.Enumerate_BTTN4KPurpose(BTTNFE_N4K_Claims? value)
+            {
+                
+                yield break;
+            }
+            BTTNFE_N4K_Claims? ITypeConverter<BTTNFE_N4K_Claims?>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'BTTN4KType' to 'BTTNFE_N4K_Claims?'.");
+                
+            }
+            BTTN4KType ITypeConverter<BTTNFE_N4K_Claims?>.ConvertTo_BTTN4KType(BTTNFE_N4K_Claims? value)
+            {
+                return TypeConverter<BTTN4KType>.ConvertFrom_BTTNFE_N4K_Claims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<BTTNFE_N4K_Claims?>.GetConversionActionTo_BTTN4KType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<BTTN4KType> ITypeConverter<BTTNFE_N4K_Claims?>.Enumerate_BTTN4KType(BTTNFE_N4K_Claims? value)
             {
                 
                 yield break;
@@ -21466,6 +27531,23 @@ namespace BTTN4KNFE
                 throw new NotImplementedException();
             }
             
+            object ITypeConverter<object>.ConvertFrom_float(float value)
+            {
+                return value;
+            }
+            float ITypeConverter<object>.ConvertTo_float(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_float()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<float> ITypeConverter<object>.Enumerate_float(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
             object ITypeConverter<object>.ConvertFrom_DateTime(DateTime value)
             {
                 return value;
@@ -21500,19 +27582,19 @@ namespace BTTN4KNFE
                 throw new NotImplementedException();
             }
             
-            object ITypeConverter<object>.ConvertFrom_int_Array_150(int[] value)
+            object ITypeConverter<object>.ConvertFrom_float_Array_150(float[] value)
             {
                 return value;
             }
-            int[] ITypeConverter<object>.ConvertTo_int_Array_150(object value)
+            float[] ITypeConverter<object>.ConvertTo_float_Array_150(object value)
             {
                 throw new NotImplementedException();
             }
-            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_int_Array_150()
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_float_Array_150()
             {
                 throw new NotImplementedException();
             }
-            IEnumerable<int[]> ITypeConverter<object>.Enumerate_int_Array_150(object value)
+            IEnumerable<float[]> ITypeConverter<object>.Enumerate_float_Array_150(object value)
             {
                 throw new NotImplementedException();
             }
@@ -21806,19 +27888,70 @@ namespace BTTN4KNFE
                 throw new NotImplementedException();
             }
             
-            object ITypeConverter<object>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+            object ITypeConverter<object>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
             {
                 return value;
             }
-            BTTNFEBodyPart ITypeConverter<object>.ConvertTo_BTTNFEBodyPart(object value)
+            BTTN4KBodyPart ITypeConverter<object>.ConvertTo_BTTN4KBodyPart(object value)
             {
                 throw new NotImplementedException();
             }
-            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_BTTNFEBodyPart()
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_BTTN4KBodyPart()
             {
                 throw new NotImplementedException();
             }
-            IEnumerable<BTTNFEBodyPart> ITypeConverter<object>.Enumerate_BTTNFEBodyPart(object value)
+            IEnumerable<BTTN4KBodyPart> ITypeConverter<object>.Enumerate_BTTN4KBodyPart(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+            {
+                return value;
+            }
+            BTTN4KMood ITypeConverter<object>.ConvertTo_BTTN4KMood(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_BTTN4KMood()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<BTTN4KMood> ITypeConverter<object>.Enumerate_BTTN4KMood(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+            {
+                return value;
+            }
+            BTTN4KPurpose ITypeConverter<object>.ConvertTo_BTTN4KPurpose(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_BTTN4KPurpose()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<BTTN4KPurpose> ITypeConverter<object>.Enumerate_BTTN4KPurpose(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_BTTN4KType(BTTN4KType value)
+            {
+                return value;
+            }
+            BTTN4KType ITypeConverter<object>.ConvertTo_BTTN4KType(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_BTTN4KType()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<BTTN4KType> ITypeConverter<object>.Enumerate_BTTN4KType(object value)
             {
                 throw new NotImplementedException();
             }
@@ -21963,6 +28096,23 @@ namespace BTTN4KNFE
             throw new NotImplementedException("Internal error T5013.");
         }
         
+        T ITypeConverter<T>.ConvertFrom_float(float value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        float ITypeConverter<T>.ConvertTo_float(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_float()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<float> ITypeConverter<T>.Enumerate_float(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
         T ITypeConverter<T>.ConvertFrom_DateTime(DateTime value)
         {
             throw new NotImplementedException("Internal error T5013.");
@@ -21997,19 +28147,19 @@ namespace BTTN4KNFE
             throw new NotImplementedException("Internal error T5013.");
         }
         
-        T ITypeConverter<T>.ConvertFrom_int_Array_150(int[] value)
+        T ITypeConverter<T>.ConvertFrom_float_Array_150(float[] value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        int[] ITypeConverter<T>.ConvertTo_int_Array_150(T value)
+        float[] ITypeConverter<T>.ConvertTo_float_Array_150(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_int_Array_150()
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_float_Array_150()
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        IEnumerable<int[]> ITypeConverter<T>.Enumerate_int_Array_150(T value)
+        IEnumerable<float[]> ITypeConverter<T>.Enumerate_float_Array_150(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
@@ -22303,19 +28453,70 @@ namespace BTTN4KNFE
             throw new NotImplementedException("Internal error T5013.");
         }
         
-        T ITypeConverter<T>.ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+        T ITypeConverter<T>.ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        BTTNFEBodyPart ITypeConverter<T>.ConvertTo_BTTNFEBodyPart(T value)
+        BTTN4KBodyPart ITypeConverter<T>.ConvertTo_BTTN4KBodyPart(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_BTTNFEBodyPart()
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_BTTN4KBodyPart()
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        IEnumerable<BTTNFEBodyPart> ITypeConverter<T>.Enumerate_BTTNFEBodyPart(T value)
+        IEnumerable<BTTN4KBodyPart> ITypeConverter<T>.Enumerate_BTTN4KBodyPart(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_BTTN4KMood(BTTN4KMood value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        BTTN4KMood ITypeConverter<T>.ConvertTo_BTTN4KMood(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_BTTN4KMood()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<BTTN4KMood> ITypeConverter<T>.Enumerate_BTTN4KMood(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        BTTN4KPurpose ITypeConverter<T>.ConvertTo_BTTN4KPurpose(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_BTTN4KPurpose()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<BTTN4KPurpose> ITypeConverter<T>.Enumerate_BTTN4KPurpose(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_BTTN4KType(BTTN4KType value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        BTTN4KType ITypeConverter<T>.ConvertTo_BTTN4KType(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_BTTN4KType()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<BTTN4KType> ITypeConverter<T>.Enumerate_BTTN4KType(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
@@ -22459,6 +28660,23 @@ namespace BTTN4KNFE
             return s_type_converter.Enumerate_long(value);
         }
         
+        internal static T ConvertFrom_float(float value)
+        {
+            return s_type_converter.ConvertFrom_float(value);
+        }
+        internal static float ConvertTo_float(T value)
+        {
+            return s_type_converter.ConvertTo_float(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_float()
+        {
+            return s_type_converter.GetConversionActionTo_float();
+        }
+        internal static IEnumerable<float> Enumerate_float(T value)
+        {
+            return s_type_converter.Enumerate_float(value);
+        }
+        
         internal static T ConvertFrom_DateTime(DateTime value)
         {
             return s_type_converter.ConvertFrom_DateTime(value);
@@ -22493,21 +28711,21 @@ namespace BTTN4KNFE
             return s_type_converter.Enumerate_string(value);
         }
         
-        internal static T ConvertFrom_int_Array_150(int[] value)
+        internal static T ConvertFrom_float_Array_150(float[] value)
         {
-            return s_type_converter.ConvertFrom_int_Array_150(value);
+            return s_type_converter.ConvertFrom_float_Array_150(value);
         }
-        internal static int[] ConvertTo_int_Array_150(T value)
+        internal static float[] ConvertTo_float_Array_150(T value)
         {
-            return s_type_converter.ConvertTo_int_Array_150(value);
+            return s_type_converter.ConvertTo_float_Array_150(value);
         }
-        internal static TypeConversionAction GetConversionActionTo_int_Array_150()
+        internal static TypeConversionAction GetConversionActionTo_float_Array_150()
         {
-            return s_type_converter.GetConversionActionTo_int_Array_150();
+            return s_type_converter.GetConversionActionTo_float_Array_150();
         }
-        internal static IEnumerable<int[]> Enumerate_int_Array_150(T value)
+        internal static IEnumerable<float[]> Enumerate_float_Array_150(T value)
         {
-            return s_type_converter.Enumerate_int_Array_150(value);
+            return s_type_converter.Enumerate_float_Array_150(value);
         }
         
         internal static T ConvertFrom_List_long(List<long> value)
@@ -22799,21 +29017,72 @@ namespace BTTN4KNFE
             return s_type_converter.Enumerate_BTTGenericCredentialType(value);
         }
         
-        internal static T ConvertFrom_BTTNFEBodyPart(BTTNFEBodyPart value)
+        internal static T ConvertFrom_BTTN4KBodyPart(BTTN4KBodyPart value)
         {
-            return s_type_converter.ConvertFrom_BTTNFEBodyPart(value);
+            return s_type_converter.ConvertFrom_BTTN4KBodyPart(value);
         }
-        internal static BTTNFEBodyPart ConvertTo_BTTNFEBodyPart(T value)
+        internal static BTTN4KBodyPart ConvertTo_BTTN4KBodyPart(T value)
         {
-            return s_type_converter.ConvertTo_BTTNFEBodyPart(value);
+            return s_type_converter.ConvertTo_BTTN4KBodyPart(value);
         }
-        internal static TypeConversionAction GetConversionActionTo_BTTNFEBodyPart()
+        internal static TypeConversionAction GetConversionActionTo_BTTN4KBodyPart()
         {
-            return s_type_converter.GetConversionActionTo_BTTNFEBodyPart();
+            return s_type_converter.GetConversionActionTo_BTTN4KBodyPart();
         }
-        internal static IEnumerable<BTTNFEBodyPart> Enumerate_BTTNFEBodyPart(T value)
+        internal static IEnumerable<BTTN4KBodyPart> Enumerate_BTTN4KBodyPart(T value)
         {
-            return s_type_converter.Enumerate_BTTNFEBodyPart(value);
+            return s_type_converter.Enumerate_BTTN4KBodyPart(value);
+        }
+        
+        internal static T ConvertFrom_BTTN4KMood(BTTN4KMood value)
+        {
+            return s_type_converter.ConvertFrom_BTTN4KMood(value);
+        }
+        internal static BTTN4KMood ConvertTo_BTTN4KMood(T value)
+        {
+            return s_type_converter.ConvertTo_BTTN4KMood(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_BTTN4KMood()
+        {
+            return s_type_converter.GetConversionActionTo_BTTN4KMood();
+        }
+        internal static IEnumerable<BTTN4KMood> Enumerate_BTTN4KMood(T value)
+        {
+            return s_type_converter.Enumerate_BTTN4KMood(value);
+        }
+        
+        internal static T ConvertFrom_BTTN4KPurpose(BTTN4KPurpose value)
+        {
+            return s_type_converter.ConvertFrom_BTTN4KPurpose(value);
+        }
+        internal static BTTN4KPurpose ConvertTo_BTTN4KPurpose(T value)
+        {
+            return s_type_converter.ConvertTo_BTTN4KPurpose(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_BTTN4KPurpose()
+        {
+            return s_type_converter.GetConversionActionTo_BTTN4KPurpose();
+        }
+        internal static IEnumerable<BTTN4KPurpose> Enumerate_BTTN4KPurpose(T value)
+        {
+            return s_type_converter.Enumerate_BTTN4KPurpose(value);
+        }
+        
+        internal static T ConvertFrom_BTTN4KType(BTTN4KType value)
+        {
+            return s_type_converter.ConvertFrom_BTTN4KType(value);
+        }
+        internal static BTTN4KType ConvertTo_BTTN4KType(T value)
+        {
+            return s_type_converter.ConvertTo_BTTN4KType(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_BTTN4KType()
+        {
+            return s_type_converter.GetConversionActionTo_BTTN4KType();
+        }
+        internal static IEnumerable<BTTN4KType> Enumerate_BTTN4KType(T value)
+        {
+            return s_type_converter.Enumerate_BTTN4KType(value);
         }
         
         internal static T ConvertFrom_BTTTrustLevel(BTTTrustLevel value)

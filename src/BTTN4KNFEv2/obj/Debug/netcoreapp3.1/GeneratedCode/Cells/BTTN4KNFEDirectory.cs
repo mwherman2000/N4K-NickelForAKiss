@@ -313,19 +313,15 @@ namespace BTTN4KNFE
                 
                 break;
                 
-                case 4:
+                case 3:
                 
                 if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.count, attributeKey, attributeValue))
                     
                         yield return new KeyValuePair<string, T>("count", TypeConverter<T>.ConvertFrom_int(this.count));
                 
-                if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.ids, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("ids", TypeConverter<T>.ConvertFrom_List_long(this.ids));
-                
                 break;
                 
-                case 6:
+                case 5:
                 
                 if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.count, attributeKey, attributeValue))
                     
@@ -349,7 +345,19 @@ namespace BTTN4KNFE
                 
                 break;
                 
-                case 25:
+                case 8:
+                
+                if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.count, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("count", TypeConverter<T>.ConvertFrom_int(this.count));
+                
+                if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.ids, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("ids", TypeConverter<T>.ConvertFrom_List_long(this.ids));
+                
+                break;
+                
+                case 29:
                 
                 if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.count, attributeKey, attributeValue))
                     
@@ -399,7 +407,7 @@ namespace BTTN4KNFE
                     }
                     break;
                 
-                case 4:
+                case 3:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_int(this.count);
@@ -407,7 +415,7 @@ namespace BTTN4KNFE
                     }
                     break;
                 
-                case 6:
+                case 5:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_int(this.count);
@@ -423,7 +431,15 @@ namespace BTTN4KNFE
                     }
                     break;
                 
-                case 25:
+                case 8:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_int(this.count);
+                        
+                    }
+                    break;
+                
+                case 29:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_int(this.count);
@@ -479,7 +495,7 @@ namespace BTTN4KNFE
                     }
                     break;
                 
-                case 4:
+                case 3:
                     {
                         
                         {
@@ -496,10 +512,19 @@ namespace BTTN4KNFE
                     }
                     break;
                 
-                case 6:
+                case 5:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_List_long(this.ids);
+                        {
+                            
+                            var element0 = this.ids;
+                            
+                            foreach (var element1 in  element0)
+                            
+                            {
+                                yield return TypeConverter<T>.ConvertFrom_long(element1);
+                            }
+                        }
                         
                     }
                     break;
@@ -512,7 +537,15 @@ namespace BTTN4KNFE
                     }
                     break;
                 
-                case 25:
+                case 8:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_List_long(this.ids);
+                        
+                    }
+                    break;
+                
+                case 29:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_List_long(this.ids);
@@ -1365,19 +1398,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                 
                 break;
                 
-                case 4:
+                case 3:
                 
                 if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.count, attributeKey, attributeValue))
                     
                         yield return new KeyValuePair<string, T>("count", TypeConverter<T>.ConvertFrom_int(this.count));
                 
-                if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.ids, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("ids", TypeConverter<T>.ConvertFrom_List_long(this.ids));
-                
                 break;
                 
-                case 6:
+                case 5:
                 
                 if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.count, attributeKey, attributeValue))
                     
@@ -1401,7 +1430,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                 
                 break;
                 
-                case 25:
+                case 8:
+                
+                if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.count, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("count", TypeConverter<T>.ConvertFrom_int(this.count));
+                
+                if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.ids, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("ids", TypeConverter<T>.ConvertFrom_List_long(this.ids));
+                
+                break;
+                
+                case 29:
                 
                 if (StorageSchema.BTTN4KNFEDirectory_descriptor.check_attribute(StorageSchema.BTTN4KNFEDirectory_descriptor.count, attributeKey, attributeValue))
                     
@@ -1451,7 +1492,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                     }
                     break;
                 
-                case 4:
+                case 3:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_int(this.count);
@@ -1459,7 +1500,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                     }
                     break;
                 
-                case 6:
+                case 5:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_int(this.count);
@@ -1475,7 +1516,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                     }
                     break;
                 
-                case 25:
+                case 8:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_int(this.count);
+                        
+                    }
+                    break;
+                
+                case 29:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_int(this.count);
@@ -1531,7 +1580,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                     }
                     break;
                 
-                case 4:
+                case 3:
                     {
                         
                         {
@@ -1548,10 +1597,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                     }
                     break;
                 
-                case 6:
+                case 5:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_List_long(this.ids);
+                        {
+                            
+                            var element0 = this.ids;
+                            
+                            foreach (var element1 in  element0)
+                            
+                            {
+                                yield return TypeConverter<T>.ConvertFrom_long(element1);
+                            }
+                        }
                         
                     }
                     break;
@@ -1564,7 +1622,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                     }
                     break;
                 
-                case 25:
+                case 8:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_List_long(this.ids);
+                        
+                    }
+                    break;
+                
+                case 29:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_List_long(this.ids);

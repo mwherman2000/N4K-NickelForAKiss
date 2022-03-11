@@ -1,0 +1,10 @@
+[02/23/2022 06:14:50 PM][ INFO    ] Loading Graph Engine Extensions.
+[02/23/2022 06:14:50 PM][ INFO    ] Scanning for TSL storage extension.
+[02/23/2022 06:14:50 PM][ INFO    ] TSL storage extension loaded.
+[02/23/2022 06:14:50 PM][ INFO    ] Scanning for MemoryCloud extensions.
+[02/23/2022 06:14:50 PM][ INFO    ] No MemoryCloud extension found.
+[02/23/2022 06:14:50 PM][ INFO    ] Scanning for startup tasks.
+[02/23/2022 06:14:51 PM][ INFO    ] EventLoop: Starting.
+[02/23/2022 06:14:51 PM][ INFO    ] LocalMemoryStorage is initialized in read-write mode
+[02/23/2022 06:14:51 PM][ INFO    ] Initializing logging facility
+[02/23/2022 06:14:51 PM][ INFO    ] Creating write-ahead log file C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_39.dat

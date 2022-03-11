@@ -10,11 +10,35 @@ namespace BTTN4KNFE
 {
     
     /// <summary>
-    /// Represents the enum type BTTNFEBodyPart defined in the TSL.
+    /// Represents the enum type BTTN4KBodyPart defined in the TSL.
     /// </summary>
-    public enum BTTNFEBodyPart : byte
+    public enum BTTN4KBodyPart : byte
     {
-        Anywhere = 0,Lips = 1,UpperLip = 2,LowerLip = 3,Chin = 4,Forehead = 5,LeftEarLobe = 6,LeftCheek = 7,LeftNeck = 8,RightEarLobe = 9,RightCheek = 10,RightNeck = 11,HeadOther = 12,LeftShoulder = 13,LeftChest = 14,LeftAbdomen = 15,LeftHandBack = 16,LeftHandPalm = 17,LeftHandFingers = 18,RightShoulder = 19,RightChest = 20,RightAbdomen = 21,RightHandBack = 22,RightHandPalm = 23,RightHandFingers = 24,LeftUpperBodyOther = 25,RightUpperBodyOther = 26,LeftThigh = 27,RightThigh = 28,LeftGlutimus = 29,RightGluimus = 30,LeftKnee = 31,RightKnee = 32,LeftCalf = 33,RightCalf = 34,LeftFoot = 35,RightFoot = 36,LeftToes = 37,RightToes = 38,LeftSole = 39,RightSole = 40,LeftLowerBodyOther = 41,RightUpperBodyOthe = 42
+        Anywhere = 0,Lips = 1,UpperLip = 2,LowerLip = 3,Chin = 4,Forehead = 5,Hair = 6,LeftEarLobe = 7,LeftCheek = 8,LeftNeck = 9,RightEarLobe = 10,RightCheek = 11,RightNeck = 12,HeadOther = 13,LeftShoulder = 14,LeftChest = 15,LeftAbdomen = 16,LeftHandBack = 17,LeftHandPalm = 18,LeftHandFingers = 19,RightShoulder = 20,RightChest = 21,RightAbdomen = 22,RightHandBack = 23,RightHandPalm = 24,RightHandFingers = 25,LeftUpperBodyOther = 26,RightUpperBodyOther = 27,LeftThigh = 28,RightThigh = 29,LeftGlutimus = 30,RightGluimus = 31,LeftKnee = 32,RightKnee = 33,LeftCalf = 34,RightCalf = 35,LeftFoot = 36,RightFoot = 37,LeftToes = 38,RightToes = 39,LeftSole = 40,RightSole = 41,LeftLowerBodyOther = 42,RightLowerBodyOther = 43,Ring = 44,Shoe = 45,Bible = 46,Clothing = 47,Other = 48
+    }
+    
+    /// <summary>
+    /// Represents the enum type BTTN4KPurpose defined in the TSL.
+    /// </summary>
+    public enum BTTN4KPurpose : byte
+    {
+        Passionate = 0,Romantic = 1,Friendship = 2,Familial = 3,Social = 4
+    }
+    
+    /// <summary>
+    /// Represents the enum type BTTN4KType defined in the TSL.
+    /// </summary>
+    public enum BTTN4KType : byte
+    {
+        Brush = 0,Sniff = 1,Nuzzle = 2,Press = 3,Deep = 4,Lick = 5
+    }
+    
+    /// <summary>
+    /// Represents the enum type BTTN4KMood defined in the TSL.
+    /// </summary>
+    public enum BTTN4KMood : byte
+    {
+        Osculum = 0,Basium = 1,Savium = 2
     }
     
     /// <summary>

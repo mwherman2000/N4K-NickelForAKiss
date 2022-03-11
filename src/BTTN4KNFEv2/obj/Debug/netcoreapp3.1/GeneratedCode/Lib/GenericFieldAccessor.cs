@@ -15,14 +15,28 @@ namespace BTTN4KNFE
     {
         #region FieldID lookup table
         
-        static Dictionary<string, uint> FieldLookupTable_SendNFERequest = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_SendNFEByIdRequest = new Dictionary<string, uint>()
         {
             
             {"id" , 0}
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_SendNFEResponse = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_SendNFEByIdResponse = new Dictionary<string, uint>()
+        {
+            
+            {"rc" , 0}
+            
+        };
+        
+        static Dictionary<string, uint> FieldLookupTable_SendNFEEnvelopeRequest = new Dictionary<string, uint>()
+        {
+            
+            {"sealedEnvelope" , 0}
+            
+        };
+        
+        static Dictionary<string, uint> FieldLookupTable_SendNFEEnvelopeResponse = new Dictionary<string, uint>()
         {
             
             {"rc" , 0}
@@ -80,97 +94,115 @@ namespace BTTN4KNFE
         static Dictionary<string, uint> FieldLookupTable_BTTNFE_N4K_Claims = new Dictionary<string, uint>()
         {
             
-            {"timezoneid" , 0}
+            {"kissCompass" , 0}
             ,
-            {"tod0approach" , 1}
+            {"purpose" , 1}
             ,
-            {"tod1press" , 2}
+            {"kissType" , 2}
             ,
-            {"tod2sustain" , 3}
+            {"mood" , 3}
             ,
-            {"tod3release" , 4}
+            {"tongue" , 4}
             ,
-            {"tod4recovery" , 5}
+            {"targetbodypart" , 5}
             ,
-            {"tod5finish" , 6}
+            {"actualbodypart" , 6}
             ,
-            {"t0ms" , 7}
+            {"timezoneid" , 7}
             ,
-            {"t1ms" , 8}
+            {"tod0approach" , 8}
             ,
-            {"t2ms" , 9}
+            {"tod1press" , 9}
             ,
-            {"t3ms" , 10}
+            {"tod2sustain" , 10}
             ,
-            {"t4ms" , 11}
+            {"tod3release" , 11}
             ,
-            {"t5ms" , 12}
+            {"tod4recovery" , 12}
             ,
-            {"d1ms" , 13}
+            {"tod5finish" , 13}
             ,
-            {"d2ms" , 14}
+            {"t0ms" , 14}
             ,
-            {"d3ms" , 15}
+            {"t1ms" , 15}
             ,
-            {"d4ms" , 16}
+            {"t2ms" , 16}
             ,
-            {"d5ms" , 17}
+            {"t3ms" , 17}
             ,
-            {"d1s" , 18}
+            {"t4ms" , 18}
             ,
-            {"d2s" , 19}
+            {"t5ms" , 19}
             ,
-            {"d3s" , 20}
+            {"d1ms" , 20}
             ,
-            {"d4s" , 21}
+            {"d2ms" , 21}
             ,
-            {"d5s" , 22}
+            {"d3ms" , 22}
             ,
-            {"t0s" , 23}
+            {"d4ms" , 23}
             ,
-            {"t1s" , 24}
+            {"d5ms" , 24}
             ,
-            {"t2s" , 25}
+            {"d1s" , 25}
             ,
-            {"t3s" , 26}
+            {"d2s" , 26}
             ,
-            {"t4s" , 27}
+            {"d3s" , 27}
             ,
-            {"t5s" , 28}
+            {"d4s" , 28}
             ,
-            {"peak" , 29}
+            {"d5s" , 29}
             ,
-            {"medianms" , 30}
+            {"t0s" , 30}
             ,
-            {"medians" , 31}
+            {"t1s" , 31}
             ,
-            {"coverage" , 32}
+            {"t2s" , 32}
             ,
-            {"tongue" , 33}
+            {"t3s" , 33}
             ,
-            {"targetbodypart" , 34}
+            {"t4s" , 34}
             ,
-            {"actualbodypart" , 35}
+            {"t5s" , 35}
             ,
-            {"d1approachcurve" , 36}
+            {"peak" , 36}
             ,
-            {"d2presscurve" , 37}
+            {"medianms" , 37}
             ,
-            {"d3sustaincurve" , 38}
+            {"medians" , 38}
             ,
-            {"d4releasecurve" , 39}
+            {"coverage" , 39}
             ,
-            {"d5recoverycurve" , 40}
+            {"d1approachtime" , 40}
             ,
-            {"d1approachpng64" , 41}
+            {"d2presstime" , 41}
             ,
-            {"d2presspng64" , 42}
+            {"d3sustaintime" , 42}
             ,
-            {"d3sustainpng64" , 43}
+            {"d4releasetime" , 43}
             ,
-            {"d4releasepng64" , 44}
+            {"d5recoverytime" , 44}
             ,
-            {"d5recoverypng64" , 45}
+            {"d1approachcurve" , 45}
+            ,
+            {"d2presscurve" , 46}
+            ,
+            {"d3sustaincurve" , 47}
+            ,
+            {"d4releasecurve" , 48}
+            ,
+            {"d5recoverycurve" , 49}
+            ,
+            {"d1approachpng64" , 50}
+            ,
+            {"d2presspng64" , 51}
+            ,
+            {"d3sustainpng64" , 52}
+            ,
+            {"d4releasepng64" , 53}
+            ,
+            {"d5recoverypng64" , 54}
             
         };
         
@@ -313,14 +345,14 @@ namespace BTTN4KNFE
         
         #endregion
         
-        internal static void SetField<T>(SendNFERequest_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(SendNFEByIdRequest_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_SendNFERequest.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_SendNFEByIdRequest.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -332,7 +364,7 @@ namespace BTTN4KNFE
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_SendNFERequest.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_SendNFEByIdRequest.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -350,14 +382,14 @@ namespace BTTN4KNFE
                 
             }
         }
-        internal static T GetField<T>(SendNFERequest_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(SendNFEByIdRequest_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_SendNFERequest.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_SendNFEByIdRequest.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -368,7 +400,7 @@ namespace BTTN4KNFE
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_SendNFERequest.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_SendNFEByIdRequest.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -382,14 +414,14 @@ namespace BTTN4KNFE
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(SendNFEResponse_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(SendNFEByIdResponse_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_SendNFEResponse.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_SendNFEByIdResponse.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -401,7 +433,7 @@ namespace BTTN4KNFE
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_SendNFEResponse.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_SendNFEByIdResponse.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -419,14 +451,14 @@ namespace BTTN4KNFE
                 
             }
         }
-        internal static T GetField<T>(SendNFEResponse_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(SendNFEByIdResponse_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_SendNFEResponse.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_SendNFEByIdResponse.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -437,7 +469,152 @@ namespace BTTN4KNFE
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_SendNFEResponse.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_SendNFEByIdResponse.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_long(accessor.rc);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
+        internal static void SetField<T>(SendNFEEnvelopeRequest_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_SendNFEEnvelopeRequest.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 0:
+                        GenericFieldAccessor.SetField(accessor.sealedEnvelope, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_SendNFEEnvelopeRequest.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        BTTNFE_N4K_SealedEnvelope conversion_result = TypeConverter<T>.ConvertTo_BTTNFE_N4K_SealedEnvelope(value);
+                        
+            {
+                accessor.sealedEnvelope = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(SendNFEEnvelopeRequest_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_SendNFEEnvelopeRequest.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 0:
+                        return GenericFieldAccessor.GetField<T>(accessor.sealedEnvelope, fieldName, field_divider_idx + 1);
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_SendNFEEnvelopeRequest.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_BTTNFE_N4K_SealedEnvelope(accessor.sealedEnvelope);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
+        internal static void SetField<T>(SendNFEEnvelopeResponse_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_SendNFEEnvelopeResponse.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_SendNFEEnvelopeResponse.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        long conversion_result = TypeConverter<T>.ConvertTo_long(value);
+                        
+            {
+                accessor.rc = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(SendNFEEnvelopeResponse_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_SendNFEEnvelopeResponse.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_SendNFEEnvelopeResponse.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -936,10 +1113,10 @@ namespace BTTN4KNFE
                 
                 case 0:
                     {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        float conversion_result = TypeConverter<T>.ConvertTo_float(value);
                         
             {
-                accessor.timezoneid = conversion_result;
+                accessor.kissCompass = conversion_result;
             }
             
                         break;
@@ -947,10 +1124,10 @@ namespace BTTN4KNFE
                 
                 case 1:
                     {
-                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
+                        BTTN4KPurpose conversion_result = TypeConverter<T>.ConvertTo_BTTN4KPurpose(value);
                         
             {
-                accessor.tod0approach = conversion_result;
+                accessor.purpose = conversion_result;
             }
             
                         break;
@@ -958,10 +1135,10 @@ namespace BTTN4KNFE
                 
                 case 2:
                     {
-                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
+                        BTTN4KType conversion_result = TypeConverter<T>.ConvertTo_BTTN4KType(value);
                         
             {
-                accessor.tod1press = conversion_result;
+                accessor.kissType = conversion_result;
             }
             
                         break;
@@ -969,335 +1146,16 @@ namespace BTTN4KNFE
                 
                 case 3:
                     {
-                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
+                        BTTN4KMood conversion_result = TypeConverter<T>.ConvertTo_BTTN4KMood(value);
                         
             {
-                accessor.tod2sustain = conversion_result;
+                accessor.mood = conversion_result;
             }
             
                         break;
                     }
                 
                 case 4:
-                    {
-                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
-                        
-            {
-                accessor.tod3release = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 5:
-                    {
-                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
-                        
-            {
-                accessor.tod4recovery = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 6:
-                    {
-                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
-                        
-            {
-                accessor.tod5finish = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 7:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t0ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 8:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t1ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 9:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t2ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 10:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t3ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 11:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t4ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 12:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t5ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 13:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.d1ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 14:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.d2ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 15:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.d3ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 16:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.d4ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 17:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.d5ms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 18:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.d1s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 19:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.d2s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 20:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.d3s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 21:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.d4s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 22:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.d5s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 23:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t0s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 24:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t1s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 25:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t2s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 26:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t3s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 27:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t4s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 28:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.t5s = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 29:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.peak = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 30:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.medianms = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 31:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.medians = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 32:
-                    {
-                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
-                        
-            {
-                accessor.coverage = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 33:
                     {
                         bool conversion_result = TypeConverter<T>.ConvertTo_bool(value);
                         
@@ -1308,9 +1166,9 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 34:
+                case 5:
                     {
-                        BTTNFEBodyPart conversion_result = TypeConverter<T>.ConvertTo_BTTNFEBodyPart(value);
+                        BTTN4KBodyPart conversion_result = TypeConverter<T>.ConvertTo_BTTN4KBodyPart(value);
                         
             {
                 accessor.targetbodypart = conversion_result;
@@ -1319,9 +1177,9 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 35:
+                case 6:
                     {
-                        BTTNFEBodyPart conversion_result = TypeConverter<T>.ConvertTo_BTTNFEBodyPart(value);
+                        BTTN4KBodyPart conversion_result = TypeConverter<T>.ConvertTo_BTTN4KBodyPart(value);
                         
             {
                 accessor.actualbodypart = conversion_result;
@@ -1330,9 +1188,427 @@ namespace BTTN4KNFE
                         break;
                     }
                 
+                case 7:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                accessor.timezoneid = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 8:
+                    {
+                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
+                        
+            {
+                accessor.tod0approach = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 9:
+                    {
+                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
+                        
+            {
+                accessor.tod1press = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 10:
+                    {
+                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
+                        
+            {
+                accessor.tod2sustain = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 11:
+                    {
+                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
+                        
+            {
+                accessor.tod3release = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 12:
+                    {
+                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
+                        
+            {
+                accessor.tod4recovery = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 13:
+                    {
+                        DateTime conversion_result = TypeConverter<T>.ConvertTo_DateTime(value);
+                        
+            {
+                accessor.tod5finish = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 14:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t0ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 15:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t1ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 16:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t2ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 17:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t3ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 18:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t4ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 19:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t5ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 20:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.d1ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 21:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.d2ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 22:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.d3ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 23:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.d4ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 24:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.d5ms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 25:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.d1s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 26:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.d2s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 27:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.d3s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 28:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.d4s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 29:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.d5s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 30:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t0s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 31:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t1s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 32:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t2s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 33:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t3s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 34:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t4s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 35:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.t5s = conversion_result;
+            }
+            
+                        break;
+                    }
+                
                 case 36:
                     {
-                        int[] conversion_result = TypeConverter<T>.ConvertTo_int_Array_150(value);
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.peak = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 37:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.medianms = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 38:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.medians = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 39:
+                    {
+                        int conversion_result = TypeConverter<T>.ConvertTo_int(value);
+                        
+            {
+                accessor.coverage = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 40:
+                    {
+                        float[] conversion_result = TypeConverter<T>.ConvertTo_float_Array_150(value);
+                        
+            {
+                accessor.d1approachtime = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 41:
+                    {
+                        float[] conversion_result = TypeConverter<T>.ConvertTo_float_Array_150(value);
+                        
+            {
+                accessor.d2presstime = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 42:
+                    {
+                        float[] conversion_result = TypeConverter<T>.ConvertTo_float_Array_150(value);
+                        
+            {
+                accessor.d3sustaintime = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 43:
+                    {
+                        float[] conversion_result = TypeConverter<T>.ConvertTo_float_Array_150(value);
+                        
+            {
+                accessor.d4releasetime = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 44:
+                    {
+                        float[] conversion_result = TypeConverter<T>.ConvertTo_float_Array_150(value);
+                        
+            {
+                accessor.d5recoverytime = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 45:
+                    {
+                        float[] conversion_result = TypeConverter<T>.ConvertTo_float_Array_150(value);
                         
             {
                 accessor.d1approachcurve = conversion_result;
@@ -1341,9 +1617,9 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 37:
+                case 46:
                     {
-                        int[] conversion_result = TypeConverter<T>.ConvertTo_int_Array_150(value);
+                        float[] conversion_result = TypeConverter<T>.ConvertTo_float_Array_150(value);
                         
             {
                 accessor.d2presscurve = conversion_result;
@@ -1352,9 +1628,9 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 38:
+                case 47:
                     {
-                        int[] conversion_result = TypeConverter<T>.ConvertTo_int_Array_150(value);
+                        float[] conversion_result = TypeConverter<T>.ConvertTo_float_Array_150(value);
                         
             {
                 accessor.d3sustaincurve = conversion_result;
@@ -1363,9 +1639,9 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 39:
+                case 48:
                     {
-                        int[] conversion_result = TypeConverter<T>.ConvertTo_int_Array_150(value);
+                        float[] conversion_result = TypeConverter<T>.ConvertTo_float_Array_150(value);
                         
             {
                 accessor.d4releasecurve = conversion_result;
@@ -1374,9 +1650,9 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 40:
+                case 49:
                     {
-                        int[] conversion_result = TypeConverter<T>.ConvertTo_int_Array_150(value);
+                        float[] conversion_result = TypeConverter<T>.ConvertTo_float_Array_150(value);
                         
             {
                 accessor.d5recoverycurve = conversion_result;
@@ -1385,7 +1661,7 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 41:
+                case 50:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -1396,7 +1672,7 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 42:
+                case 51:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -1407,7 +1683,7 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 43:
+                case 52:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -1418,7 +1694,7 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 44:
+                case 53:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -1429,7 +1705,7 @@ namespace BTTN4KNFE
                         break;
                     }
                 
-                case 45:
+                case 54:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -1466,186 +1742,222 @@ namespace BTTN4KNFE
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.timezoneid);
+                    return TypeConverter<T>.ConvertFrom_float(accessor.kissCompass);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod0approach);
+                    return TypeConverter<T>.ConvertFrom_BTTN4KPurpose(accessor.purpose);
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod1press);
+                    return TypeConverter<T>.ConvertFrom_BTTN4KType(accessor.kissType);
                     break;
                 
                 case 3:
-                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod2sustain);
+                    return TypeConverter<T>.ConvertFrom_BTTN4KMood(accessor.mood);
                     break;
                 
                 case 4:
-                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod3release);
-                    break;
-                
-                case 5:
-                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod4recovery);
-                    break;
-                
-                case 6:
-                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod5finish);
-                    break;
-                
-                case 7:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t0ms);
-                    break;
-                
-                case 8:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t1ms);
-                    break;
-                
-                case 9:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t2ms);
-                    break;
-                
-                case 10:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t3ms);
-                    break;
-                
-                case 11:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t4ms);
-                    break;
-                
-                case 12:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t5ms);
-                    break;
-                
-                case 13:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.d1ms);
-                    break;
-                
-                case 14:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.d2ms);
-                    break;
-                
-                case 15:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.d3ms);
-                    break;
-                
-                case 16:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.d4ms);
-                    break;
-                
-                case 17:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.d5ms);
-                    break;
-                
-                case 18:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.d1s);
-                    break;
-                
-                case 19:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.d2s);
-                    break;
-                
-                case 20:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.d3s);
-                    break;
-                
-                case 21:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.d4s);
-                    break;
-                
-                case 22:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.d5s);
-                    break;
-                
-                case 23:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t0s);
-                    break;
-                
-                case 24:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t1s);
-                    break;
-                
-                case 25:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t2s);
-                    break;
-                
-                case 26:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t3s);
-                    break;
-                
-                case 27:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t4s);
-                    break;
-                
-                case 28:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.t5s);
-                    break;
-                
-                case 29:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.peak);
-                    break;
-                
-                case 30:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.medianms);
-                    break;
-                
-                case 31:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.medians);
-                    break;
-                
-                case 32:
-                    return TypeConverter<T>.ConvertFrom_int(accessor.coverage);
-                    break;
-                
-                case 33:
                     return TypeConverter<T>.ConvertFrom_bool(accessor.tongue);
                     break;
                 
+                case 5:
+                    return TypeConverter<T>.ConvertFrom_BTTN4KBodyPart(accessor.targetbodypart);
+                    break;
+                
+                case 6:
+                    return TypeConverter<T>.ConvertFrom_BTTN4KBodyPart(accessor.actualbodypart);
+                    break;
+                
+                case 7:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.timezoneid);
+                    break;
+                
+                case 8:
+                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod0approach);
+                    break;
+                
+                case 9:
+                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod1press);
+                    break;
+                
+                case 10:
+                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod2sustain);
+                    break;
+                
+                case 11:
+                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod3release);
+                    break;
+                
+                case 12:
+                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod4recovery);
+                    break;
+                
+                case 13:
+                    return TypeConverter<T>.ConvertFrom_DateTime(accessor.tod5finish);
+                    break;
+                
+                case 14:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t0ms);
+                    break;
+                
+                case 15:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t1ms);
+                    break;
+                
+                case 16:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t2ms);
+                    break;
+                
+                case 17:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t3ms);
+                    break;
+                
+                case 18:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t4ms);
+                    break;
+                
+                case 19:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t5ms);
+                    break;
+                
+                case 20:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.d1ms);
+                    break;
+                
+                case 21:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.d2ms);
+                    break;
+                
+                case 22:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.d3ms);
+                    break;
+                
+                case 23:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.d4ms);
+                    break;
+                
+                case 24:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.d5ms);
+                    break;
+                
+                case 25:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.d1s);
+                    break;
+                
+                case 26:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.d2s);
+                    break;
+                
+                case 27:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.d3s);
+                    break;
+                
+                case 28:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.d4s);
+                    break;
+                
+                case 29:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.d5s);
+                    break;
+                
+                case 30:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t0s);
+                    break;
+                
+                case 31:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t1s);
+                    break;
+                
+                case 32:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t2s);
+                    break;
+                
+                case 33:
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t3s);
+                    break;
+                
                 case 34:
-                    return TypeConverter<T>.ConvertFrom_BTTNFEBodyPart(accessor.targetbodypart);
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t4s);
                     break;
                 
                 case 35:
-                    return TypeConverter<T>.ConvertFrom_BTTNFEBodyPart(accessor.actualbodypart);
+                    return TypeConverter<T>.ConvertFrom_int(accessor.t5s);
                     break;
                 
                 case 36:
-                    return TypeConverter<T>.ConvertFrom_int_Array_150(accessor.d1approachcurve);
+                    return TypeConverter<T>.ConvertFrom_int(accessor.peak);
                     break;
                 
                 case 37:
-                    return TypeConverter<T>.ConvertFrom_int_Array_150(accessor.d2presscurve);
+                    return TypeConverter<T>.ConvertFrom_int(accessor.medianms);
                     break;
                 
                 case 38:
-                    return TypeConverter<T>.ConvertFrom_int_Array_150(accessor.d3sustaincurve);
+                    return TypeConverter<T>.ConvertFrom_int(accessor.medians);
                     break;
                 
                 case 39:
-                    return TypeConverter<T>.ConvertFrom_int_Array_150(accessor.d4releasecurve);
+                    return TypeConverter<T>.ConvertFrom_int(accessor.coverage);
                     break;
                 
                 case 40:
-                    return TypeConverter<T>.ConvertFrom_int_Array_150(accessor.d5recoverycurve);
+                    return TypeConverter<T>.ConvertFrom_float_Array_150(accessor.d1approachtime);
                     break;
                 
                 case 41:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.d1approachpng64);
+                    return TypeConverter<T>.ConvertFrom_float_Array_150(accessor.d2presstime);
                     break;
                 
                 case 42:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.d2presspng64);
+                    return TypeConverter<T>.ConvertFrom_float_Array_150(accessor.d3sustaintime);
                     break;
                 
                 case 43:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.d3sustainpng64);
+                    return TypeConverter<T>.ConvertFrom_float_Array_150(accessor.d4releasetime);
                     break;
                 
                 case 44:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.d4releasepng64);
+                    return TypeConverter<T>.ConvertFrom_float_Array_150(accessor.d5recoverytime);
                     break;
                 
                 case 45:
+                    return TypeConverter<T>.ConvertFrom_float_Array_150(accessor.d1approachcurve);
+                    break;
+                
+                case 46:
+                    return TypeConverter<T>.ConvertFrom_float_Array_150(accessor.d2presscurve);
+                    break;
+                
+                case 47:
+                    return TypeConverter<T>.ConvertFrom_float_Array_150(accessor.d3sustaincurve);
+                    break;
+                
+                case 48:
+                    return TypeConverter<T>.ConvertFrom_float_Array_150(accessor.d4releasecurve);
+                    break;
+                
+                case 49:
+                    return TypeConverter<T>.ConvertFrom_float_Array_150(accessor.d5recoverycurve);
+                    break;
+                
+                case 50:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.d1approachpng64);
+                    break;
+                
+                case 51:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.d2presspng64);
+                    break;
+                
+                case 52:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.d3sustainpng64);
+                    break;
+                
+                case 53:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.d4releasepng64);
+                    break;
+                
+                case 54:
                     return TypeConverter<T>.ConvertFrom_string(accessor.d5recoverypng64);
                     break;
                 

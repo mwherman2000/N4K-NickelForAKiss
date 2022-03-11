@@ -13,13 +13,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.IO;
 
 using Trinity;
 using Trinity.Storage;
+using System.Net.Http;
 
 namespace BTTN4KNFE
 {
-    class NFELocalStorageAgentImplementation : BTTN4KLocalStorageAgentBase
+    class NFELocalStorageAgentImplementation : LocalStorageAgentBase
     {
         private readonly long DIRECTORY_CELLID = 123456789;
         private static BTTN4KNFEDirectory Directory = new BTTN4KNFEDirectory(0, new List<long>());
@@ -39,18 +41,21 @@ namespace BTTN4KNFE
             }
         }
 
-        public override void SendNFEToLocalStorageHandler(SendNFERequestReader request, SendNFEResponseWriter response)
+        public override void SendNFEByIdToLocalStorageHandler(SendNFEByIdRequestReader request, SendNFEByIdResponseWriter response)
         {
-            if (Directory.ids.Contains(request.id))
+            using (request)
             {
-                // do nothing
-            }
-            else
-            {
-                Directory.ids.Add(request.id);
-                Directory.count++;
-                Global.LocalStorage.SaveBTTN4KNFEDirectory(DIRECTORY_CELLID, Directory);
-                Global.LocalStorage.SaveStorage();
+                if (Directory.ids.Contains(request.id))
+                {
+                    // do nothing
+                }
+                else
+                {
+                    Directory.ids.Add(request.id);
+                    Directory.count++;
+                    Global.LocalStorage.SaveBTTN4KNFEDirectory(DIRECTORY_CELLID, Directory);
+                    Global.LocalStorage.SaveStorage();
+                }
             }
         }
 
@@ -69,10 +74,22 @@ namespace BTTN4KNFE
         {
             throw new NotImplementedException();
         }
+
+        public override void SendNFEEnvelopeToStorageHandler(SendNFEEnvelopeRequest request, out SendNFEEnvelopeResponse response)
+        {
+            BTTNFE_N4K_SealedEnvelope nfeSealedEnvelope = request.sealedEnvelope;
+            string json = nfeSealedEnvelope.ToString();
+            Console.WriteLine("nfeSealedEnvelope:\n" + json);
+            File.WriteAllText("c:\\temp\\nfeSealedEnvelope.json", json);
+
+            response.rc = (int)TrinityErrorCode.E_SUCCESS;
+        }
     }
 
     class Program
     {
+        private const int MAX_METRIC = 150;
+
         static readonly System.Reflection.Assembly assembly = typeof(Program).Assembly;
 
         static void Main(string[] args)
@@ -95,19 +112,65 @@ namespace BTTN4KNFE
             DateTime tod5finish = tod4recovery.AddSeconds(4);
 
             var nfeClaims = new BTTNFE_N4K_Claims();
-            nfeClaims.InitializeTimeline(tod0approach, tod1press, tod2sustain, tod3release, tod4recovery, tod5finish);
+            nfeClaims.InitializeTimeline(0, BTTN4KType.Press, BTTN4KMood.Savium, BTTN4KPurpose.Romantic,
+                tod0approach, tod1press, tod2sustain, tod3release, tod4recovery, tod5finish);
 
             N4KSyntheticPressureCurve synthcurve = 
                 new N4KSyntheticPressureCurve(nfeClaims.d1ms, nfeClaims.d2ms, nfeClaims.d3ms, nfeClaims.d4ms, nfeClaims.d5ms);
-            Array.Copy(synthcurve.GetD1ApproachCurve(), nfeClaims.d1approachcurve = new int[150], nfeClaims.d1s); // KLUDGE possible overflow
-            Array.Copy(synthcurve.GetD2PressCurve(), nfeClaims.d2presscurve = new int[150], nfeClaims.d2s);
-            Array.Copy(synthcurve.GetD3SustainCurve(), nfeClaims.d3sustaincurve = new int[150], nfeClaims.d3s);
-            Array.Copy(synthcurve.GetD4ReleaseCurve(), nfeClaims.d4releasecurve = new int[150], nfeClaims.d4s);
-            Array.Copy(synthcurve.GetD5RecoveryCurve(), nfeClaims.d5recoverycurve = new int[150], nfeClaims.d5s);
+            //Array.Copy(synthcurve.GetD1ApproachCurve(), nfeClaims.d1approachcurve = new int[150], nfeClaims.d1s);
+            //Array.Copy(synthcurve.GetD2PressCurve(), nfeClaims.d2presscurve = new int[150], nfeClaims.d2s);
+            //Array.Copy(synthcurve.GetD3SustainCurve(), nfeClaims.d3sustaincurve = new int[150], nfeClaims.d3s);
+            //Array.Copy(synthcurve.GetD4ReleaseCurve(), nfeClaims.d4releasecurve = new int[150], nfeClaims.d4s);
+            //Array.Copy(synthcurve.GetD5RecoveryCurve(), nfeClaims.d5recoverycurve = new int[150], nfeClaims.d5s);
 
-            int pressCoverage = 0; foreach (int pressure in synthcurve.GetD2PressCurve()) pressCoverage += pressure;
-            int sustainCoverage = 0; foreach (int pressure in synthcurve.GetD3SustainCurve()) sustainCoverage += pressure;
-            int releaseCoverage = 0; foreach (int pressure in synthcurve.GetD4ReleaseCurve()) releaseCoverage += pressure;
+            var apressure = synthcurve.GetD1ApproachCurve();
+            nfeClaims.d1approachtime = new float[MAX_METRIC];
+            nfeClaims.d1approachcurve = new float[MAX_METRIC];
+            for (int t = 0; t < nfeClaims.d1s; t++)
+            {
+                nfeClaims.d1approachtime[t] = (float)(t * 0.1);
+                nfeClaims.d1approachcurve[t] = (float)apressure[t];
+            }
+
+            var ppressure = synthcurve.GetD2PressCurve();
+            nfeClaims.d2presstime = new float[MAX_METRIC];
+            nfeClaims.d2presscurve = new float[MAX_METRIC];
+            for (int t = 0; t < nfeClaims.d2s; t++)
+            {
+                nfeClaims.d2presstime[t] = (float)(t * 0.1);
+                nfeClaims.d2presscurve[t] = (float)ppressure[t];
+            }
+
+            var spressure = synthcurve.GetD3SustainCurve();
+            nfeClaims.d3sustaintime = new float[MAX_METRIC];
+            nfeClaims.d3sustaincurve = new float[MAX_METRIC];
+            for (int t = 0; t < nfeClaims.d3s; t++)
+            {
+                nfeClaims.d3sustaintime[t] = (float)(t * 0.1);
+                nfeClaims.d3sustaincurve[t] = (float)spressure[t];
+            }
+
+            var rpressure = synthcurve.GetD4ReleaseCurve();
+            nfeClaims.d4releasetime = new float[MAX_METRIC];
+            nfeClaims.d4releasecurve = new float[MAX_METRIC];
+            for (int t = 0; t < nfeClaims.d4s; t++)
+            {
+                nfeClaims.d4releasetime[t] = (float)(t * 0.1);
+                nfeClaims.d4releasecurve[t] = (float)rpressure[t];
+            }
+
+            var vpressure = synthcurve.GetD5RecoveryCurve();
+            nfeClaims.d5recoverytime = new float[MAX_METRIC];
+            nfeClaims.d5recoverycurve = new float[MAX_METRIC];
+            for (int t = 0; t < nfeClaims.d5s; t++)
+            {
+                nfeClaims.d5recoverytime[t] = (float)(t * 0.1);
+                nfeClaims.d5recoverycurve[t] = (float)vpressure[t];
+            }
+
+            int pressCoverage = 0; foreach (int pressure in ppressure) pressCoverage += pressure;
+            int sustainCoverage = 0; foreach (int pressure in spressure) sustainCoverage += pressure;
+            int releaseCoverage = 0; foreach (int pressure in rpressure) releaseCoverage += pressure;
             nfeClaims.coverage = pressCoverage + sustainCoverage + releaseCoverage;
 
             nfeClaims.d1approachpng64 = happyFacepng64;
@@ -134,22 +197,41 @@ namespace BTTN4KNFE
 
             BTTNFE_N4K_SealedEnvelope_Cell nfeCell = new BTTNFE_N4K_SealedEnvelope_Cell(nfeSealedEnvelope);
 
-            Console.WriteLine("nfeCell:\n" + nfeCell.ToString());
-
-            var agent = new NFELocalStorageAgentImplementation();
-            agent.Start();
+            string json = nfeCell.ToString();
+            Console.WriteLine("nfeCell:\n" + json);
+            File.WriteAllText("c:\\temp\\nfeCell.json", json);
 
             Global.LocalStorage.SaveBTTNFE_N4K_SealedEnvelope_Cell(nfeCell);
 
-            //var synReq = new MyMessageWriter(sn: 1);
+            TrinityConfig.HttpPort = 8080 + 1;
+#pragma warning disable CS0612 // Type or member is obsolete
+            TrinityConfig.ServerPort = 5304 + 1;
+#pragma warning restore CS0612 // Type or member is obsolete
+            var agent = new NFELocalStorageAgentImplementation();
+            agent.Start();
 
-            //Global.LocalStorage.SynPingToMyServer(0, synReq);
+            using (var httpClient = new HttpClient())
+            {
+                SendNFEEnvelopeRequest request = new SendNFEEnvelopeRequest(nfeSealedEnvelope);
+                string agentUrl = "http://localhost:8081/SendNFEEnvelopeToStorage/";
+                Console.WriteLine(">>>" + agentUrl);
+                using (var requestMessage = new HttpRequestMessage(new HttpMethod("POST"), agentUrl))
+                {
+                    requestMessage.Headers.TryAddWithoutValidation("Accept", "application/json");
+                    //string jsonRequest = JsonConvert.SerializeObject(request);
+                    string jsonRequest = request.ToString();
+                    requestMessage.Content = new StringContent(jsonRequest);
+                    var task = httpClient.SendAsync(requestMessage);
+                    task.Wait();
+                    var result = task.Result;
+                    string jsonResponse = result.Content.ReadAsStringAsync().Result;
+                    Console.WriteLine(jsonResponse);
+                    Console.WriteLine("Press Enter to continue...");
+                    Console.ReadLine();
+                }
+            }
 
-            //var asynReq = new MyMessageWriter(sn: 2);
-            //Global.LocalStorage.AsynPingToMyServer(0, asynReq);
-
-            //var synReqRsp = new MyMessageWriter(sn: 3);
-            //Console.WriteLine("Response of EchoPing: {0}", Global.LocalStorage[0].SynEchoPing(synReqRsp).sn);
+            agent.Stop();
 
             Console.WriteLine("Done.");
             Console.WriteLine("Press any key to exit ...");

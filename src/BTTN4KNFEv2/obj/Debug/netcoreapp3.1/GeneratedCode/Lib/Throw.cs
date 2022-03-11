@@ -42,6 +42,15 @@ namespace BTTN4KNFE
             throw new DataTypeIncompatibleException("Data type 'long' not compatible with the target field.");
         }
         
+        internal static void parse_float(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into float.");
+        }
+        internal static void incompatible_with_float()
+        {
+            throw new DataTypeIncompatibleException("Data type 'float' not compatible with the target field.");
+        }
+        
         internal static void parse_DateTime(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into DateTime.");
@@ -60,13 +69,13 @@ namespace BTTN4KNFE
             throw new DataTypeIncompatibleException("Data type 'string' not compatible with the target field.");
         }
         
-        internal static void parse_int_Array_150(string value)
+        internal static void parse_float_Array_150(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into int[].");
+            throw new ArgumentException("Cannot parse \""+value+"\" into float[].");
         }
-        internal static void incompatible_with_int_Array_150()
+        internal static void incompatible_with_float_Array_150()
         {
-            throw new DataTypeIncompatibleException("Data type 'int[]' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'float[]' not compatible with the target field.");
         }
         
         internal static void parse_List_long(string value)
@@ -222,13 +231,40 @@ namespace BTTN4KNFE
             throw new DataTypeIncompatibleException("Data type 'BTTGenericCredentialType' not compatible with the target field.");
         }
         
-        internal static void parse_BTTNFEBodyPart(string value)
+        internal static void parse_BTTN4KBodyPart(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into BTTNFEBodyPart.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into BTTN4KBodyPart.");
         }
-        internal static void incompatible_with_BTTNFEBodyPart()
+        internal static void incompatible_with_BTTN4KBodyPart()
         {
-            throw new DataTypeIncompatibleException("Data type 'BTTNFEBodyPart' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'BTTN4KBodyPart' not compatible with the target field.");
+        }
+        
+        internal static void parse_BTTN4KMood(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into BTTN4KMood.");
+        }
+        internal static void incompatible_with_BTTN4KMood()
+        {
+            throw new DataTypeIncompatibleException("Data type 'BTTN4KMood' not compatible with the target field.");
+        }
+        
+        internal static void parse_BTTN4KPurpose(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into BTTN4KPurpose.");
+        }
+        internal static void incompatible_with_BTTN4KPurpose()
+        {
+            throw new DataTypeIncompatibleException("Data type 'BTTN4KPurpose' not compatible with the target field.");
+        }
+        
+        internal static void parse_BTTN4KType(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into BTTN4KType.");
+        }
+        internal static void incompatible_with_BTTN4KType()
+        {
+            throw new DataTypeIncompatibleException("Data type 'BTTN4KType' not compatible with the target field.");
         }
         
         internal static void parse_BTTTrustLevel(string value)

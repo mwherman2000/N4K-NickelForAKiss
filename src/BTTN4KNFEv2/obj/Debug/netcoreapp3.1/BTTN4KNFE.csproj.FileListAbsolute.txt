@@ -67,9 +67,12 @@ C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\Generate
 C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\GetNFECountResponse.cs
 C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\GetNFERequest.cs
 C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\GetNFEResponse.cs
-C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\SendNFERequest.cs
-C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\SendNFEResponse.cs
 C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\BTTN4KNFE.csproj.CopyComplete
 C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\BTTN4KNFE.dll
 C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\BTTN4KNFE.pdb
 C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\BTTN4KNFE.genruntimeconfig.cache
+C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\SendNFEByIdRequest.cs
+C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\SendNFEByIdResponse.cs
+C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\SendNFEEnvelopeRequest.cs
+C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\SendNFEEnvelopeResponse.cs
+C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\obj\Debug\netcoreapp3.1\BTTN4KNFE.csproj.AssemblyReference.cache

@@ -41,7 +41,7 @@ namespace BTTN4KNFE
     }
     #region Server
     
-    public class BTTN4KLocalStorageAgentCommunicationSchema : ICommunicationSchema
+    public class LocalStorageAgentCommunicationSchema : ICommunicationSchema
     {
         IEnumerable<IProtocolDescriptor> ICommunicationSchema.SynReqProtocolDescriptors
         {
@@ -65,7 +65,7 @@ namespace BTTN4KNFE
                     response_sig = "{long}";
                     yield return new ProtocolDescriptor()
                     {
-                        Name = "SendNFEToLocalStorage",
+                        Name = "SendNFEByIdToLocalStorage",
                         RequestSignature = request_sig,
                         ResponseSignature = response_sig,
                         Type = Trinity.Network.Messaging.TrinityMessageType.SYNC_WITH_RSP
@@ -138,20 +138,22 @@ namespace BTTN4KNFE
         }
         string ICommunicationSchema.Name
         {
-            get { return "BTTN4KLocalStorageAgent"; }
+            get { return "LocalStorageAgent"; }
         }
         IEnumerable<string> ICommunicationSchema.HttpEndpointNames
         {
             get
             {
                 
+                yield return "SendNFEEnvelopeToStorage";
+                
                 yield break;
             }
         }
     }
-    [CommunicationSchema(typeof(BTTN4KLocalStorageAgentCommunicationSchema))]
-    public abstract partial class BTTN4KLocalStorageAgentBase : TrinityServer { }
-    namespace TSL.TrinityServer.BTTN4KLocalStorageAgent
+    [CommunicationSchema(typeof(LocalStorageAgentCommunicationSchema))]
+    public abstract partial class LocalStorageAgentBase : TrinityServer { }
+    namespace TSL.TrinityServer.LocalStorageAgent
     {
         /// <summary>
         /// Specifies the type of a synchronous request (without response, that is, response type is void) message.
@@ -165,7 +167,7 @@ namespace BTTN4KNFE
         /// </summary>
         public enum SynReqRspMessageType : ushort
         {
-            SendNFEToLocalStorage,
+            SendNFEByIdToLocalStorage,
             GetNFELocalStorageCount,
             GetNFEFromLocalStorage,
             GetNFEBatchFromLocalStorage,

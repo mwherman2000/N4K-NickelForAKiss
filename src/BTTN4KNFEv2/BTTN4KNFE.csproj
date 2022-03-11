@@ -10,8 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="BTTN4KProtocolParameters.tsl" />
-    <None Remove="BTTN4KStorageAgent.tsl" />
+    <None Remove="BTTN4KNFE.sln.DotSettings" />
+    <None Remove="BTTN4KNFECredentialCells.tsl" />
+    <None Remove="BTTN4KStorageAgentCells.tsl" />
+    <None Remove="BTTN4KStorageAgentProtocolParameters.tsl" />
     <None Remove="BTTN4KStorageAgentProtocols.tsl" />
     <None Remove="images\HappyFace.png" />
   </ItemGroup>

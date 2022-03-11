@@ -9,11 +9,18 @@
 //////////////////////////////////////////////////////////////////////////////
 /// BTT N4K Storage Agent Procotols and Services
 
-protocol SendNFEToLocalStorage
+protocol SendNFEByIdToLocalStorage
 {
 	Type: Syn;
-	Request: SendNFERequest;
-	Response: SendNFEResponse;
+	Request:  SendNFEByIdRequest;
+	Response: SendNFEByIdResponse;
+}
+
+protocol SendNFEEnvelopeToStorage
+{
+	Type: HTTP;
+	Request:  SendNFEEnvelopeRequest;
+	Response: SendNFEEnvelopeResponse;
 }
 
 protocol GetNFELocalStorageCount
@@ -37,9 +44,10 @@ protocol GetNFEBatchFromLocalStorage
 	Response: GetNFEBatchResponse; 
 }
 
-server BTTN4KLocalStorageAgent
+server LocalStorageAgent
 {
-	protocol SendNFEToLocalStorage;
+	protocol SendNFEByIdToLocalStorage;
+	protocol SendNFEEnvelopeToStorage;
 	protocol GetNFELocalStorageCount;
 	protocol GetNFEFromLocalStorage;
 	protocol GetNFEBatchFromLocalStorage;

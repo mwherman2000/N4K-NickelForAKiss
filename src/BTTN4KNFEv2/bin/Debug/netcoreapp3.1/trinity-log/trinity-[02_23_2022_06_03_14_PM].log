@@ -1,0 +1,37 @@
+[02/23/2022 06:03:14 PM][ INFO    ] Loading Graph Engine Extensions.
+[02/23/2022 06:03:15 PM][ INFO    ] Scanning for TSL storage extension.
+[02/23/2022 06:03:15 PM][ INFO    ] TSL storage extension loaded.
+[02/23/2022 06:03:15 PM][ INFO    ] Scanning for MemoryCloud extensions.
+[02/23/2022 06:03:15 PM][ INFO    ] No MemoryCloud extension found.
+[02/23/2022 06:03:15 PM][ INFO    ] Scanning for startup tasks.
+[02/23/2022 06:03:15 PM][ INFO    ] EventLoop: Starting.
+[02/23/2022 06:03:15 PM][ INFO    ] LocalMemoryStorage is initialized in read-write mode
+[02/23/2022 06:03:15 PM][ INFO    ] Initializing logging facility
+[02/23/2022 06:03:15 PM][ INFO    ] Creating write-ahead log file C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_30.dat
+[02/23/2022 06:03:15 PM][ INFO    ] Resetting storage.
+[02/23/2022 06:03:16 PM][ INFO    ] Reset storage complete, image version = 31
+[02/23/2022 06:03:16 PM][ INFO    ] Dropping write-ahead-log file C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_30.dat
+[02/23/2022 06:03:16 PM][ INFO    ] Initializing logging facility
+[02/23/2022 06:03:16 PM][ INFO    ] Creating write-ahead log file C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_31.dat
+[02/23/2022 06:03:16 PM][ INFO    ] Saving storage to [SLOT A]
+[02/23/2022 06:03:17 PM][ INFO    ] Save storage complete, image version = 32.
+[02/23/2022 06:03:17 PM][ INFO    ] Creating write-ahead log file C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_32.dat
+[02/23/2022 06:03:17 PM][ INFO    ] Dropping write-ahead-log file C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_31.dat
+[02/23/2022 06:03:17 PM][ INFO    ] Saving cell type signatures.
+[02/23/2022 06:03:17 PM][ INFO    ] Listening endpoint :5304
+[02/23/2022 06:03:17 PM][ INFO    ] Waiting for client connection ...
+[02/23/2022 06:03:17 PM][ INFO    ] My IPEndPoint: 172.19.80.1:5304
+[02/23/2022 06:03:17 PM][ ERROR   ] Failed to start HTTP server. HTTP endpoints are disabled.
+[02/23/2022 06:03:17 PM][ INFO    ] *****************************************************
+[02/23/2022 06:03:17 PM][ INFO    ] ServerCount: 0
+[02/23/2022 06:03:17 PM][ INFO    ] ProxyCount: 0
+[02/23/2022 06:03:17 PM][ INFO    ] *****************************************************
+[02/23/2022 06:03:17 PM][ WARNING ] No distributed instances configured. Turning on local test mode.
+[02/23/2022 06:03:17 PM][ INFO    ] Scanning for auto-registered communication modules.
+[02/23/2022 06:03:17 PM][ INFO    ] Checking Server-Server protocol signatures...
+[02/23/2022 06:03:17 PM][ INFO    ] Working Directory: C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\bin\Debug\netcoreapp3.1\
+[02/23/2022 06:03:17 PM][ INFO    ] StorageRoot : C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\bin\Debug\netcoreapp3.1\storage\
+[02/23/2022 06:03:17 PM][ INFO    ] LogDirectory: C:\TDW\repos\N4K-NickelForAKiss\src\BTTN4KNFEv2\bin\Debug\netcoreapp3.1\trinity-log
+[02/23/2022 06:03:17 PM][ INFO    ] LoggingLevel: Info
+[02/23/2022 06:03:17 PM][ INFO    ] HttpPort:     80
+[02/23/2022 06:03:17 PM][ INFO    ] Server 0 is successfully started.

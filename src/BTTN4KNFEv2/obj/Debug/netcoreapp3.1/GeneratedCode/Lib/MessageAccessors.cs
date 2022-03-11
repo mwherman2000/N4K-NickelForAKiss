@@ -13,20 +13,32 @@ namespace BTTN4KNFE
 {
     
     /// <summary>
-    /// Represents a read-only accessor on the message of type SendNFERequest defined in the TSL protocols.
+    /// Represents a read-only accessor on the message of type GetNFERequest defined in the TSL protocols.
     /// The message readers will be instantiated by the system and passed to user's logic.
     /// After finished accessing the message. It is the user's responsibility to call Dispose()
     /// on the reader object. Recommend wrapping the reader with a <c>using Statement block</c>.
     /// <seealso ref="https://msdn.microsoft.com/en-us/library/yh598w02.aspx"/>
     /// </summary>
-    public unsafe sealed class SendNFERequestReader : SendNFERequest_Accessor, IDisposable
+    public unsafe sealed class GetNFERequestReader : GetNFERequest_Accessor, IDisposable
     {
         byte * buffer;
-        internal SendNFERequestReader(byte* buf, int offset)
+        internal GetNFERequestReader(byte* buf, int offset)
             : base(buf + offset
+                  
+                  , ReaderResizeFunc
                    )
         {
             buffer = buf;
+        }
+        
+        /** 
+         * GetNFERequestReader is not resizable because it may be attached
+         * to a buffer passed in from the network layer and we don't know how
+         * to resize it.
+         */
+        static byte* ReaderResizeFunc(byte* ptr, int offset, int delta)
+        {
+            throw new InvalidOperationException("GetNFERequestReader is not resizable");
         }
         
         /// <summary>
@@ -40,20 +52,22 @@ namespace BTTN4KNFE
         }
     }
     /// <summary>
-    /// Represents a writer accessor on the message of type SendNFERequest defined in the TSL protocols.
+    /// Represents a writer accessor on the message of type GetNFERequest defined in the TSL protocols.
     /// The message writers should be instantiated by the user's logic and passed to the system to send it out.
     /// After finished accessing the message. It is the user's responsibility to call Dispose()
     /// on the writer object. Recommend wrapping the reader with a <c>using Statement block</c>.
     /// </summary>
     /// <seealso ref="https://msdn.microsoft.com/en-us/library/yh598w02.aspx"/>
     /// <remarks>Calling <c>Dispose()</c> does not send the message out.</remarks>
-    public unsafe sealed class SendNFERequestWriter : SendNFERequest_Accessor, IDisposable
+    public unsafe sealed class GetNFERequestWriter : GetNFERequest_Accessor, IDisposable
     {
         internal byte* buffer = null;
         internal int BufferLength;
         internal int Length; 
-        public unsafe SendNFERequestWriter( long id = default(long) )
+        public unsafe GetNFERequestWriter( string udid = default(string) )
             : base(null
+                  
+                  , null
                    )
         {
             int preservedHeaderLength = TrinityProtocol.MsgHeader;
@@ -61,8 +75,19 @@ namespace BTTN4KNFE
             byte* targetPtr;
             
             targetPtr = (byte*)preservedHeaderLength;
-            targetPtr += 8;
+            
+            {
 
+        if(udid!= null)
+        {
+            int strlen_2 = udid.Length * 2;
+            targetPtr += strlen_2+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
             byte* tmpcellptr = (byte*)Memory.malloc((ulong)targetPtr);
             {
                 BufferLength     = (int)targetPtr;
@@ -72,8 +97,22 @@ namespace BTTN4KNFE
                 targetPtr  += preservedHeaderLength;
                 
             {
-            *(long*)targetPtr = id;
-            targetPtr += 8;
+
+        if(udid!= null)
+        {
+            int strlen_2 = udid.Length * 2;
+            *(int*)targetPtr = strlen_2;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_2 = udid)
+            {
+                Memory.Copy(pstr_2, targetPtr, strlen_2);
+                targetPtr += strlen_2;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
 
             }
             }
@@ -82,9 +121,13 @@ namespace BTTN4KNFE
             this.m_ptr = buffer + preservedHeaderLength;
             Length = BufferLength - preservedHeaderLength;
             
+            this.ResizeFunction = WriterResizeFunction;
+            
         }
-        internal unsafe SendNFERequestWriter(int asyncRspHeaderLength,  long id = default(long) )
+        internal unsafe GetNFERequestWriter(int asyncRspHeaderLength,  string udid = default(string) )
             : base(null
+                  
+                  , null
                    )
         {
             int preservedHeaderLength = TrinityProtocol.MsgHeader + asyncRspHeaderLength;
@@ -92,8 +135,19 @@ namespace BTTN4KNFE
             byte* targetPtr;
             
             targetPtr = (byte*)preservedHeaderLength;
-            targetPtr += 8;
+            
+            {
 
+        if(udid!= null)
+        {
+            int strlen_2 = udid.Length * 2;
+            targetPtr += strlen_2+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
             byte* tmpcellptr = (byte*)Memory.malloc((ulong)targetPtr);
             {
                 BufferLength     = (int)targetPtr;
@@ -103,8 +157,22 @@ namespace BTTN4KNFE
                 targetPtr  += preservedHeaderLength;
                 
             {
-            *(long*)targetPtr = id;
-            targetPtr += 8;
+
+        if(udid!= null)
+        {
+            int strlen_2 = udid.Length * 2;
+            *(int*)targetPtr = strlen_2;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_2 = udid)
+            {
+                Memory.Copy(pstr_2, targetPtr, strlen_2);
+                targetPtr += strlen_2;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
 
             }
             }
@@ -113,6 +181,63 @@ namespace BTTN4KNFE
             this.m_ptr = buffer + preservedHeaderLength;
             Length = BufferLength - preservedHeaderLength;
             
+            this.ResizeFunction = WriterResizeFunction;
+            
+        }
+        
+        private byte* WriterResizeFunction(byte* ptr, int ptr_offset, int delta)
+        {
+            int curlen = Length;
+            int tgtlen = curlen + delta;
+            if (delta >= 0)
+            {
+                byte* currentBufferPtr = buffer;
+                int required_length = (int)(tgtlen + (this.m_ptr - currentBufferPtr));
+                if(required_length < curlen) throw new AccessorResizeException("Accessor size overflow.");
+                if (required_length <= BufferLength)
+                {
+                    Memory.memmove(
+                        ptr + ptr_offset + delta,
+                        ptr + ptr_offset,
+                        (ulong)(curlen - (ptr + ptr_offset - this.m_ptr)));
+                    Length = tgtlen;
+                    return ptr;
+                }
+                else
+                {
+                    while (BufferLength < required_length)
+                    {
+                        if (int.MaxValue - BufferLength >= (BufferLength>>1)) BufferLength += (BufferLength >> 1);
+                        else if (int.MaxValue - BufferLength >= (1 << 20)) BufferLength += (1 << 20);
+                        else BufferLength = int.MaxValue;
+                    }
+                    byte* tmpBuffer = (byte*)Memory.malloc((ulong)BufferLength);
+                    Memory.memcpy(
+                        tmpBuffer,
+                        currentBufferPtr,
+                        (ulong)(ptr + ptr_offset - currentBufferPtr));
+                    byte* newCellPtr = tmpBuffer + (this.m_ptr - currentBufferPtr);
+                    Memory.memcpy(
+                        newCellPtr + (ptr_offset + delta),
+                        ptr + ptr_offset,
+                        (ulong)(curlen - (ptr + ptr_offset - this.m_ptr)));
+                    Length = tgtlen;
+                    this.m_ptr = newCellPtr;
+                    Memory.free(buffer);
+                    buffer = tmpBuffer;
+                    return tmpBuffer + (ptr - currentBufferPtr);
+                }
+            }
+            else
+            {
+                if (curlen + delta < 0) throw new AccessorResizeException("Accessor target size underflow.");
+                Memory.memmove(
+                    ptr + ptr_offset,
+                    ptr + ptr_offset - delta,
+                    (ulong)(Length - (ptr + ptr_offset - delta - this.m_ptr)));
+                Length = tgtlen;
+                return ptr;
+            }
         }
         
         /// <summary>
@@ -127,16 +252,16 @@ namespace BTTN4KNFE
     }
     
     /// <summary>
-    /// Represents a read-only accessor on the message of type GetNFEResponse defined in the TSL protocols.
+    /// Represents a read-only accessor on the message of type SendNFEByIdRequest defined in the TSL protocols.
     /// The message readers will be instantiated by the system and passed to user's logic.
     /// After finished accessing the message. It is the user's responsibility to call Dispose()
     /// on the reader object. Recommend wrapping the reader with a <c>using Statement block</c>.
     /// <seealso ref="https://msdn.microsoft.com/en-us/library/yh598w02.aspx"/>
     /// </summary>
-    public unsafe sealed class GetNFEResponseReader : GetNFEResponse_Accessor, IDisposable
+    public unsafe sealed class SendNFEByIdRequestReader : SendNFEByIdRequest_Accessor, IDisposable
     {
         byte * buffer;
-        internal GetNFEResponseReader(byte* buf, int offset)
+        internal SendNFEByIdRequestReader(byte* buf, int offset)
             : base(buf + offset
                    )
         {
@@ -154,137 +279,19 @@ namespace BTTN4KNFE
         }
     }
     /// <summary>
-    /// Represents a writer accessor on the message of type GetNFEResponse defined in the TSL protocols.
+    /// Represents a writer accessor on the message of type SendNFEByIdRequest defined in the TSL protocols.
     /// The message writers should be instantiated by the user's logic and passed to the system to send it out.
     /// After finished accessing the message. It is the user's responsibility to call Dispose()
     /// on the writer object. Recommend wrapping the reader with a <c>using Statement block</c>.
     /// </summary>
     /// <seealso ref="https://msdn.microsoft.com/en-us/library/yh598w02.aspx"/>
     /// <remarks>Calling <c>Dispose()</c> does not send the message out.</remarks>
-    public unsafe sealed class GetNFEResponseWriter : GetNFEResponse_Accessor, IDisposable
+    public unsafe sealed class SendNFEByIdRequestWriter : SendNFEByIdRequest_Accessor, IDisposable
     {
         internal byte* buffer = null;
         internal int BufferLength;
         internal int Length; 
-        public unsafe GetNFEResponseWriter( long id = default(long) , long rc = default(long) )
-            : base(null
-                   )
-        {
-            int preservedHeaderLength = TrinityProtocol.MsgHeader;
-            
-            byte* targetPtr;
-            
-            targetPtr = (byte*)preservedHeaderLength;
-            targetPtr += 16;
-
-            byte* tmpcellptr = (byte*)Memory.malloc((ulong)targetPtr);
-            {
-                BufferLength     = (int)targetPtr;
-                Memory.memset(tmpcellptr, 0, (ulong)targetPtr);
-                targetPtr = tmpcellptr;
-                tmpcellptr += preservedHeaderLength;
-                targetPtr  += preservedHeaderLength;
-                
-            {
-            *(long*)targetPtr = id;
-            targetPtr += 8;
-            *(long*)targetPtr = rc;
-            targetPtr += 8;
-
-            }
-            }
-            
-            buffer = tmpcellptr - preservedHeaderLength;
-            this.m_ptr = buffer + preservedHeaderLength;
-            Length = BufferLength - preservedHeaderLength;
-            
-        }
-        internal unsafe GetNFEResponseWriter(int asyncRspHeaderLength,  long id = default(long) , long rc = default(long) )
-            : base(null
-                   )
-        {
-            int preservedHeaderLength = TrinityProtocol.MsgHeader + asyncRspHeaderLength;
-            
-            byte* targetPtr;
-            
-            targetPtr = (byte*)preservedHeaderLength;
-            targetPtr += 16;
-
-            byte* tmpcellptr = (byte*)Memory.malloc((ulong)targetPtr);
-            {
-                BufferLength     = (int)targetPtr;
-                Memory.memset(tmpcellptr, 0, (ulong)targetPtr);
-                targetPtr = tmpcellptr;
-                tmpcellptr += preservedHeaderLength;
-                targetPtr  += preservedHeaderLength;
-                
-            {
-            *(long*)targetPtr = id;
-            targetPtr += 8;
-            *(long*)targetPtr = rc;
-            targetPtr += 8;
-
-            }
-            }
-            
-            buffer = tmpcellptr - preservedHeaderLength;
-            this.m_ptr = buffer + preservedHeaderLength;
-            Length = BufferLength - preservedHeaderLength;
-            
-        }
-        
-        /// <summary>
-        /// Dispose the message writer and release the memory resource.
-        /// It is the user's responsibility to call this method after finished accessing the message.
-        /// </summary>
-        public void Dispose()
-        {
-            Memory.free(buffer);
-            buffer = null;
-        }
-    }
-    
-    /// <summary>
-    /// Represents a read-only accessor on the message of type SendNFEResponse defined in the TSL protocols.
-    /// The message readers will be instantiated by the system and passed to user's logic.
-    /// After finished accessing the message. It is the user's responsibility to call Dispose()
-    /// on the reader object. Recommend wrapping the reader with a <c>using Statement block</c>.
-    /// <seealso ref="https://msdn.microsoft.com/en-us/library/yh598w02.aspx"/>
-    /// </summary>
-    public unsafe sealed class SendNFEResponseReader : SendNFEResponse_Accessor, IDisposable
-    {
-        byte * buffer;
-        internal SendNFEResponseReader(byte* buf, int offset)
-            : base(buf + offset
-                   )
-        {
-            buffer = buf;
-        }
-        
-        /// <summary>
-        /// Dispose the message reader and release the memory resource.
-        /// It is the user's responsibility to call this method after finished accessing the message.
-        /// </summary>
-        public void Dispose()
-        {
-            Memory.free(buffer);
-            buffer = null;
-        }
-    }
-    /// <summary>
-    /// Represents a writer accessor on the message of type SendNFEResponse defined in the TSL protocols.
-    /// The message writers should be instantiated by the user's logic and passed to the system to send it out.
-    /// After finished accessing the message. It is the user's responsibility to call Dispose()
-    /// on the writer object. Recommend wrapping the reader with a <c>using Statement block</c>.
-    /// </summary>
-    /// <seealso ref="https://msdn.microsoft.com/en-us/library/yh598w02.aspx"/>
-    /// <remarks>Calling <c>Dispose()</c> does not send the message out.</remarks>
-    public unsafe sealed class SendNFEResponseWriter : SendNFEResponse_Accessor, IDisposable
-    {
-        internal byte* buffer = null;
-        internal int BufferLength;
-        internal int Length; 
-        public unsafe SendNFEResponseWriter( long rc = default(long) )
+        public unsafe SendNFEByIdRequestWriter( long id = default(long) )
             : base(null
                    )
         {
@@ -304,7 +311,7 @@ namespace BTTN4KNFE
                 targetPtr  += preservedHeaderLength;
                 
             {
-            *(long*)targetPtr = rc;
+            *(long*)targetPtr = id;
             targetPtr += 8;
 
             }
@@ -315,7 +322,7 @@ namespace BTTN4KNFE
             Length = BufferLength - preservedHeaderLength;
             
         }
-        internal unsafe SendNFEResponseWriter(int asyncRspHeaderLength,  long rc = default(long) )
+        internal unsafe SendNFEByIdRequestWriter(int asyncRspHeaderLength,  long id = default(long) )
             : base(null
                    )
         {
@@ -335,7 +342,7 @@ namespace BTTN4KNFE
                 targetPtr  += preservedHeaderLength;
                 
             {
-            *(long*)targetPtr = rc;
+            *(long*)targetPtr = id;
             targetPtr += 8;
 
             }
@@ -591,32 +598,20 @@ namespace BTTN4KNFE
     }
     
     /// <summary>
-    /// Represents a read-only accessor on the message of type GetNFERequest defined in the TSL protocols.
+    /// Represents a read-only accessor on the message of type SendNFEByIdResponse defined in the TSL protocols.
     /// The message readers will be instantiated by the system and passed to user's logic.
     /// After finished accessing the message. It is the user's responsibility to call Dispose()
     /// on the reader object. Recommend wrapping the reader with a <c>using Statement block</c>.
     /// <seealso ref="https://msdn.microsoft.com/en-us/library/yh598w02.aspx"/>
     /// </summary>
-    public unsafe sealed class GetNFERequestReader : GetNFERequest_Accessor, IDisposable
+    public unsafe sealed class SendNFEByIdResponseReader : SendNFEByIdResponse_Accessor, IDisposable
     {
         byte * buffer;
-        internal GetNFERequestReader(byte* buf, int offset)
+        internal SendNFEByIdResponseReader(byte* buf, int offset)
             : base(buf + offset
-                  
-                  , ReaderResizeFunc
                    )
         {
             buffer = buf;
-        }
-        
-        /** 
-         * GetNFERequestReader is not resizable because it may be attached
-         * to a buffer passed in from the network layer and we don't know how
-         * to resize it.
-         */
-        static byte* ReaderResizeFunc(byte* ptr, int offset, int delta)
-        {
-            throw new InvalidOperationException("GetNFERequestReader is not resizable");
         }
         
         /// <summary>
@@ -630,22 +625,20 @@ namespace BTTN4KNFE
         }
     }
     /// <summary>
-    /// Represents a writer accessor on the message of type GetNFERequest defined in the TSL protocols.
+    /// Represents a writer accessor on the message of type SendNFEByIdResponse defined in the TSL protocols.
     /// The message writers should be instantiated by the user's logic and passed to the system to send it out.
     /// After finished accessing the message. It is the user's responsibility to call Dispose()
     /// on the writer object. Recommend wrapping the reader with a <c>using Statement block</c>.
     /// </summary>
     /// <seealso ref="https://msdn.microsoft.com/en-us/library/yh598w02.aspx"/>
     /// <remarks>Calling <c>Dispose()</c> does not send the message out.</remarks>
-    public unsafe sealed class GetNFERequestWriter : GetNFERequest_Accessor, IDisposable
+    public unsafe sealed class SendNFEByIdResponseWriter : SendNFEByIdResponse_Accessor, IDisposable
     {
         internal byte* buffer = null;
         internal int BufferLength;
         internal int Length; 
-        public unsafe GetNFERequestWriter( string udid = default(string) )
+        public unsafe SendNFEByIdResponseWriter( long rc = default(long) )
             : base(null
-                  
-                  , null
                    )
         {
             int preservedHeaderLength = TrinityProtocol.MsgHeader;
@@ -653,19 +646,8 @@ namespace BTTN4KNFE
             byte* targetPtr;
             
             targetPtr = (byte*)preservedHeaderLength;
-            
-            {
+            targetPtr += 8;
 
-        if(udid!= null)
-        {
-            int strlen_2 = udid.Length * 2;
-            targetPtr += strlen_2+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
             byte* tmpcellptr = (byte*)Memory.malloc((ulong)targetPtr);
             {
                 BufferLength     = (int)targetPtr;
@@ -675,22 +657,8 @@ namespace BTTN4KNFE
                 targetPtr  += preservedHeaderLength;
                 
             {
-
-        if(udid!= null)
-        {
-            int strlen_2 = udid.Length * 2;
-            *(int*)targetPtr = strlen_2;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_2 = udid)
-            {
-                Memory.Copy(pstr_2, targetPtr, strlen_2);
-                targetPtr += strlen_2;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
+            *(long*)targetPtr = rc;
+            targetPtr += 8;
 
             }
             }
@@ -699,13 +667,9 @@ namespace BTTN4KNFE
             this.m_ptr = buffer + preservedHeaderLength;
             Length = BufferLength - preservedHeaderLength;
             
-            this.ResizeFunction = WriterResizeFunction;
-            
         }
-        internal unsafe GetNFERequestWriter(int asyncRspHeaderLength,  string udid = default(string) )
+        internal unsafe SendNFEByIdResponseWriter(int asyncRspHeaderLength,  long rc = default(long) )
             : base(null
-                  
-                  , null
                    )
         {
             int preservedHeaderLength = TrinityProtocol.MsgHeader + asyncRspHeaderLength;
@@ -713,19 +677,8 @@ namespace BTTN4KNFE
             byte* targetPtr;
             
             targetPtr = (byte*)preservedHeaderLength;
-            
-            {
+            targetPtr += 8;
 
-        if(udid!= null)
-        {
-            int strlen_2 = udid.Length * 2;
-            targetPtr += strlen_2+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
             byte* tmpcellptr = (byte*)Memory.malloc((ulong)targetPtr);
             {
                 BufferLength     = (int)targetPtr;
@@ -735,22 +688,8 @@ namespace BTTN4KNFE
                 targetPtr  += preservedHeaderLength;
                 
             {
-
-        if(udid!= null)
-        {
-            int strlen_2 = udid.Length * 2;
-            *(int*)targetPtr = strlen_2;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_2 = udid)
-            {
-                Memory.Copy(pstr_2, targetPtr, strlen_2);
-                targetPtr += strlen_2;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
+            *(long*)targetPtr = rc;
+            targetPtr += 8;
 
             }
             }
@@ -759,63 +698,124 @@ namespace BTTN4KNFE
             this.m_ptr = buffer + preservedHeaderLength;
             Length = BufferLength - preservedHeaderLength;
             
-            this.ResizeFunction = WriterResizeFunction;
-            
         }
         
-        private byte* WriterResizeFunction(byte* ptr, int ptr_offset, int delta)
+        /// <summary>
+        /// Dispose the message writer and release the memory resource.
+        /// It is the user's responsibility to call this method after finished accessing the message.
+        /// </summary>
+        public void Dispose()
         {
-            int curlen = Length;
-            int tgtlen = curlen + delta;
-            if (delta >= 0)
+            Memory.free(buffer);
+            buffer = null;
+        }
+    }
+    
+    /// <summary>
+    /// Represents a read-only accessor on the message of type GetNFEResponse defined in the TSL protocols.
+    /// The message readers will be instantiated by the system and passed to user's logic.
+    /// After finished accessing the message. It is the user's responsibility to call Dispose()
+    /// on the reader object. Recommend wrapping the reader with a <c>using Statement block</c>.
+    /// <seealso ref="https://msdn.microsoft.com/en-us/library/yh598w02.aspx"/>
+    /// </summary>
+    public unsafe sealed class GetNFEResponseReader : GetNFEResponse_Accessor, IDisposable
+    {
+        byte * buffer;
+        internal GetNFEResponseReader(byte* buf, int offset)
+            : base(buf + offset
+                   )
+        {
+            buffer = buf;
+        }
+        
+        /// <summary>
+        /// Dispose the message reader and release the memory resource.
+        /// It is the user's responsibility to call this method after finished accessing the message.
+        /// </summary>
+        public void Dispose()
+        {
+            Memory.free(buffer);
+            buffer = null;
+        }
+    }
+    /// <summary>
+    /// Represents a writer accessor on the message of type GetNFEResponse defined in the TSL protocols.
+    /// The message writers should be instantiated by the user's logic and passed to the system to send it out.
+    /// After finished accessing the message. It is the user's responsibility to call Dispose()
+    /// on the writer object. Recommend wrapping the reader with a <c>using Statement block</c>.
+    /// </summary>
+    /// <seealso ref="https://msdn.microsoft.com/en-us/library/yh598w02.aspx"/>
+    /// <remarks>Calling <c>Dispose()</c> does not send the message out.</remarks>
+    public unsafe sealed class GetNFEResponseWriter : GetNFEResponse_Accessor, IDisposable
+    {
+        internal byte* buffer = null;
+        internal int BufferLength;
+        internal int Length; 
+        public unsafe GetNFEResponseWriter( long id = default(long) , long rc = default(long) )
+            : base(null
+                   )
+        {
+            int preservedHeaderLength = TrinityProtocol.MsgHeader;
+            
+            byte* targetPtr;
+            
+            targetPtr = (byte*)preservedHeaderLength;
+            targetPtr += 16;
+
+            byte* tmpcellptr = (byte*)Memory.malloc((ulong)targetPtr);
             {
-                byte* currentBufferPtr = buffer;
-                int required_length = (int)(tgtlen + (this.m_ptr - currentBufferPtr));
-                if(required_length < curlen) throw new AccessorResizeException("Accessor size overflow.");
-                if (required_length <= BufferLength)
-                {
-                    Memory.memmove(
-                        ptr + ptr_offset + delta,
-                        ptr + ptr_offset,
-                        (ulong)(curlen - (ptr + ptr_offset - this.m_ptr)));
-                    Length = tgtlen;
-                    return ptr;
-                }
-                else
-                {
-                    while (BufferLength < required_length)
-                    {
-                        if (int.MaxValue - BufferLength >= (BufferLength>>1)) BufferLength += (BufferLength >> 1);
-                        else if (int.MaxValue - BufferLength >= (1 << 20)) BufferLength += (1 << 20);
-                        else BufferLength = int.MaxValue;
-                    }
-                    byte* tmpBuffer = (byte*)Memory.malloc((ulong)BufferLength);
-                    Memory.memcpy(
-                        tmpBuffer,
-                        currentBufferPtr,
-                        (ulong)(ptr + ptr_offset - currentBufferPtr));
-                    byte* newCellPtr = tmpBuffer + (this.m_ptr - currentBufferPtr);
-                    Memory.memcpy(
-                        newCellPtr + (ptr_offset + delta),
-                        ptr + ptr_offset,
-                        (ulong)(curlen - (ptr + ptr_offset - this.m_ptr)));
-                    Length = tgtlen;
-                    this.m_ptr = newCellPtr;
-                    Memory.free(buffer);
-                    buffer = tmpBuffer;
-                    return tmpBuffer + (ptr - currentBufferPtr);
-                }
-            }
-            else
+                BufferLength     = (int)targetPtr;
+                Memory.memset(tmpcellptr, 0, (ulong)targetPtr);
+                targetPtr = tmpcellptr;
+                tmpcellptr += preservedHeaderLength;
+                targetPtr  += preservedHeaderLength;
+                
             {
-                if (curlen + delta < 0) throw new AccessorResizeException("Accessor target size underflow.");
-                Memory.memmove(
-                    ptr + ptr_offset,
-                    ptr + ptr_offset - delta,
-                    (ulong)(Length - (ptr + ptr_offset - delta - this.m_ptr)));
-                Length = tgtlen;
-                return ptr;
+            *(long*)targetPtr = id;
+            targetPtr += 8;
+            *(long*)targetPtr = rc;
+            targetPtr += 8;
+
             }
+            }
+            
+            buffer = tmpcellptr - preservedHeaderLength;
+            this.m_ptr = buffer + preservedHeaderLength;
+            Length = BufferLength - preservedHeaderLength;
+            
+        }
+        internal unsafe GetNFEResponseWriter(int asyncRspHeaderLength,  long id = default(long) , long rc = default(long) )
+            : base(null
+                   )
+        {
+            int preservedHeaderLength = TrinityProtocol.MsgHeader + asyncRspHeaderLength;
+            
+            byte* targetPtr;
+            
+            targetPtr = (byte*)preservedHeaderLength;
+            targetPtr += 16;
+
+            byte* tmpcellptr = (byte*)Memory.malloc((ulong)targetPtr);
+            {
+                BufferLength     = (int)targetPtr;
+                Memory.memset(tmpcellptr, 0, (ulong)targetPtr);
+                targetPtr = tmpcellptr;
+                tmpcellptr += preservedHeaderLength;
+                targetPtr  += preservedHeaderLength;
+                
+            {
+            *(long*)targetPtr = id;
+            targetPtr += 8;
+            *(long*)targetPtr = rc;
+            targetPtr += 8;
+
+            }
+            }
+            
+            buffer = tmpcellptr - preservedHeaderLength;
+            this.m_ptr = buffer + preservedHeaderLength;
+            Length = BufferLength - preservedHeaderLength;
+            
         }
         
         /// <summary>

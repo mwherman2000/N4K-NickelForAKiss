@@ -17,14 +17,18 @@ namespace BTTN4KNFE
 {
     #region Server
     
-    public abstract partial class BTTN4KLocalStorageAgentBase : TrinityServer
+    public abstract partial class LocalStorageAgentBase : TrinityServer
     {
         #region Handler lookup table
         private static Dictionary<string, uint> s_HttpHandlerLookupTable = new Dictionary<string, uint>
         {
             
+            { "SendNFEEnvelopeToStorage", 1  }
+            ,
         };
         #endregion
+        
+        public abstract void SendNFEEnvelopeToStorageHandler(SendNFEEnvelopeRequest request, out SendNFEEnvelopeResponse response);
         
         /// <summary>
         /// Processes requests on the root endpoint. By default it
@@ -49,6 +53,63 @@ namespace BTTN4KNFE
             var querystring_idx = url.IndexOf('?');
             switch (handler_id)
             {
+                
+                case  1 :
+                    {
+                        
+                        string          json_string;
+                        SendNFEEnvelopeRequest   request_struct;
+                        if (method == "GET")
+                        {
+                            if (querystring_idx == -1)
+                                json_string = url;
+                            else
+                                json_string = url.Substring(0, querystring_idx);
+                        }
+                        else if (method == "POST")
+                        {
+                            using (var sr = new System.IO.StreamReader(context.Request.InputStream))
+                                json_string = sr.ReadToEnd();
+                        }
+                        else
+                        {
+                            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                            return;
+                        }
+                        if (!SendNFEEnvelopeRequest.TryParse(json_string, out request_struct))
+                        {
+                            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                            return;
+                        }
+                        SendNFEEnvelopeResponse   response_struct ;
+                        SendNFEEnvelopeToStorageHandler(request_struct, out response_struct);
+                        
+                        context.Response.ContentType = "application/json";
+                        string jsonp_callback  = context.Request.QueryString["jsonp_callback"] ?? context.Request.QueryString["callback"];
+                        string iframe_callback = context.Request.QueryString["iframe_callback"];
+                        using (var sw = new System.IO.StreamWriter(context.Response.OutputStream))
+                        {
+                            if (jsonp_callback != null)
+                            {
+                                sw.Write("{0}(", jsonp_callback);
+                                sw.Write(Serializer.ToString(response_struct));
+                                sw.Write(");", jsonp_callback);
+                            }
+                            else if (iframe_callback != null)
+                            {
+                                context.Response.ContentType = "text/html";
+                                sw.Write("<script language=\"javascript\" type=\"text/javascript\">window.top.window.{0}(", iframe_callback);
+                                sw.Write(Serializer.ToString(response_struct));
+                                sw.Write(");</script>");
+                            }
+                            else
+                            {
+                                sw.Write(Serializer.ToString(response_struct));
+                            }
+                        }
+                        
+                    }
+                    break;
                 
             }
         }

@@ -34,8 +34,22 @@ namespace BTTN4KNFE
         ///<summary>
         ///Initializes a new instance of BTTNFE_N4K_Claims with the specified parameters.
         ///</summary>
-        public BTTNFE_N4K_Claims(string timezoneid = default(string),DateTime tod0approach = default(DateTime),DateTime tod1press = default(DateTime),DateTime tod2sustain = default(DateTime),DateTime tod3release = default(DateTime),DateTime tod4recovery = default(DateTime),DateTime tod5finish = default(DateTime),int t0ms = default(int),int t1ms = default(int),int t2ms = default(int),int t3ms = default(int),int t4ms = default(int),int t5ms = default(int),int d1ms = default(int),int d2ms = default(int),int d3ms = default(int),int d4ms = default(int),int d5ms = default(int),int d1s = default(int),int d2s = default(int),int d3s = default(int),int d4s = default(int),int d5s = default(int),int t0s = default(int),int t1s = default(int),int t2s = default(int),int t3s = default(int),int t4s = default(int),int t5s = default(int),int peak = default(int),int medianms = default(int),int medians = default(int),int coverage = default(int),bool tongue = default(bool),BTTNFEBodyPart targetbodypart = default(BTTNFEBodyPart),BTTNFEBodyPart actualbodypart = default(BTTNFEBodyPart),int[] d1approachcurve = default(int[]),int[] d2presscurve = default(int[]),int[] d3sustaincurve = default(int[]),int[] d4releasecurve = default(int[]),int[] d5recoverycurve = default(int[]),string d1approachpng64 = default(string),string d2presspng64 = default(string),string d3sustainpng64 = default(string),string d4releasepng64 = default(string),string d5recoverypng64 = default(string))
+        public BTTNFE_N4K_Claims(float kissCompass = default(float),BTTN4KPurpose purpose = default(BTTN4KPurpose),BTTN4KType kissType = default(BTTN4KType),BTTN4KMood mood = default(BTTN4KMood),bool tongue = default(bool),BTTN4KBodyPart targetbodypart = default(BTTN4KBodyPart),BTTN4KBodyPart actualbodypart = default(BTTN4KBodyPart),string timezoneid = default(string),DateTime tod0approach = default(DateTime),DateTime tod1press = default(DateTime),DateTime tod2sustain = default(DateTime),DateTime tod3release = default(DateTime),DateTime tod4recovery = default(DateTime),DateTime tod5finish = default(DateTime),int t0ms = default(int),int t1ms = default(int),int t2ms = default(int),int t3ms = default(int),int t4ms = default(int),int t5ms = default(int),int d1ms = default(int),int d2ms = default(int),int d3ms = default(int),int d4ms = default(int),int d5ms = default(int),int d1s = default(int),int d2s = default(int),int d3s = default(int),int d4s = default(int),int d5s = default(int),int t0s = default(int),int t1s = default(int),int t2s = default(int),int t3s = default(int),int t4s = default(int),int t5s = default(int),int peak = default(int),int medianms = default(int),int medians = default(int),int coverage = default(int),float[] d1approachtime = default(float[]),float[] d2presstime = default(float[]),float[] d3sustaintime = default(float[]),float[] d4releasetime = default(float[]),float[] d5recoverytime = default(float[]),float[] d1approachcurve = default(float[]),float[] d2presscurve = default(float[]),float[] d3sustaincurve = default(float[]),float[] d4releasecurve = default(float[]),float[] d5recoverycurve = default(float[]),string d1approachpng64 = default(string),string d2presspng64 = default(string),string d3sustainpng64 = default(string),string d4releasepng64 = default(string),string d5recoverypng64 = default(string))
         {
+            
+            this.kissCompass = kissCompass;
+            
+            this.purpose = purpose;
+            
+            this.kissType = kissType;
+            
+            this.mood = mood;
+            
+            this.tongue = tongue;
+            
+            this.targetbodypart = targetbodypart;
+            
+            this.actualbodypart = actualbodypart;
             
             this.timezoneid = timezoneid;
             
@@ -103,11 +117,15 @@ namespace BTTN4KNFE
             
             this.coverage = coverage;
             
-            this.tongue = tongue;
+            this.d1approachtime = d1approachtime;
             
-            this.targetbodypart = targetbodypart;
+            this.d2presstime = d2presstime;
             
-            this.actualbodypart = actualbodypart;
+            this.d3sustaintime = d3sustaintime;
+            
+            this.d4releasetime = d4releasetime;
+            
+            this.d5recoverytime = d5recoverytime;
             
             this.d1approachcurve = d1approachcurve;
             
@@ -144,6 +162,20 @@ namespace BTTN4KNFE
             
             return
                 
+                (a.kissCompass == b.kissCompass)
+                &&
+                (a.purpose == b.purpose)
+                &&
+                (a.kissType == b.kissType)
+                &&
+                (a.mood == b.mood)
+                &&
+                (a.tongue == b.tongue)
+                &&
+                (a.targetbodypart == b.targetbodypart)
+                &&
+                (a.actualbodypart == b.actualbodypart)
+                &&
                 (a.timezoneid == b.timezoneid)
                 &&
                 (a.tod0approach == b.tod0approach)
@@ -210,11 +242,15 @@ namespace BTTN4KNFE
                 &&
                 (a.coverage == b.coverage)
                 &&
-                (a.tongue == b.tongue)
+                (a.d1approachtime == b.d1approachtime)
                 &&
-                (a.targetbodypart == b.targetbodypart)
+                (a.d2presstime == b.d2presstime)
                 &&
-                (a.actualbodypart == b.actualbodypart)
+                (a.d3sustaintime == b.d3sustaintime)
+                &&
+                (a.d4releasetime == b.d4releasetime)
+                &&
+                (a.d5recoverytime == b.d5recoverytime)
                 &&
                 (a.d1approachcurve == b.d1approachcurve)
                 &&
@@ -243,6 +279,20 @@ namespace BTTN4KNFE
         {
             return !(a == b);
         }
+        
+        public float kissCompass;
+        
+        public BTTN4KPurpose purpose;
+        
+        public BTTN4KType kissType;
+        
+        public BTTN4KMood mood;
+        
+        public bool tongue;
+        
+        public BTTN4KBodyPart targetbodypart;
+        
+        public BTTN4KBodyPart actualbodypart;
         
         public string timezoneid;
         
@@ -310,21 +360,25 @@ namespace BTTN4KNFE
         
         public int coverage;
         
-        public bool tongue;
+        public float[] d1approachtime;
         
-        public BTTNFEBodyPart targetbodypart;
+        public float[] d2presstime;
         
-        public BTTNFEBodyPart actualbodypart;
+        public float[] d3sustaintime;
         
-        public int[] d1approachcurve;
+        public float[] d4releasetime;
         
-        public int[] d2presscurve;
+        public float[] d5recoverytime;
         
-        public int[] d3sustaincurve;
+        public float[] d1approachcurve;
         
-        public int[] d4releasecurve;
+        public float[] d2presscurve;
         
-        public int[] d5recoverycurve;
+        public float[] d3sustaincurve;
+        
+        public float[] d4releasecurve;
+        
+        public float[] d5recoverycurve;
         
         public string d1approachpng64;
         
@@ -395,7 +449,7 @@ namespace BTTN4KNFE
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        tod0approach_Accessor_Field = new DateTimeAccessor(null);        tod1press_Accessor_Field = new DateTimeAccessor(null);        tod2sustain_Accessor_Field = new DateTimeAccessor(null);        tod3release_Accessor_Field = new DateTimeAccessor(null);        tod4recovery_Accessor_Field = new DateTimeAccessor(null);        tod5finish_Accessor_Field = new DateTimeAccessor(null);        d1approachcurve_Accessor_Field = new intArray_150(null);        d2presscurve_Accessor_Field = new intArray_150(null);        d3sustaincurve_Accessor_Field = new intArray_150(null);        d4releasecurve_Accessor_Field = new intArray_150(null);        d5recoverycurve_Accessor_Field = new intArray_150(null);        d1approachpng64_Accessor_Field = new StringAccessor(null,
+                });        tod0approach_Accessor_Field = new DateTimeAccessor(null);        tod1press_Accessor_Field = new DateTimeAccessor(null);        tod2sustain_Accessor_Field = new DateTimeAccessor(null);        tod3release_Accessor_Field = new DateTimeAccessor(null);        tod4recovery_Accessor_Field = new DateTimeAccessor(null);        tod5finish_Accessor_Field = new DateTimeAccessor(null);        d1approachtime_Accessor_Field = new floatArray_150(null);        d2presstime_Accessor_Field = new floatArray_150(null);        d3sustaintime_Accessor_Field = new floatArray_150(null);        d4releasetime_Accessor_Field = new floatArray_150(null);        d5recoverytime_Accessor_Field = new floatArray_150(null);        d1approachcurve_Accessor_Field = new floatArray_150(null);        d2presscurve_Accessor_Field = new floatArray_150(null);        d3sustaincurve_Accessor_Field = new floatArray_150(null);        d4releasecurve_Accessor_Field = new floatArray_150(null);        d5recoverycurve_Accessor_Field = new floatArray_150(null);        d1approachpng64_Accessor_Field = new StringAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -469,7 +523,8 @@ namespace BTTN4KNFE
         public byte[] ToByteArray()
         {
             byte* targetPtr = m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+            {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int size = (int)(targetPtr - m_ptr);
             byte[] ret = new byte[size];
@@ -484,13 +539,173 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
         public unsafe int GetBufferLength()
         {
             byte* targetPtr = m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+            {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int size = (int)(targetPtr - m_ptr);
             return size;
         }
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
+        
+        ///<summary>
+        ///Provides in-place access to the object field kissCompass.
+        ///</summary>
+        public unsafe float kissCompass
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {}
+                return *(float*)(targetPtr);
+                
+            }
+            set
+            {
+                
+                byte* targetPtr = m_ptr;
+                {}                *(float*)targetPtr = value;
+            }
+        }
+        
+        ///<summary>
+        ///Provides in-place access to the object field purpose.
+        ///</summary>
+        public unsafe BTTN4KPurpose purpose
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 4;
+}
+                return *(BTTN4KPurpose*)(targetPtr);
+                
+            }
+            set
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 4;
+}                *(BTTN4KPurpose*)targetPtr = value;
+            }
+        }
+        
+        ///<summary>
+        ///Provides in-place access to the object field kissType.
+        ///</summary>
+        public unsafe BTTN4KType kissType
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 5;
+}
+                return *(BTTN4KType*)(targetPtr);
+                
+            }
+            set
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 5;
+}                *(BTTN4KType*)targetPtr = value;
+            }
+        }
+        
+        ///<summary>
+        ///Provides in-place access to the object field mood.
+        ///</summary>
+        public unsafe BTTN4KMood mood
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 6;
+}
+                return *(BTTN4KMood*)(targetPtr);
+                
+            }
+            set
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 6;
+}                *(BTTN4KMood*)targetPtr = value;
+            }
+        }
+        
+        ///<summary>
+        ///Provides in-place access to the object field tongue.
+        ///</summary>
+        public unsafe bool tongue
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 7;
+}
+                return *(bool*)(targetPtr);
+                
+            }
+            set
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 7;
+}                *(bool*)targetPtr = value;
+            }
+        }
+        
+        ///<summary>
+        ///Provides in-place access to the object field targetbodypart.
+        ///</summary>
+        public unsafe BTTN4KBodyPart targetbodypart
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 8;
+}
+                return *(BTTN4KBodyPart*)(targetPtr);
+                
+            }
+            set
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 8;
+}                *(BTTN4KBodyPart*)targetPtr = value;
+            }
+        }
+        
+        ///<summary>
+        ///Provides in-place access to the object field actualbodypart.
+        ///</summary>
+        public unsafe BTTN4KBodyPart actualbodypart
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 9;
+}
+                return *(BTTN4KBodyPart*)(targetPtr);
+                
+            }
+            set
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 9;
+}                *(BTTN4KBodyPart*)targetPtr = value;
+            }
+        }
         StringAccessor timezoneid_Accessor_Field;
         
         ///<summary>
@@ -502,7 +717,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {}timezoneid_Accessor_Field.m_ptr = targetPtr + 4;
+                {            targetPtr += 10;
+}timezoneid_Accessor_Field.m_ptr = targetPtr + 4;
                 timezoneid_Accessor_Field.m_cellId = this.m_cellId;
                 return timezoneid_Accessor_Field;
                 
@@ -514,7 +730,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 timezoneid_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {}
+                {            targetPtr += 10;
+}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
                 if (value.m_cellId != timezoneid_Accessor_Field.m_cellId)
@@ -547,7 +764,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);}tod0approach_Accessor_Field.m_ptr = targetPtr;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);}tod0approach_Accessor_Field.m_ptr = targetPtr;
                 tod0approach_Accessor_Field.m_cellId = this.m_cellId;
                 return tod0approach_Accessor_Field;
                 
@@ -559,7 +777,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 tod0approach_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);}                Memory.Copy(value.m_ptr, targetPtr, 8); 
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);}                Memory.Copy(value.m_ptr, targetPtr, 8); 
             }
         }
         DateTimeAccessor tod1press_Accessor_Field;
@@ -573,7 +792,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }tod1press_Accessor_Field.m_ptr = targetPtr;
                 tod1press_Accessor_Field.m_cellId = this.m_cellId;
                 return tod1press_Accessor_Field;
@@ -586,7 +806,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 tod1press_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }                Memory.Copy(value.m_ptr, targetPtr, 8); 
             }
         }
@@ -601,7 +822,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
 }tod2sustain_Accessor_Field.m_ptr = targetPtr;
                 tod2sustain_Accessor_Field.m_cellId = this.m_cellId;
                 return tod2sustain_Accessor_Field;
@@ -614,7 +836,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 tod2sustain_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
 }                Memory.Copy(value.m_ptr, targetPtr, 8); 
             }
         }
@@ -629,7 +852,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 24;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 24;
 }tod3release_Accessor_Field.m_ptr = targetPtr;
                 tod3release_Accessor_Field.m_cellId = this.m_cellId;
                 return tod3release_Accessor_Field;
@@ -642,7 +866,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 tod3release_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 24;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 24;
 }                Memory.Copy(value.m_ptr, targetPtr, 8); 
             }
         }
@@ -657,7 +882,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 32;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 32;
 }tod4recovery_Accessor_Field.m_ptr = targetPtr;
                 tod4recovery_Accessor_Field.m_cellId = this.m_cellId;
                 return tod4recovery_Accessor_Field;
@@ -670,7 +896,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 tod4recovery_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 32;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 32;
 }                Memory.Copy(value.m_ptr, targetPtr, 8); 
             }
         }
@@ -685,7 +912,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 40;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 40;
 }tod5finish_Accessor_Field.m_ptr = targetPtr;
                 tod5finish_Accessor_Field.m_cellId = this.m_cellId;
                 return tod5finish_Accessor_Field;
@@ -698,7 +926,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 tod5finish_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 40;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 40;
 }                Memory.Copy(value.m_ptr, targetPtr, 8); 
             }
         }
@@ -712,7 +941,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 48;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 48;
 }
                 return *(int*)(targetPtr);
                 
@@ -721,7 +951,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 48;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 48;
 }                *(int*)targetPtr = value;
             }
         }
@@ -735,7 +966,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 52;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 52;
 }
                 return *(int*)(targetPtr);
                 
@@ -744,7 +976,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 52;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 52;
 }                *(int*)targetPtr = value;
             }
         }
@@ -758,7 +991,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 56;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 56;
 }
                 return *(int*)(targetPtr);
                 
@@ -767,7 +1001,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 56;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 56;
 }                *(int*)targetPtr = value;
             }
         }
@@ -781,7 +1016,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 60;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 60;
 }
                 return *(int*)(targetPtr);
                 
@@ -790,7 +1026,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 60;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 60;
 }                *(int*)targetPtr = value;
             }
         }
@@ -804,7 +1041,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 64;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 64;
 }
                 return *(int*)(targetPtr);
                 
@@ -813,7 +1051,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 64;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 64;
 }                *(int*)targetPtr = value;
             }
         }
@@ -827,7 +1066,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 68;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 68;
 }
                 return *(int*)(targetPtr);
                 
@@ -836,7 +1076,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 68;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 68;
 }                *(int*)targetPtr = value;
             }
         }
@@ -850,7 +1091,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 72;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 72;
 }
                 return *(int*)(targetPtr);
                 
@@ -859,7 +1101,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 72;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 72;
 }                *(int*)targetPtr = value;
             }
         }
@@ -873,7 +1116,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 76;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 76;
 }
                 return *(int*)(targetPtr);
                 
@@ -882,7 +1126,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 76;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 76;
 }                *(int*)targetPtr = value;
             }
         }
@@ -896,7 +1141,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 80;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 80;
 }
                 return *(int*)(targetPtr);
                 
@@ -905,7 +1151,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 80;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 80;
 }                *(int*)targetPtr = value;
             }
         }
@@ -919,7 +1166,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 84;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 84;
 }
                 return *(int*)(targetPtr);
                 
@@ -928,7 +1176,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 84;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 84;
 }                *(int*)targetPtr = value;
             }
         }
@@ -942,7 +1191,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 88;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 88;
 }
                 return *(int*)(targetPtr);
                 
@@ -951,7 +1201,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 88;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 88;
 }                *(int*)targetPtr = value;
             }
         }
@@ -965,7 +1216,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 92;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 92;
 }
                 return *(int*)(targetPtr);
                 
@@ -974,7 +1226,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 92;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 92;
 }                *(int*)targetPtr = value;
             }
         }
@@ -988,7 +1241,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 96;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 96;
 }
                 return *(int*)(targetPtr);
                 
@@ -997,7 +1251,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 96;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 96;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1011,7 +1266,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 100;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 100;
 }
                 return *(int*)(targetPtr);
                 
@@ -1020,7 +1276,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 100;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 100;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1034,7 +1291,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 104;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 104;
 }
                 return *(int*)(targetPtr);
                 
@@ -1043,7 +1301,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 104;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 104;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1057,7 +1316,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 108;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 108;
 }
                 return *(int*)(targetPtr);
                 
@@ -1066,7 +1326,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 108;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 108;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1080,7 +1341,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 112;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 112;
 }
                 return *(int*)(targetPtr);
                 
@@ -1089,7 +1351,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 112;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 112;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1103,7 +1366,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 116;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 116;
 }
                 return *(int*)(targetPtr);
                 
@@ -1112,7 +1376,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 116;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 116;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1126,7 +1391,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 120;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 120;
 }
                 return *(int*)(targetPtr);
                 
@@ -1135,7 +1401,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 120;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 120;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1149,7 +1416,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 124;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 124;
 }
                 return *(int*)(targetPtr);
                 
@@ -1158,7 +1426,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 124;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 124;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1172,7 +1441,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 128;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 128;
 }
                 return *(int*)(targetPtr);
                 
@@ -1181,7 +1451,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 128;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 128;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1195,7 +1466,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 132;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 132;
 }
                 return *(int*)(targetPtr);
                 
@@ -1204,7 +1476,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 132;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 132;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1218,7 +1491,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 136;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 136;
 }
                 return *(int*)(targetPtr);
                 
@@ -1227,7 +1501,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 136;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 136;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1241,7 +1516,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 140;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 140;
 }
                 return *(int*)(targetPtr);
                 
@@ -1250,7 +1526,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 140;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 140;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1264,7 +1541,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 144;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 144;
 }
                 return *(int*)(targetPtr);
                 
@@ -1273,7 +1551,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 144;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 144;
 }                *(int*)targetPtr = value;
             }
         }
@@ -1287,7 +1566,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 148;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 148;
 }
                 return *(int*)(targetPtr);
                 
@@ -1296,91 +1576,174 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 148;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 148;
 }                *(int*)targetPtr = value;
             }
         }
+        floatArray_150 d1approachtime_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field tongue.
+        ///Provides in-place access to the object field d1approachtime.
         ///</summary>
-        public unsafe bool tongue
+        public unsafe floatArray_150 d1approachtime
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 152;
-}
-                return *(bool*)(targetPtr);
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 152;
+}d1approachtime_Accessor_Field.m_ptr = targetPtr;
+                d1approachtime_Accessor_Field.m_cellId = this.m_cellId;
+                return d1approachtime_Accessor_Field;
                 
             }
             set
             {
                 
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                d1approachtime_Accessor_Field.m_cellId = this.m_cellId;
+                
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 152;
-}                *(bool*)targetPtr = value;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 152;
+}                Memory.Copy(value.m_ptr, targetPtr, 600); 
             }
         }
+        floatArray_150 d2presstime_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field targetbodypart.
+        ///Provides in-place access to the object field d2presstime.
         ///</summary>
-        public unsafe BTTNFEBodyPart targetbodypart
+        public unsafe floatArray_150 d2presstime
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 153;
-}
-                return *(BTTNFEBodyPart*)(targetPtr);
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 752;
+}d2presstime_Accessor_Field.m_ptr = targetPtr;
+                d2presstime_Accessor_Field.m_cellId = this.m_cellId;
+                return d2presstime_Accessor_Field;
                 
             }
             set
             {
                 
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                d2presstime_Accessor_Field.m_cellId = this.m_cellId;
+                
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 153;
-}                *(BTTNFEBodyPart*)targetPtr = value;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 752;
+}                Memory.Copy(value.m_ptr, targetPtr, 600); 
             }
         }
+        floatArray_150 d3sustaintime_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field actualbodypart.
+        ///Provides in-place access to the object field d3sustaintime.
         ///</summary>
-        public unsafe BTTNFEBodyPart actualbodypart
+        public unsafe floatArray_150 d3sustaintime
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 154;
-}
-                return *(BTTNFEBodyPart*)(targetPtr);
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1352;
+}d3sustaintime_Accessor_Field.m_ptr = targetPtr;
+                d3sustaintime_Accessor_Field.m_cellId = this.m_cellId;
+                return d3sustaintime_Accessor_Field;
                 
             }
             set
             {
                 
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                d3sustaintime_Accessor_Field.m_cellId = this.m_cellId;
+                
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 154;
-}                *(BTTNFEBodyPart*)targetPtr = value;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1352;
+}                Memory.Copy(value.m_ptr, targetPtr, 600); 
             }
         }
-        intArray_150 d1approachcurve_Accessor_Field;
+        floatArray_150 d4releasetime_Accessor_Field;
+        
+        ///<summary>
+        ///Provides in-place access to the object field d4releasetime.
+        ///</summary>
+        public unsafe floatArray_150 d4releasetime
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1952;
+}d4releasetime_Accessor_Field.m_ptr = targetPtr;
+                d4releasetime_Accessor_Field.m_cellId = this.m_cellId;
+                return d4releasetime_Accessor_Field;
+                
+            }
+            set
+            {
+                
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                d4releasetime_Accessor_Field.m_cellId = this.m_cellId;
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1952;
+}                Memory.Copy(value.m_ptr, targetPtr, 600); 
+            }
+        }
+        floatArray_150 d5recoverytime_Accessor_Field;
+        
+        ///<summary>
+        ///Provides in-place access to the object field d5recoverytime.
+        ///</summary>
+        public unsafe floatArray_150 d5recoverytime
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2552;
+}d5recoverytime_Accessor_Field.m_ptr = targetPtr;
+                d5recoverytime_Accessor_Field.m_cellId = this.m_cellId;
+                return d5recoverytime_Accessor_Field;
+                
+            }
+            set
+            {
+                
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                d5recoverytime_Accessor_Field.m_cellId = this.m_cellId;
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2552;
+}                Memory.Copy(value.m_ptr, targetPtr, 600); 
+            }
+        }
+        floatArray_150 d1approachcurve_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field d1approachcurve.
         ///</summary>
-        public unsafe intArray_150 d1approachcurve
+        public unsafe floatArray_150 d1approachcurve
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3152;
 }d1approachcurve_Accessor_Field.m_ptr = targetPtr;
                 d1approachcurve_Accessor_Field.m_cellId = this.m_cellId;
                 return d1approachcurve_Accessor_Field;
@@ -1393,22 +1756,24 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 d1approachcurve_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3152;
 }                Memory.Copy(value.m_ptr, targetPtr, 600); 
             }
         }
-        intArray_150 d2presscurve_Accessor_Field;
+        floatArray_150 d2presscurve_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field d2presscurve.
         ///</summary>
-        public unsafe intArray_150 d2presscurve
+        public unsafe floatArray_150 d2presscurve
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 755;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3752;
 }d2presscurve_Accessor_Field.m_ptr = targetPtr;
                 d2presscurve_Accessor_Field.m_cellId = this.m_cellId;
                 return d2presscurve_Accessor_Field;
@@ -1421,22 +1786,24 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 d2presscurve_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 755;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3752;
 }                Memory.Copy(value.m_ptr, targetPtr, 600); 
             }
         }
-        intArray_150 d3sustaincurve_Accessor_Field;
+        floatArray_150 d3sustaincurve_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field d3sustaincurve.
         ///</summary>
-        public unsafe intArray_150 d3sustaincurve
+        public unsafe floatArray_150 d3sustaincurve
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1355;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 4352;
 }d3sustaincurve_Accessor_Field.m_ptr = targetPtr;
                 d3sustaincurve_Accessor_Field.m_cellId = this.m_cellId;
                 return d3sustaincurve_Accessor_Field;
@@ -1449,22 +1816,24 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 d3sustaincurve_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1355;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 4352;
 }                Memory.Copy(value.m_ptr, targetPtr, 600); 
             }
         }
-        intArray_150 d4releasecurve_Accessor_Field;
+        floatArray_150 d4releasecurve_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field d4releasecurve.
         ///</summary>
-        public unsafe intArray_150 d4releasecurve
+        public unsafe floatArray_150 d4releasecurve
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1955;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 4952;
 }d4releasecurve_Accessor_Field.m_ptr = targetPtr;
                 d4releasecurve_Accessor_Field.m_cellId = this.m_cellId;
                 return d4releasecurve_Accessor_Field;
@@ -1477,22 +1846,24 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 d4releasecurve_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1955;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 4952;
 }                Memory.Copy(value.m_ptr, targetPtr, 600); 
             }
         }
-        intArray_150 d5recoverycurve_Accessor_Field;
+        floatArray_150 d5recoverycurve_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field d5recoverycurve.
         ///</summary>
-        public unsafe intArray_150 d5recoverycurve
+        public unsafe floatArray_150 d5recoverycurve
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2555;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 5552;
 }d5recoverycurve_Accessor_Field.m_ptr = targetPtr;
                 d5recoverycurve_Accessor_Field.m_cellId = this.m_cellId;
                 return d5recoverycurve_Accessor_Field;
@@ -1505,7 +1876,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 d5recoverycurve_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2555;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 5552;
 }                Memory.Copy(value.m_ptr, targetPtr, 600); 
             }
         }
@@ -1520,7 +1892,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 }d1approachpng64_Accessor_Field.m_ptr = targetPtr + 4;
                 d1approachpng64_Accessor_Field.m_cellId = this.m_cellId;
                 return d1approachpng64_Accessor_Field;
@@ -1533,7 +1906,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 d1approachpng64_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 }
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
@@ -1567,7 +1941,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);}d2presspng64_Accessor_Field.m_ptr = targetPtr + 4;
                 d2presspng64_Accessor_Field.m_cellId = this.m_cellId;
                 return d2presspng64_Accessor_Field;
@@ -1580,7 +1955,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);}d2presspng64_Accessor_Field.m_ptr =
                 d2presspng64_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
@@ -1614,7 +1990,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}d3sustainpng64_Accessor_Field.m_ptr = targetPtr + 4;
                 d3sustainpng64_Accessor_Field.m_cellId = this.m_cellId;
                 return d3sustainpng64_Accessor_Field;
@@ -1627,7 +2004,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 d3sustainpng64_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
@@ -1661,7 +2039,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}d4releasepng64_Accessor_Field.m_ptr = targetPtr + 4;
                 d4releasepng64_Accessor_Field.m_cellId = this.m_cellId;
                 return d4releasepng64_Accessor_Field;
@@ -1674,7 +2053,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 d4releasepng64_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
@@ -1708,7 +2088,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}d5recoverypng64_Accessor_Field.m_ptr = targetPtr + 4;
                 d5recoverypng64_Accessor_Field.m_cellId = this.m_cellId;
                 return d5recoverypng64_Accessor_Field;
@@ -1721,7 +2102,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 d5recoverypng64_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+                {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
@@ -1750,6 +2132,13 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             
             return new BTTNFE_N4K_Claims(
                 
+                        accessor.kissCompass,
+                        accessor.purpose,
+                        accessor.kissType,
+                        accessor.mood,
+                        accessor.tongue,
+                        accessor.targetbodypart,
+                        accessor.actualbodypart,
                         accessor.timezoneid,
                         accessor.tod0approach,
                         accessor.tod1press,
@@ -1783,9 +2172,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                         accessor.medianms,
                         accessor.medians,
                         accessor.coverage,
-                        accessor.tongue,
-                        accessor.targetbodypart,
-                        accessor.actualbodypart,
+                        accessor.d1approachtime,
+                        accessor.d2presstime,
+                        accessor.d3sustaintime,
+                        accessor.d4releasetime,
+                        accessor.d5recoverytime,
                         accessor.d1approachcurve,
                         accessor.d2presscurve,
                         accessor.d3sustaincurve,
@@ -1804,6 +2195,13 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             byte* targetPtr = null;
             
             {
+            targetPtr += 4;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
 
         if(field.timezoneid!= null)
         {
@@ -1839,9 +2237,11 @@ targetPtr += 8;targetPtr += 8;targetPtr += 8;targetPtr += 8;targetPtr += 8;targe
             targetPtr += 4;
             targetPtr += 4;
             targetPtr += 4;
-            targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
+targetPtr += 600;
+targetPtr += 600;
+targetPtr += 600;
+targetPtr += 600;
+targetPtr += 600;
 targetPtr += 600;
 targetPtr += 600;
 targetPtr += 600;
@@ -1899,6 +2299,20 @@ targetPtr += 600;
             targetPtr = tmpcellptr;
             
             {
+            *(float*)targetPtr = field.kissCompass;
+            targetPtr += 4;
+            *(BTTN4KPurpose*)targetPtr = field.purpose;
+            targetPtr += 1;
+            *(BTTN4KType*)targetPtr = field.kissType;
+            targetPtr += 1;
+            *(BTTN4KMood*)targetPtr = field.mood;
+            targetPtr += 1;
+            *(bool*)targetPtr = field.tongue;
+            targetPtr += 1;
+            *(BTTN4KBodyPart*)targetPtr = field.targetbodypart;
+            targetPtr += 1;
+            *(BTTN4KBodyPart*)targetPtr = field.actualbodypart;
+            targetPtr += 1;
 
         if(field.timezoneid!= null)
         {
@@ -1997,16 +2411,55 @@ targetPtr += 600;
             targetPtr += 4;
             *(int*)targetPtr = field.coverage;
             targetPtr += 4;
-            *(bool*)targetPtr = field.tongue;
-            targetPtr += 1;
-            *(BTTNFEBodyPart*)targetPtr = field.targetbodypart;
-            targetPtr += 1;
-            *(BTTNFEBodyPart*)targetPtr = field.actualbodypart;
-            targetPtr += 1;
+            if(field.d1approachtime!= null){
+                if(field.d1approachtime.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
+                if(field.d1approachtime.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
+               fixed(float* storedPtr_2 = field.d1approachtime)
+                   Memory.memcpy(targetPtr, storedPtr_2, (ulong)(600));
+            } else {
+                Memory.memset(targetPtr, 0, (ulong)(600));
+            }
+            targetPtr += 600;
+            if(field.d2presstime!= null){
+                if(field.d2presstime.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
+                if(field.d2presstime.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
+               fixed(float* storedPtr_2 = field.d2presstime)
+                   Memory.memcpy(targetPtr, storedPtr_2, (ulong)(600));
+            } else {
+                Memory.memset(targetPtr, 0, (ulong)(600));
+            }
+            targetPtr += 600;
+            if(field.d3sustaintime!= null){
+                if(field.d3sustaintime.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
+                if(field.d3sustaintime.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
+               fixed(float* storedPtr_2 = field.d3sustaintime)
+                   Memory.memcpy(targetPtr, storedPtr_2, (ulong)(600));
+            } else {
+                Memory.memset(targetPtr, 0, (ulong)(600));
+            }
+            targetPtr += 600;
+            if(field.d4releasetime!= null){
+                if(field.d4releasetime.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
+                if(field.d4releasetime.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
+               fixed(float* storedPtr_2 = field.d4releasetime)
+                   Memory.memcpy(targetPtr, storedPtr_2, (ulong)(600));
+            } else {
+                Memory.memset(targetPtr, 0, (ulong)(600));
+            }
+            targetPtr += 600;
+            if(field.d5recoverytime!= null){
+                if(field.d5recoverytime.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
+                if(field.d5recoverytime.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
+               fixed(float* storedPtr_2 = field.d5recoverytime)
+                   Memory.memcpy(targetPtr, storedPtr_2, (ulong)(600));
+            } else {
+                Memory.memset(targetPtr, 0, (ulong)(600));
+            }
+            targetPtr += 600;
             if(field.d1approachcurve!= null){
                 if(field.d1approachcurve.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.d1approachcurve.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_2 = field.d1approachcurve)
+               fixed(float* storedPtr_2 = field.d1approachcurve)
                    Memory.memcpy(targetPtr, storedPtr_2, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
@@ -2015,7 +2468,7 @@ targetPtr += 600;
             if(field.d2presscurve!= null){
                 if(field.d2presscurve.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.d2presscurve.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_2 = field.d2presscurve)
+               fixed(float* storedPtr_2 = field.d2presscurve)
                    Memory.memcpy(targetPtr, storedPtr_2, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
@@ -2024,7 +2477,7 @@ targetPtr += 600;
             if(field.d3sustaincurve!= null){
                 if(field.d3sustaincurve.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.d3sustaincurve.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_2 = field.d3sustaincurve)
+               fixed(float* storedPtr_2 = field.d3sustaincurve)
                    Memory.memcpy(targetPtr, storedPtr_2, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
@@ -2033,7 +2486,7 @@ targetPtr += 600;
             if(field.d4releasecurve!= null){
                 if(field.d4releasecurve.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.d4releasecurve.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_2 = field.d4releasecurve)
+               fixed(float* storedPtr_2 = field.d4releasecurve)
                    Memory.memcpy(targetPtr, storedPtr_2, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
@@ -2042,7 +2495,7 @@ targetPtr += 600;
             if(field.d5recoverycurve!= null){
                 if(field.d5recoverycurve.Rank != 1) throw new IndexOutOfRangeException("The assigned array'storage Rank mismatch.");
                 if(field.d5recoverycurve.GetLength(0) != 150) throw new IndexOutOfRangeException("The assigned array'storage dimension mismatch.");
-               fixed(int* storedPtr_2 = field.d5recoverycurve)
+               fixed(float* storedPtr_2 = field.d5recoverycurve)
                    Memory.memcpy(targetPtr, storedPtr_2, (ulong)(600));
             } else {
                 Memory.memset(targetPtr, 0, (ulong)(600));
@@ -2144,11 +2597,13 @@ targetPtr += 600;
                 return false;
             if (a.m_ptr == b.m_ptr) return true;
             byte* targetPtr = a.m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+            {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int lengthA = (int)(targetPtr - a.m_ptr);
             targetPtr = b.m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 3155;
+            {            targetPtr += 10;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 6152;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int lengthB = (int)(targetPtr - b.m_ptr);
             if(lengthA != lengthB) return false;

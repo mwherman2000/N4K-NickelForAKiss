@@ -56,8 +56,20 @@ namespace BTTN4KNFE
         public const int PEAKMIN = 0;
         public const int PEAKMAX = 9;
 
-        public void InitializeTimeline(DateTime tod0approach, DateTime tod1press, DateTime tod2sustain, DateTime tod3release, DateTime tod4recovery, DateTime tod5finish, int peak = -1, BTTNFEBodyPart targetbodypart = BTTNFEBodyPart.Anywhere, BTTNFEBodyPart actualbodypart = BTTNFEBodyPart.Anywhere, bool tongue = false)
+        public void InitializeTimeline(
+            float kissCompass, BTTN4KType kissType, BTTN4KMood mood, BTTN4KPurpose purpose,
+            DateTime tod0approach, DateTime tod1press, DateTime tod2sustain, DateTime tod3release, DateTime tod4recovery, DateTime tod5finish, 
+            int peak = -1, BTTN4KBodyPart targetbodypart = BTTN4KBodyPart.Anywhere, BTTN4KBodyPart actualbodypart = BTTN4KBodyPart.Anywhere, bool tongue = false)
         {
+            this.kissCompass = kissCompass;
+            this.kissType = kissType;
+            this.mood = mood;
+            this.purpose = purpose;
+            this.tongue = tongue;
+
+            this.targetbodypart = targetbodypart;
+            this.actualbodypart = actualbodypart;
+
             this.timezoneid = TimeZoneInfo.Utc.Id;
             this.tod0approach = tod0approach;
             this.tod1press = tod1press;
@@ -101,12 +113,7 @@ namespace BTTN4KNFE
                 double ratio = (double)(this.d2ms + this.d3ms + this.d4ms) / (double)(D2MSMAX + D3MSMAX + D4MSMAX);
                 this.peak = (int)Math.Round((double)PEAKMAX * 2.0 * ratio);
             }
-            if (this.peak > PEAKMAX) this.peak = PEAKMAX;
-
-            this.tongue = tongue;
-
-            this.targetbodypart = targetbodypart;
-            this.actualbodypart = actualbodypart;            
+            if (this.peak > PEAKMAX) this.peak = PEAKMAX;          
         }
     }
 }

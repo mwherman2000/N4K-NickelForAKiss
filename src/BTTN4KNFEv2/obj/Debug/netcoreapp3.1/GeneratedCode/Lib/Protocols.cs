@@ -17,45 +17,45 @@ using Trinity.Storage;
 namespace BTTN4KNFE
 {
     
-    public abstract partial class BTTN4KLocalStorageAgentBase : TrinityServer
+    public abstract partial class LocalStorageAgentBase : TrinityServer
     {
         protected override void RegisterMessageHandler()
         {
             
             {
                 
-                MessageRegistry.RegisterMessageHandler((ushort)(ushort)global::BTTN4KNFE.TSL.TrinityServer.BTTN4KLocalStorageAgent.SynReqRspMessageType.SendNFEToLocalStorage, _SendNFEToLocalStorageHandler);
+                MessageRegistry.RegisterMessageHandler((ushort)(ushort)global::BTTN4KNFE.TSL.TrinityServer.LocalStorageAgent.SynReqRspMessageType.SendNFEByIdToLocalStorage, _SendNFEByIdToLocalStorageHandler);
                 
             }
             
             {
                 
-                MessageRegistry.RegisterMessageHandler((ushort)(ushort)global::BTTN4KNFE.TSL.TrinityServer.BTTN4KLocalStorageAgent.SynReqRspMessageType.GetNFELocalStorageCount, _GetNFELocalStorageCountHandler);
+                MessageRegistry.RegisterMessageHandler((ushort)(ushort)global::BTTN4KNFE.TSL.TrinityServer.LocalStorageAgent.SynReqRspMessageType.GetNFELocalStorageCount, _GetNFELocalStorageCountHandler);
                 
             }
             
             {
                 
-                MessageRegistry.RegisterMessageHandler((ushort)(ushort)global::BTTN4KNFE.TSL.TrinityServer.BTTN4KLocalStorageAgent.SynReqRspMessageType.GetNFEFromLocalStorage, _GetNFEFromLocalStorageHandler);
+                MessageRegistry.RegisterMessageHandler((ushort)(ushort)global::BTTN4KNFE.TSL.TrinityServer.LocalStorageAgent.SynReqRspMessageType.GetNFEFromLocalStorage, _GetNFEFromLocalStorageHandler);
                 
             }
             
             {
                 
-                MessageRegistry.RegisterMessageHandler((ushort)(ushort)global::BTTN4KNFE.TSL.TrinityServer.BTTN4KLocalStorageAgent.SynReqRspMessageType.GetNFEBatchFromLocalStorage, _GetNFEBatchFromLocalStorageHandler);
+                MessageRegistry.RegisterMessageHandler((ushort)(ushort)global::BTTN4KNFE.TSL.TrinityServer.LocalStorageAgent.SynReqRspMessageType.GetNFEBatchFromLocalStorage, _GetNFEBatchFromLocalStorageHandler);
                 
             }
             
         }
         
-        private unsafe void _SendNFEToLocalStorageHandler(SynReqRspArgs args)
+        private unsafe void _SendNFEByIdToLocalStorageHandler(SynReqRspArgs args)
         {
-            var rsp = new SendNFEResponseWriter();
-            SendNFEToLocalStorageHandler(new SendNFERequestReader(args.Buffer, args.Offset), rsp);
+            var rsp = new SendNFEByIdResponseWriter();
+            SendNFEByIdToLocalStorageHandler(new SendNFEByIdRequestReader(args.Buffer, args.Offset), rsp);
             *(int*)(rsp.m_ptr - TrinityProtocol.MsgHeader) = rsp.Length + TrinityProtocol.TrinityMsgHeader;
             args.Response = new TrinityMessage(rsp.buffer, rsp.Length + TrinityProtocol.MsgHeader);
         }
-        public abstract void SendNFEToLocalStorageHandler(SendNFERequestReader request, SendNFEResponseWriter response);
+        public abstract void SendNFEByIdToLocalStorageHandler(SendNFEByIdRequestReader request, SendNFEByIdResponseWriter response);
         
         private unsafe void _GetNFELocalStorageCountHandler(SynReqRspArgs args)
         {
@@ -86,7 +86,7 @@ namespace BTTN4KNFE
         
     }
     
-    namespace BTTN4KLocalStorageAgent
+    namespace LocalStorageAgent
     {
         public static class MessagePassingExtension
         {
@@ -95,15 +95,15 @@ namespace BTTN4KNFE
         
         #endregion
         
-        public unsafe static SendNFEResponseReader SendNFEToLocalStorage(this Trinity.Storage.IMessagePassingEndpoint storage, SendNFERequestWriter msg)
+        public unsafe static SendNFEByIdResponseReader SendNFEByIdToLocalStorage(this Trinity.Storage.IMessagePassingEndpoint storage, SendNFEByIdRequestWriter msg)
         {
             byte* bufferPtr = msg.buffer;
             *(int*)(bufferPtr) = msg.Length + TrinityProtocol.TrinityMsgHeader;
             *(TrinityMessageType*)(bufferPtr + TrinityProtocol.MsgTypeOffset) = TrinityMessageType.SYNC_WITH_RSP ;
-            *(ushort*)(bufferPtr + TrinityProtocol.MsgIdOffset) = (ushort)global::BTTN4KNFE.TSL.TrinityServer.BTTN4KLocalStorageAgent.SynReqRspMessageType.SendNFEToLocalStorage;
+            *(ushort*)(bufferPtr + TrinityProtocol.MsgIdOffset) = (ushort)global::BTTN4KNFE.TSL.TrinityServer.LocalStorageAgent.SynReqRspMessageType.SendNFEByIdToLocalStorage;
             TrinityResponse response;
             storage.SendMessage(bufferPtr, msg.Length + TrinityProtocol.MsgHeader, out response);
-            return new SendNFEResponseReader(response.Buffer, response.Offset);
+            return new SendNFEByIdResponseReader(response.Buffer, response.Offset);
         }
         
         #region prototype definition template variables
@@ -115,7 +115,7 @@ namespace BTTN4KNFE
             byte* bufferPtr = msg.buffer;
             *(int*)(bufferPtr) = msg.Length + TrinityProtocol.TrinityMsgHeader;
             *(TrinityMessageType*)(bufferPtr + TrinityProtocol.MsgTypeOffset) = TrinityMessageType.SYNC_WITH_RSP ;
-            *(ushort*)(bufferPtr + TrinityProtocol.MsgIdOffset) = (ushort)global::BTTN4KNFE.TSL.TrinityServer.BTTN4KLocalStorageAgent.SynReqRspMessageType.GetNFELocalStorageCount;
+            *(ushort*)(bufferPtr + TrinityProtocol.MsgIdOffset) = (ushort)global::BTTN4KNFE.TSL.TrinityServer.LocalStorageAgent.SynReqRspMessageType.GetNFELocalStorageCount;
             TrinityResponse response;
             storage.SendMessage(bufferPtr, msg.Length + TrinityProtocol.MsgHeader, out response);
             return new GetNFECountResponseReader(response.Buffer, response.Offset);
@@ -130,7 +130,7 @@ namespace BTTN4KNFE
             byte* bufferPtr = msg.buffer;
             *(int*)(bufferPtr) = msg.Length + TrinityProtocol.TrinityMsgHeader;
             *(TrinityMessageType*)(bufferPtr + TrinityProtocol.MsgTypeOffset) = TrinityMessageType.SYNC_WITH_RSP ;
-            *(ushort*)(bufferPtr + TrinityProtocol.MsgIdOffset) = (ushort)global::BTTN4KNFE.TSL.TrinityServer.BTTN4KLocalStorageAgent.SynReqRspMessageType.GetNFEFromLocalStorage;
+            *(ushort*)(bufferPtr + TrinityProtocol.MsgIdOffset) = (ushort)global::BTTN4KNFE.TSL.TrinityServer.LocalStorageAgent.SynReqRspMessageType.GetNFEFromLocalStorage;
             TrinityResponse response;
             storage.SendMessage(bufferPtr, msg.Length + TrinityProtocol.MsgHeader, out response);
             return new GetNFEResponseReader(response.Buffer, response.Offset);
@@ -145,7 +145,7 @@ namespace BTTN4KNFE
             byte* bufferPtr = msg.buffer;
             *(int*)(bufferPtr) = msg.Length + TrinityProtocol.TrinityMsgHeader;
             *(TrinityMessageType*)(bufferPtr + TrinityProtocol.MsgTypeOffset) = TrinityMessageType.SYNC_WITH_RSP ;
-            *(ushort*)(bufferPtr + TrinityProtocol.MsgIdOffset) = (ushort)global::BTTN4KNFE.TSL.TrinityServer.BTTN4KLocalStorageAgent.SynReqRspMessageType.GetNFEBatchFromLocalStorage;
+            *(ushort*)(bufferPtr + TrinityProtocol.MsgIdOffset) = (ushort)global::BTTN4KNFE.TSL.TrinityServer.LocalStorageAgent.SynReqRspMessageType.GetNFEBatchFromLocalStorage;
             TrinityResponse response;
             storage.SendMessage(bufferPtr, msg.Length + TrinityProtocol.MsgHeader, out response);
             return new GetNFEBatchResponseReader(response.Buffer, response.Offset);
@@ -162,36 +162,36 @@ namespace BTTN4KNFE
         
         #endregion
         
-        public unsafe static SendNFEResponseReader SendNFEToLocalStorageToBTTN4KLocalStorageAgent(this Trinity.Storage.MemoryCloud storage,  int partitionId, SendNFERequestWriter msg)
+        public unsafe static SendNFEByIdResponseReader SendNFEByIdToLocalStorageToLocalStorageAgent(this Trinity.Storage.MemoryCloud storage,  int partitionId, SendNFEByIdRequestWriter msg)
         {
-            return BTTN4KLocalStorageAgent.MessagePassingExtension.SendNFEToLocalStorage(storage[partitionId], msg);
+            return LocalStorageAgent.MessagePassingExtension.SendNFEByIdToLocalStorage(storage[partitionId], msg);
         }
         
         #region prototype definition template variables
         
         #endregion
         
-        public unsafe static GetNFECountResponseReader GetNFELocalStorageCountToBTTN4KLocalStorageAgent(this Trinity.Storage.MemoryCloud storage,  int partitionId, GetNFECountRequestWriter msg)
+        public unsafe static GetNFECountResponseReader GetNFELocalStorageCountToLocalStorageAgent(this Trinity.Storage.MemoryCloud storage,  int partitionId, GetNFECountRequestWriter msg)
         {
-            return BTTN4KLocalStorageAgent.MessagePassingExtension.GetNFELocalStorageCount(storage[partitionId], msg);
+            return LocalStorageAgent.MessagePassingExtension.GetNFELocalStorageCount(storage[partitionId], msg);
         }
         
         #region prototype definition template variables
         
         #endregion
         
-        public unsafe static GetNFEResponseReader GetNFEFromLocalStorageToBTTN4KLocalStorageAgent(this Trinity.Storage.MemoryCloud storage,  int partitionId, GetNFERequestWriter msg)
+        public unsafe static GetNFEResponseReader GetNFEFromLocalStorageToLocalStorageAgent(this Trinity.Storage.MemoryCloud storage,  int partitionId, GetNFERequestWriter msg)
         {
-            return BTTN4KLocalStorageAgent.MessagePassingExtension.GetNFEFromLocalStorage(storage[partitionId], msg);
+            return LocalStorageAgent.MessagePassingExtension.GetNFEFromLocalStorage(storage[partitionId], msg);
         }
         
         #region prototype definition template variables
         
         #endregion
         
-        public unsafe static GetNFEBatchResponseReader GetNFEBatchFromLocalStorageToBTTN4KLocalStorageAgent(this Trinity.Storage.MemoryCloud storage,  int partitionId, GetNFEBatchRequestWriter msg)
+        public unsafe static GetNFEBatchResponseReader GetNFEBatchFromLocalStorageToLocalStorageAgent(this Trinity.Storage.MemoryCloud storage,  int partitionId, GetNFEBatchRequestWriter msg)
         {
-            return BTTN4KLocalStorageAgent.MessagePassingExtension.GetNFEBatchFromLocalStorage(storage[partitionId], msg);
+            return LocalStorageAgent.MessagePassingExtension.GetNFEBatchFromLocalStorage(storage[partitionId], msg);
         }
         
     }
